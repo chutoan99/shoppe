@@ -1,0 +1,159 @@
+.container .profile {
+  width: 100%;
+  height: 80%;
+  background-color: #ffffff;
+  padding: 20px;
+}
+.container .profile__title {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  padding: 0px 20px 20px 20px;
+}
+.container .profile__main {
+  display: flex;
+}
+.container .profile__main__edit {
+  width: 70%;
+  padding: 20px;
+}
+.container .profile__main__edit .group {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+.container .profile__main__edit .group label {
+  width: 80px;
+  text-align: left;
+}
+.container .profile__main__edit .group input {
+  height: 30px;
+  width: 50%;
+  padding: 2px 10px 2px 10px;
+  font-size: 15px;
+  border: #ccc 1px solid;
+  border-radius: 4px;
+}
+.container .profile__main__edit .btnUpdate {
+  padding: 10px 25px;
+  margin-top: 35px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff8f7;
+  background-color: #ee4d2d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+}
+.container .profile__main__edit .btnUpdate:hover {
+  opacity: 0.9;
+}
+.container .profile__main__avatar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 30%;
+  margin: 20px;
+}
+.container .profile__main__avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: #ccc 1px solid;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.container .profile__main__avatar .changeAvatar {
+  position: absolute;
+  top: 68%;
+  left: 56%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.container .profile__main__avatar .changeAvatar svg {
+  font-size: 24px;
+  padding: 4px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  transition: all 0.75s;
+}
+.container .profile__main__avatar .changeAvatar svg:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.container .profile__main__avatar .changeAvatar input[type='file'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  min-height: 100%;
+  transform: translate(-40%, 0) scale(4);
+  opacity: 0;
+}
+.container .profile__main__avatar .changeAvatar input[type='file']::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  .container .profile__main__edit .group label {
+    width: 60px;
+  }
+  .container .profile__main__edit .group input {
+    width: 60%;
+  }
+  .container .profile__main__avatar {
+    width: 25%;
+    margin: 20px;
+  }
+  .container .profile__main__avatar img {
+    width: 120px;
+    height: 120px;
+  }
+  .container .profile__main__avatar .changeAvatar {
+    top: 64%;
+    left: 58%;
+  }
+  .container .profile__main__avatar .changeAvatar svg {
+    font-size: 21px;
+    padding: 4px;
+  }
+}
+@media only screen and (max-width: 739px) {
+  .container .profile__main {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .profile__main__edit {
+    width: 100%;
+  }
+  .container .profile__main__edit .group label {
+    width: 80px;
+  }
+  .container .profile__main__edit .group input {
+    width: 80%;
+  }
+  .container .profile__main__avatar {
+    width: 100%;
+  }
+  .container .profile__main__avatar img {
+    width: 100px;
+    height: 100px;
+  }
+  .container .profile__main__avatar .changeAvatar {
+    top: 77%;
+    left: 54%;
+  }
+  .container .profile__main__avatar .changeAvatar svg {
+    font-size: 19px;
+    padding: 3px;
+  }
+}
+
+/*# sourceMappingURL=Profile.css.map */

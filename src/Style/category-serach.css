@@ -1,0 +1,78 @@
+.Category {
+  background-color: var(--white-color);
+  border-radius: 2px;
+}
+.Category-heading {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 12px 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.Category-list {
+  padding: 0 0 8px 0;
+  list-style: none;
+}
+.Category-item--active .Category-item__link {
+  color: var(--primary--color);
+}
+.Category-item__link {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 4px 20px;
+  line-height: 20px;
+  display: block;
+  position: relative;
+}
+.Category-item__link:hover {
+  color: var(--primary--color);
+}
+/* trang home */
+.Mobile_category {
+  display: none;
+}
+.Mobile_category-list {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+/* .Mobile_category-list::-webkit-scrollbar{
+    display: none;
+} */
+.Mobile_category-item {
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+.Mobile_category-item:nth-of-type(3n + 1) .Mobile_category-link {
+  background-color: #87afd8;
+}
+.Mobile_category-item:nth-of-type(3n + 2) .Mobile_category-link {
+  background-color: #76c9bd;
+}
+.Mobile_category-item:nth-of-type(3n + 3) .Mobile_category-link {
+  background-color: #88cf81;
+}
+.Mobile_category-link {
+  --line-height: 2rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: var(--white-color);
+  height: calc(var(--line-height) * 2);
+  line-height: var(--line-height);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-align: center;
+  width: 108px;
+  display: block;
+  border-radius: 4px;
+  font-weight: 300;
+  padding: 0 px;
+}

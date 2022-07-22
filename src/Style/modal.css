@@ -1,0 +1,245 @@
+.modals {
+    background-color: var(--primary--color);
+    display: flex;
+    justify-content: end;
+    animation: growth linear 0.1s;
+    margin-top: 30px;
+    padding-top: 40px;
+    height: 700px;
+    padding-right: 151px;
+}
+.black {
+    background-color: white !important
+}
+.modal__body{
+    --growth-from: 0.7 --growth-to: 1;
+    margin: auto;
+    display: flex;
+    justify-items: center;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+.modals-img {
+    background-image: url("https://cf.shopee.vn/file/5569eb9dc7e09e2dbed5315b8f2ea8ba"); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center;
+}
+
+.auth-form{
+    width: 500px;
+    content: "";
+    top: 86px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    right: -304px;
+    margin-right: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--white-color);
+}
+.Header_notify-list:hover.auth-form{
+    display: block;
+}
+.auth-form__container{
+    padding: 0 32px;
+}
+.auth-form__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+.auth-form__heading{
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+
+}
+.auth-form__switch-btn{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--primary--color);
+    cursor: pointer;
+}
+.auth-form__input {
+    line-height: 40px;
+    width: 100%;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: solid 1px var(--border-color);
+    border-radius: 2px;
+    outline: none;
+}
+/* khi nhấp chuột vào ô input thì đổi màu viền */
+.auth-form__input:focus{
+    border-color: #888;
+}
+.auth-form_aside{
+    margin-top: 18px;
+}
+.auth-for__policy-text{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 0 12px;
+}
+.auth-form_policy-text-link{
+    text-decoration: none;
+    color: var(--primary--color);
+}
+.auth-form__controls{
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn{
+    height: 34px;
+    min-width: 124px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    line-height: 1.6rem;
+    /* display: inline-flex; */
+}
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.auth-form__controls-back{
+    margin-right: 8px;
+}
+.btn.btn--prinary{
+    background-color: var(--primary--color);
+    color: var(--white-color);
+}
+/* khi nào hủy nút sẽ dủng */
+.btn.btn--disable{
+    cursor: default;
+    opacity: 0.9;
+    color: #949494;
+}
+.auth-form__socials{
+    background-color: #f5f5f5;
+    padding: 16px 36px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+.btn.btn--size-s{
+    height: 30px;
+    padding: 0 8px;
+    font-size: 12px;
+}
+.btn--with-icon{
+
+}
+.auth-form__socials-icon{
+    font-size: 1.8rem;
+}
+.auth-form__socials--facebook
+.auth-form__socials-icon{
+    color: var(--white-color);
+    
+}
+.auth-form__socials--facebook{
+    background-color: #3a5a98;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth-form__socials-title{
+    margin: 0 36px;
+}
+.auth-form__socials--google{
+    background-color: white;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* đăng ký */
+.auth-form__help-link{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #939393;
+}
+.auth-form-help{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.auth-form__help-separate{
+    border-left: 1px solid #EAEAEA ;
+    margin: -2px 16px 0;
+    height: 22px;
+    display: block;
+}
+.auth-form__help-forgot{
+    color: var(--primary--color);
+}
+.header_login-logo {
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+}
+.header_login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+.header_login-logo{
+    display: flex;
+    align-items: center;
+    
+}
+.header_login-logo img{
+    object-fit: contain;
+    width: 20%;
+
+}
+span {}
+
+.header_login-logo span {
+    font-size: 29px;
+    /* padding: 17px; */
+    font-size: 24;
+    padding-top: 22px;
+}
+
+.header_login-logo-helps {
+    width: 303px;
+    padding-top: 30px;
+}
+
+.header_login-logo-helps a{
+    font-size: 15px;
+    color: var(--primary--color);
+}
+.modals-logo-shoppe{
+    width: 100%;
+    height: 100%;
+}
+.modals-logo-shoppe img{
+    width: 100%;
+    height: 100%;
+}
+.erro{
+   
+    color: var(--primary--color);
+    font-size: 12px;
+    margin-left: 15px;
+}

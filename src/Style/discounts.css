@@ -1,0 +1,48 @@
+.discounts-main {
+  background-color: #fff;
+  margin: 10px auto 0;
+  min-height: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.discounts-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+  width: calc(10%);
+}
+.discounts-list {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5px;
+}
+.discounts-image {
+  width: 40%;
+}
+.category-item {
+  border: none;
+}
+.discounts-image {
+}
+.discounts-name {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+  line-height: 1.25rem;
+  height: 40px;
+
+  display: flex;
+  word-break: break-word;
+  overflow: hidden;
+  text-align: center;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
