@@ -7,10 +7,8 @@ function Header() {
     <header className="Header">
       <div className="grid wide">
         <HeaderNavbar />
-        {/* <!-- ô tìm kím --> */}
         <HeaderWithSearch></HeaderWithSearch>
       </div>
-
       <HeaderSortBar></HeaderSortBar>
     </header>
   );
