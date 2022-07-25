@@ -35,9 +35,30 @@ label.Header_mobile-search {
   justify-content: center;
   height: 35px;
 }
+label.Header_mobile-cart {
+  /* background-color: rgba(255, 255, 255, 0.4); */
+  z-index: 99;
+  /* color: red; */
+  content: '';
+  width: 35px;
+  /* border-radius: 50%; */
+  position: absolute;
+  /* position: fixed; */
+  top: 13px;
+  left: 32px;
+  display: flex;
+  /* right: 0; */
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
 
 .Header_mobile-search-icon {
   font-size: 2.6rem;
+  color: white;
+}
+.Header_mobile-cart {
+  font-size: 4rem;
   color: white;
 }
 .Header__logo {

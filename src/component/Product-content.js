@@ -16,7 +16,6 @@ function ProductContent(props) {
     handleAddToCart,
   } = props;
   const { numberCart } = useSelector((state) => state);
-  console.log('cart', numberCart);
   const navigate = useNavigate();
   return (
     <>

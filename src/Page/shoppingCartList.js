@@ -5,10 +5,12 @@ import LogoShopee from '../component/LogoShoppe';
 import { useState } from 'react';
 import { deleteCart, buyCart } from '../redux/action';
 import { useDispatch, useSelector } from 'react-redux/es/exports.js';
+import { useNavigate } from 'react-router-dom';
 let Sale = require('../Img/sale.png');
 let emptyCart = require('../Img/empty-cart.png');
 function ShoppingCartList() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [checked, setChecked] = useState([]);
   const [amount, setAmount] = useState(1);
   const { numberCart } = useSelector((state) => state);
@@ -18,14 +20,11 @@ function ShoppingCartList() {
   const handleIncrease = (item) => {
     if (item.itemid === item.itemid) {
       setAmount(amount + 1);
-      console.log('tr');
     } else {
-      console.log('fl');
       setAmount(amount);
     }
   };
   const handleReduced = (item) => {
-    console.log(item);
     if (amount > 1) {
       setAmount(amount - 1);
     }
@@ -58,7 +57,7 @@ function ShoppingCartList() {
       total += checked[i];
     }
   }
-  console.log('pay', pay);
+
   const handleBuyCart = () => {
     dispatch(buyCart(indexCart));
   };
@@ -72,7 +71,13 @@ function ShoppingCartList() {
 
               <div className="Header-with-search sm-gutter">
                 <div className="l-2 m-0-2  c-2">
-                  <LogoShopee />
+                  <label
+                    htmlFor="Mobile-search-checkbox"
+                    class="Header_mobile-cart"
+                    onClick={() => navigate('/')}
+                  >
+                    <i class="Header_mobile-cart fa-solid fa-left-long"></i>
+                  </label>
                 </div>
                 <div className="l-3 m-0-3  c-3 Hide-on-table"></div>
                 <div className="l-7 m-0-7  c-7 display">
@@ -106,7 +111,13 @@ function ShoppingCartList() {
 
               <div className="Header-with-search sm-gutter">
                 <div className="l-2 m-0-2  c-2">
-                  <LogoShopee />
+                  <label
+                    htmlFor="Mobile-search-checkbox"
+                    class="Header_mobile-cart"
+                    onClick={() => navigate('/')}
+                  >
+                    <i class="Header_mobile-cart fa-solid fa-left-long"></i>
+                  </label>
                 </div>
                 <div className="l-3 m-0-3  c-3 Hide-on-table"></div>
                 <div className="l-7 m-0-7  c-7 display">
@@ -300,7 +311,7 @@ function ShoppingCartList() {
                         <i class="fa-solid fa-coins"></i>
                         <h1>Shopee Xu</h1>
                         <h2> Bạn chưa chọn sản phẩm</h2>
-                        <i class="fa-solid fa-circle-question"></i>
+                        <i className="fa-solid fa-circle-question"></i>
                       </div>
                     </div>
                   </div>

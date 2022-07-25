@@ -31,10 +31,7 @@ function HomeProduct(props) {
                     className="Home-product-item_img"
                     onClick={() => onHandleClick(item, index)}
                   />
-                  <h4 className="Home-product-item-name">
-                    {index}
-                    {item.name}
-                  </h4>
+                  <h4 className="Home-product-item-name">{item.name}</h4>
                   <div className="Home-product-item_price">
                     <span className="Home-product-item_price-old">
                       {item.price_before_discount === 0

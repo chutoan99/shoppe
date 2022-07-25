@@ -28,18 +28,6 @@ function Container() {
       setCurrentPage(currentPage - 1);
     }
   };
-  console.log(
-    'totalPages',
-    totalPages,
-    'start',
-    start,
-    'end',
-    end,
-    'currentPage',
-    currentPage,
-    'perPage',
-    perPage
-  );
 
   const handleClick = (item, index) => {
     const itemInfor = {
