@@ -232,6 +232,12 @@
       --header-height: 54px;
       --navbar-height: 0px;
     }
+    .show-on-mobile {
+      display: block !important;
+    }
+    label.Header_mobile-cart {
+      display: block !important;
+    }
     .Home-Mobile {
       display: block;
     }

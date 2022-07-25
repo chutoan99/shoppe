@@ -35,6 +35,7 @@ label.Header_mobile-search {
   justify-content: center;
   height: 35px;
 }
+
 label.Header_mobile-cart {
   /* background-color: rgba(255, 255, 255, 0.4); */
   z-index: 99;
@@ -44,7 +45,7 @@ label.Header_mobile-cart {
   /* border-radius: 50%; */
   position: absolute;
   /* position: fixed; */
-  top: 13px;
+  top: 0;
   left: 32px;
   display: flex;
   /* right: 0; */

@@ -69,7 +69,7 @@ function ShoppingCartList() {
             <div className="grid wide">
               <HeaderNavbar></HeaderNavbar>
 
-              <div className="Header-with-search sm-gutter">
+              <div className="Header-with-search sm-gutter show-on-mobile ">
                 <div className="l-2 m-0-2  c-2">
                   <label
                     htmlFor="Mobile-search-checkbox"
@@ -78,6 +78,7 @@ function ShoppingCartList() {
                   >
                     <i class="Header_mobile-cart fa-solid fa-left-long"></i>
                   </label>
+                  <LogoShopee></LogoShopee>
                 </div>
                 <div className="l-3 m-0-3  c-3 Hide-on-table"></div>
                 <div className="l-7 m-0-7  c-7 display">
@@ -112,12 +113,14 @@ function ShoppingCartList() {
               <div className="Header-with-search sm-gutter">
                 <div className="l-2 m-0-2  c-2">
                   <label
+                    style={{ display: 'none' }}
                     htmlFor="Mobile-search-checkbox"
                     class="Header_mobile-cart"
                     onClick={() => navigate('/')}
                   >
                     <i class="Header_mobile-cart fa-solid fa-left-long"></i>
                   </label>
+                  <LogoShopee></LogoShopee>
                 </div>
                 <div className="l-3 m-0-3  c-3 Hide-on-table"></div>
                 <div className="l-7 m-0-7  c-7 display">
