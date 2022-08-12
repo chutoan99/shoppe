@@ -9,27 +9,18 @@ function HeaderWithSearch() {
   return (
     <div className="grid wide sm-gutter">
       <div className="Header-with-search sm-gutter">
-        <div className="l-2 m-2">
-          <LogoShopee />
+        <LogoShopee />
+        <input
+          type="checkbox"
+          hidden
+          id="Mobile-search-checkbox"
+          className="Header__search-checkbox"
+        />
+        <div>
+          <InputSerch></InputSerch>
+          <SuggestionList></SuggestionList>
         </div>
-        <div className="l-9 m-9  c-10">
-          <div className="l-12 m-0-12  c-12">
-            <input
-              type="checkbox"
-              hidden
-              id="Mobile-search-checkbox"
-              className="Header__search-checkbox"
-            />
-            <InputSerch></InputSerch>
-          </div>
-
-          <div className="l-12 m-0-12  c-12">
-            <SuggestionList></SuggestionList>
-          </div>
-        </div>
-        <div className="l-1 m-1  c-2">
-          <HeaderCart />
-        </div>
+        <HeaderCart />
       </div>
     </div>
   );

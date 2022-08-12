@@ -3,6 +3,7 @@ footer {
   padding-top: 16px;
 }
 .Footer_heading {
+  margin-bottom: 5px;
   font-size: 1.4rem;
   color: var(--text-color);
 }
@@ -37,8 +38,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1;
-  margin-left: 16px;
 }
 .Footer_apps-link {
   margin: 10px;

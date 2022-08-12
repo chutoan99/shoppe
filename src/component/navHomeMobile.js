@@ -7,18 +7,15 @@ function NavHomeMobile() {
         <li className="active">
           <i className="fa-solid fa-house-user "></i>
         </li>
-
         <li>
           <i className="fa-solid fa-comment-dots"></i>
         </li>
-
         <li>
           <i className="fa-solid fa-plus"></i>
         </li>
         <li className="Header__nav--item Header__nav--item-has-notify">
           <a href="# " className="Header__nav--item--link">
             <i className="fa-solid fa-bell"></i>
-
             <span className="homeMobile-notify">2</span>
           </a>
         </li>

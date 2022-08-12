@@ -1,4 +1,9 @@
 .Header-cart {
+  justify-content: center;
+  display: flex;
+  justify-content: 30px;
+  align-items: center;
+  flex: 1;
 }
 .Header-cart-list::after {
   content: '';

@@ -7,9 +7,13 @@ import { useState } from 'react';
 import ShopName from './shopName';
 import ProductImg from './product-img';
 import ProductContent from './Product-content';
+import ToasMess from './ToasMess';
+import { useSelector } from 'react-redux';
 function ProductItems() {
+  const { toast } = useSelector((state) => state);
+  const [toastMess, setToastMess] = useState(toast);
+  const [animationAddCart, setAnimationAddCart] = useState('cartAnimation');
   const [showImg, setShowImg] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
   const [showTableSize, setShowTableSize] = useState(false);
   const [indexImg, setIndexImg] = useState(0);
   const [amount, setAmount] = useState(1);
@@ -41,13 +45,8 @@ function ProductItems() {
     setShowImg(false);
   };
   const handleChangeImg = (index) => {
-    setShowVideo(false);
     setIndexImg(index);
   };
-  const handleShowVideo = () => {
-    setShowVideo(true);
-  };
-
   const handleAddToCart = () => {
     dispatch(addNumberCart());
     const cart = {
@@ -75,18 +74,27 @@ function ProductItems() {
       size_chart: item.size_chart,
       tier_variations: item.tier_variations,
       shop_name: item.shop_name,
-      amount: 1,
+      amount: amount,
     };
     dispatch(addCart(cart));
+    setAnimationAddCart('cartAnimation product_cart-img-animation');
+    setTimeout(() => {
+      setAnimationAddCart('cartAnimation');
+    }, 3500);
+    setToastMess(true);
   };
-
   return (
     <>
+      {toastMess ? <ToasMess /> : null}
       <div className="App__Container App__Container_padding-Button marginT">
         <div className="grid wide">
           <div className="row sm-gutter back">
             <div className="col c-12 mo-5 l-5">
-              <ProductImg item={item} handleShowImg={handleShowImg} />
+              <ProductImg
+                item={item}
+                handleShowImg={handleShowImg}
+                animationAddCart={animationAddCart}
+              />
             </div>
             <div className="col c-12  m-7 l-7 ">
               <ProductContent
@@ -108,21 +116,9 @@ function ProductItems() {
         <div className="image Hide-on-mobile">
           <div className="image-overPlay">
             <div className="image-slice">
-              {!showVideo ? (
-                <div>
-                  <img src={`${'https://cf.shopee.vn/file/'}${item.images[indexImg]}`} alt="" />
-                </div>
-              ) : (
-                <div className="product_cart-video">
-                  <iframe
-                    src={item.video_info_list[0].default_format.url}
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                    title="video"
-                  />
-                </div>
-              )}
+              <div>
+                <img src={`${'https://cf.shopee.vn/file/'}${item.images[indexImg]}`} alt="" />
+              </div>
             </div>
             <div className="image-slices">
               <div className="l-12 m-12 c-12">
@@ -140,19 +136,6 @@ function ProductItems() {
                       onClick={() => handleChangeImg(index)}
                     />
                   ))}
-                  {/* {
-                    (item.video_info_list[0].default_format = null ? (
-                      <div className="image-slices-items-video" onClick={handleShowVideo}>
-                        <iframe
-                          src={item.video_info_list[0].default_format.url}
-                          frameborder="0"
-                          allow="autoplay; encrypted-media"
-                          allowfullscreen
-                          title="video"
-                        />
-                      </div>
-                    ) : null)
-                  } */}
                 </div>
               </div>
             </div>

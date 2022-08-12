@@ -67,6 +67,7 @@ export const initState = {
     url: 'https://lh3.googleusercontent.com/iJI7pbUsDXxqemBnV9XETqbLBfg1TI0clR0x9tkH49lnTd-Xz94nCmFi2EYGVMRk4QwIpOAp386-7h99S-yIJCV15xV56cjKMT-VHu8Liip2s7M6N6yRrYzyJZBt7ZVzjwxiOArnG4INVW1dxKOD7poTU3BRA0YArpESg0S_i5vWMDV9NqJtLgMvj-XLS0zVhGB3nfoZOx9fyXIC3dD3ewFzdd8J2Y1_DALPBheSbeDQwdfyPPKrz-mPhVFecLsUi5iASDJPMaG0Gl4HFrUtE1do0ML3gwWMZMtsnF7cTW34XYFfIxUoyqUCACwKvhu9Vt3p1T4ld0P5NTslltaqbcdpEVydevOASAUznzjNo6KNUnhGGFXKhyto7J5K0Mxu4kDK3kFXs8rzT0uh_gDwfBsVQo8U1QpAxlmv6chU1yJE2H-FLppaGVTT0aB77DTmx_9zL9dfHiaLR-rN5ezkmWaI9rbNNJvjP130Q0BYoSPdqyRW36guMhJFHdrxVv6s5NXjzJFagwvaChns-XM0uZOlUaLsQPDVQWqXqCeZL15XyM33W-rhX9k2ytOLaoupW-IGbr-Gi8qqp7gGyz2uOQ1XOFe8CJ5h4B1UaG07ZOSgcJGUlhrhNoyMnY0gEQGnm8nJfkDjn--8lltunANj0EWEsVyONmLNZgUdrvfNl3WU5PZZTqUG9YFINtbnfRCvtaOgPKe8gXZ1pB502C853CoPRxkAtHpqyltIi-0iF8yeZP0S3I7x_fgnspIl=w285-h592-no?authuser=0',
   },
   toast: false,
+  heart: false,
   numberCart: dataCartLists.length,
   perPage: 48,
   currentPage: 1,
@@ -78,6 +79,7 @@ export const initState = {
   dataCart: dataCartLists,
 };
 const rootReducer = (state = initState, action) => {
+  console.log(action);
   switch (action.type) {
     case 'addNumberCart':
       return {
@@ -99,6 +101,21 @@ const rootReducer = (state = initState, action) => {
         ...state,
         toast: true,
       };
+    case 'updateHeart':
+      return {
+        ...state,
+        heart: true,
+      };
+    case 'updateHeartFalse':
+      return {
+        ...state,
+        heart: false,
+      };
+    case 'updateHeartTrue':
+      return {
+        ...state,
+        heart: true,
+      };
     case 'buyCart':
       return {
         ...state,
@@ -108,10 +125,6 @@ const rootReducer = (state = initState, action) => {
       return {
         userLogin: true,
       };
-    // case 'goToHome':
-    //   return {
-    //     goToHome: true,
-    //   };
     case 'addListLoginForm':
       return {
         ...state,
@@ -130,7 +143,6 @@ const rootReducer = (state = initState, action) => {
       return {
         currentPage: action.payload,
       };
-
     case 'ChangeStart':
       return {
         start: action.payload,

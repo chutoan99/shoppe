@@ -63,7 +63,7 @@ label.Header_mobile-cart {
   color: white;
 }
 .Header__logo {
-  width: 200px;
+  width: 180px;
   cursor: pointer;
 }
 .Header__logo-link {
@@ -103,7 +103,7 @@ label.Header_mobile-cart {
   position: absolute;
   left: 0;
   top: calc(100% - -2px);
-  width: 650px;
+  width: 100%;
   background-color: var(--white-color);
   border-radius: 3px;
   box-shadow: 0 1px 5px rgba(189, 189, 189);
@@ -250,7 +250,7 @@ label.Header_mobile-cart {
 }
 .SuggestionList-item {
   margin-top: 0.1875rem;
-  height: 1.5rem;
+  height: 1.8rem;
   font-size: 13px;
   font-weight: 300;
   margin-right: 55px;

@@ -1,6 +1,6 @@
 function HeaderSortBar() {
   return (
-    <div>
+    <>
       <ul className="Header_sort-bar Hide-on-mobile">
         <li className="Header_sort-item">
           <a href="# " className="Header_sort-link">
@@ -23,7 +23,7 @@ function HeaderSortBar() {
           </a>
         </li>
       </ul>
-    </div>
+    </>
   );
 }
 export default HeaderSortBar;

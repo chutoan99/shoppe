@@ -3,10 +3,7 @@
     display: flex;
     justify-content: end;
     animation: growth linear 0.1s;
-    margin-top: 30px;
-    padding-top: 40px;
-    height: 700px;
-    padding-right: 151px;
+    margin-top: 10px;
 }
 .black {
     background-color: white !important
@@ -33,12 +30,13 @@
 .auth-form{
     width: 500px;
     content: "";
-    top: 86px;
+    /* top: 86px; */
     padding-top: 20px;
     padding-bottom: 20px;
     position: absolute;
-    right: -304px;
-    margin-right: 150px;
+    /* right: -204px; */
+    right: 1vw;
+    /* margin-right: 150px; */
     border-radius: 5px;
     overflow: hidden;
     background-color: var(--white-color);
@@ -132,9 +130,10 @@
 }
 .auth-form__socials{
     background-color: #f5f5f5;
-    padding: 16px 36px;
+    padding: 16px 20px;
     display: flex;
-    justify-content: space-between;
+    gap: 0 20px;
+    justify-content: center;
     margin-top: 22px;
 }
 .btn.btn--size-s{
@@ -161,7 +160,9 @@
     align-items: center;
 }
 .auth-form__socials-title{
-    margin: 0 36px;
+    padding-left: 15px;
+    font-size: 15px;
+    padding-right: 15px;
 }
 .auth-form__socials--google{
     background-color: white;
@@ -221,7 +222,7 @@ span {}
 }
 
 .header_login-logo-helps {
-    width: 303px;
+    width: 23vw;
     padding-top: 30px;
 }
 

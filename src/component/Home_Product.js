@@ -1,7 +1,7 @@
 import datas from '../redux/data';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux/es/hooks/useDispatch';
-// import { goToHome } from '../redux/action';
+import Like from './like';
 function HomeProduct(props) {
   const { end, start } = props;
   const navigate = useNavigate();
@@ -9,6 +9,7 @@ function HomeProduct(props) {
   const { handleClick } = props;
   const onHandleClick = (item, index) => {
     handleClick(item, index);
+    navigate('/shopping');
   };
   // const randomDatas = datas.items.sort(() => Math.random() - 0.5);
   return (
@@ -19,12 +20,7 @@ function HomeProduct(props) {
           {datas.items.map((item, index) => (
             <div className="col l-2 mo-4 c-6" key={index}>
               {index >= start && index < end ? (
-                <div
-                  className="Home-product-item"
-                  onClick={() => {
-                    navigate('/shopping');
-                  }}
-                >
+                <div className="Home-product-item">
                   <img
                     src={`${'https://cf.shopee.vn/file/'}${item.image}`}
                     alt=""
@@ -43,19 +39,8 @@ function HomeProduct(props) {
                     </span>
                   </div>
                   <div className="Home-product-item_actiton">
-                    {/* <span className="Home-product-item_like Home-product-item_liked">
-                      <i class="fa-solid fa-heart"></i>
-                    </span> */}
-                    <span className="Home-product-item_like Home-product-item_liked">
-                      <i class="fa-regular fa-heart"></i>
-                    </span>
-                    <div className="Home-product-item_rating">
-                      <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-                      <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-                      <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-                      <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                    </div>
+                    <Like />
+                    {renderRating()}
                     <span className="Home-product-item-sold">{item.historical_sold}đã bán</span>
                   </div>
                   <div className="Home-product-item_origin">
@@ -79,5 +64,16 @@ function HomeProduct(props) {
     </div>
     //
   );
+  function renderRating() {
+    return (
+      <div className="Home-product-item_rating">
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+      </div>
+    );
+  }
 }
 export default HomeProduct;

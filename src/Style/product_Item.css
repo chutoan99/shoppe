@@ -28,6 +28,7 @@
 }
 .Home-product-item_img {
   width: 100%;
+  cursor: pointer;
   background-position: top center;
   background-size: contain;
   background-repeat: no-repeat;

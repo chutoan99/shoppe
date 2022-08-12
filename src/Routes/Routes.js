@@ -9,17 +9,15 @@ import Search from '../Page/Search';
 import PageNotFound from '../Page/PageNotFound';
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/*" element={<PageNotFound />} />
-        <Route path="/shopping" element={<Shopping />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/shoppingCartList" element={<ShoppingCartList />} />
-        <Route path="/search" element={<Search />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/*" element={<PageNotFound />} />
+      <Route path="/shopping" element={<Shopping />} />
+      <Route path="/login" element={<LoginForm />} />
+      <Route path="/register" element={<RegisterForm />} />
+      <Route path="/shoppingCartList" element={<ShoppingCartList />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
   );
 }
 

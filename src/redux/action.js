@@ -8,16 +8,21 @@ export const updateToast = () => {
     type: 'updateToast',
   };
 };
+export const updateHeartTrue = () => {
+  return {
+    type: 'updateHeartTrue',
+  };
+};
+export const updateHeartFalse = () => {
+  return {
+    type: 'updateHeartFalse',
+  };
+};
 export const userLogin = () => {
   return {
     type: 'userLogin',
   };
 };
-// export const goToHome = () => {
-//   return {
-//     type: 'goToHome',
-//   };
-// };
 export const addListLoginForm = (data) => {
   return {
     type: 'addListLoginForm',

@@ -1,11 +1,18 @@
 import MobileCarousel from './Mobile-Carousel';
-
 function ProductImg(props) {
-  const { item, handleShowImg, indexItem } = props;
+  const { item, handleShowImg, indexItem, animationAddCart } = props;
   return (
     <>
       <div className="product_cart-img Hide-on-mobile">
         <img src={`${'https://cf.shopee.vn/file/'}${item.image}`} alt="" onClick={handleShowImg} />
+        {/* thẻ img dùng cho animation */}
+        <img
+          className={animationAddCart}
+          src={`${'https://cf.shopee.vn/file/'}${item.image}`}
+          alt=""
+          onClick={handleShowImg}
+        />
+        {/* thẻ img dùng cho animation */}
       </div>
       <MobileCarousel item={item}></MobileCarousel>
       <div class="container-fluid">

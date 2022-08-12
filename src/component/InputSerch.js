@@ -6,7 +6,7 @@ function InputSerch() {
     navigate('/search');
   };
   return (
-    <div className="Header__search margin-r ">
+    <div className="Header__search">
       <div className="Header__search-input-wrap">
         <input
           type="text"
@@ -29,7 +29,6 @@ function InputSerch() {
           </li>
         </ul>
       </div>
-
       <button className="Header__search-btn" onClick={handleSearch}>
         <i className="Header__search-btn-icon fa-solid fa-magnifying-glass"></i>
       </button>

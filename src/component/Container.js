@@ -6,7 +6,6 @@ import HomeProduct from './Home_Product';
 import Carousel from './Carousel';
 import Discount from './Discount';
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
 import datas from '../redux/data';
 function Container() {
   const [perPage, setPerPage] = useState(48);
@@ -41,7 +40,7 @@ function Container() {
   return (
     <div className="App__Container marginT">
       <div className="grid wide">
-        <div className="row sm-gutter app-content">
+        <div className="row sm-gutter pt-5">
           <Carousel />
           <Discount />
           <Category />

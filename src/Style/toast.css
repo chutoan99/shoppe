@@ -39,10 +39,9 @@
     opacity: 0;
   }
 }
-
 .container_modal {
-  width: 400px;
-  height: 200px;
+  position: relative;
+  width: 350px;
   background-color: white;
   border-radius: 15px;
   position: fixed;
@@ -71,7 +70,7 @@
   cursor: pointer;
 }
 .content_modal {
-  height: 152px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +84,6 @@
 .content_modal-description {
   font-size: 16px;
   margin-bottom: 10px;
-  opacity: 0.8;
 }
 .content_modal-btn {
   display: flex;

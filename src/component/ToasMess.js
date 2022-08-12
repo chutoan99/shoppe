@@ -4,17 +4,20 @@ import '../Style/toast.css';
 function ToasMess() {
   const { toast } = useSelector((state) => state);
   const [toastMess, setToastMess] = useState(toast);
+  const handelLostToass = () => {
+    setToastMess(true);
+  };
   return (
     <>
-      {toastMess ? (
+      {!toastMess ? (
         <div className="container_modal">
           <div className="header_modal">
-            <span className="header_modal-icon">
+            <span className="header_modal-icon" onClick={handelLostToass}>
               <i class="fa-solid fa-x"></i>
             </span>
           </div>
           <div className="content_modal">
-            <h2 className="content_modal-description">Bạn Vừa Đặt Hàng Thành Công</h2>
+            <h2 className="content_modal-description">Bạn Vừa Thêm 1 Sản Phẩm Vào Giỏ Hàng</h2>
           </div>
         </div>
       ) : null}
