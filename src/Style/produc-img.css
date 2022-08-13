@@ -66,7 +66,7 @@
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  font-size: 15px;
+  font-size: 0.938rem;
   color: #000;
   word-wrap: break-word;
 
@@ -81,7 +81,7 @@
 .image-slices-icon {
   display: flex;
   justify-content: end;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 6px;
 }
 .image-slices-icon i {

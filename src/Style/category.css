@@ -1,6 +1,6 @@
 .category-main {
   padding-top: 20px;
-  padding-top: 1.5rem;
+  padding-top: 15px;
 }
 
 .category-inner {
@@ -9,7 +9,7 @@
 .category-header {
   padding: 20px;
   text-align: left;
-  font-size: 16px;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.54);
   font-weight: 500;
 }
@@ -39,11 +39,11 @@
 
 .category-name {
   color: rgba(0, 0, 0, 0.8);
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
-  line-height: 1.25rem;
+  line-height: 0.781rem;
   height: 40px;
-  margin-bottom: 0.625rem;
+  margin-bottom: 6.25px;
   display: flex;
   word-break: break-word;
   overflow: hidden;
@@ -54,7 +54,6 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-
 .category-item:hover {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;

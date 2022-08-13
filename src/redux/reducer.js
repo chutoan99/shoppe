@@ -73,8 +73,6 @@ export const initState = {
   currentPage: 1,
   start: 0,
   end: 48,
-  listLoginForm: [{ id: 1, email: 'bffb', passWord: 'fefbwenf', passWord2: 'vnme' }],
-  listRegisterForm: [{ id: 1, email: 'bffb', passWord: 'fefbwenf', passWord2: 'vnme' }],
   // dataCarts: JSON.parse(localStorage.getItem('dataCart')),
   dataCart: dataCartLists,
 };
@@ -124,16 +122,6 @@ const rootReducer = (state = initState, action) => {
     case 'userLogin':
       return {
         userLogin: true,
-      };
-    case 'addListLoginForm':
-      return {
-        ...state,
-        listLoginForm: action.payload,
-      };
-    case 'addListRegisterForm':
-      return {
-        ...state,
-        listRegisterForm: action.payload,
       };
     case 'ChangePerPage':
       return {

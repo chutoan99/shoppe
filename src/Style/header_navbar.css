@@ -35,7 +35,7 @@
 }
 .Header__nav-name {
   margin-left: 4px;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--white-color);
 }
@@ -74,7 +74,7 @@
 .Header__nav-user-item a {
   text-decoration: none;
   color: var(--text-color);
-  font-size: 1.4rem;
+  font-size: 0.875rem;
   padding: 6px 0;
   display: block;
   padding-left: 16px;
@@ -98,7 +98,7 @@
 .Header__nav--item--link {
   display: inline-block;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
   font-weight: 300;
   color: white;
 }
@@ -115,7 +115,7 @@
 }
 .Header__nav--item--strong {
   font-weight: 400;
-  line-height: 34px;
+  line-height: 2.125rem;
 }
 /* thanh phân chia khoảng cách */
 .Header__nav--separater::after {
@@ -134,7 +134,7 @@
   text-decoration: none;
 }
 .Header__nav--icon {
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   margin: 0 4px;
 }
 .Header_nav-title--no-poiter {
@@ -212,12 +212,12 @@
   display: block;
 }
 .Header-cart-notify-icon {
-  font-size: 1rem;
+  font-size: 0.625rem;
   position: absolute;
   padding: 1px 7px;
   top: -1px;
   right: 58px;
-  line-height: 1.4rem;
+  line-height: 0.875rem;
   border-radius: 10px;
   border: 2px solid #ee4d2d;
   color: var(--primary--color);
@@ -252,8 +252,8 @@
   color: #999;
   margin: 0 0 0 12px;
   font-weight: 400;
-  font-size: 1.4rem;
-  line-height: 40px;
+  font-size: 0.875rem;
+  line-height: 2.5rem;
 }
 .Header_notify-list {
   padding-left: 0;
@@ -282,21 +282,21 @@
 }
 .Header_notify-name {
   color: black;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
   display: block;
   font-weight: 400;
-  line-height: 1.8rem;
+  line-height: 1.125rem;
 }
 .Header_notify-description {
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   display: block;
   color: #756f6e;
-  line-height: 1.6rem;
+  line-height: 1rem;
   margin-top: 4px;
 }
 .Header__notify-footer {
   color: black;
-  font-size: 1.5rem;
+  font-size: 0.938rem;
   padding: 8px 48px;
   text-align: center;
   width: 100%;

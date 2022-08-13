@@ -17,7 +17,7 @@
 .Pagination-item_link {
   --height: 30px;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 300;
   color: #939393;
   display: flex;

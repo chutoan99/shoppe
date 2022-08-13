@@ -23,12 +23,7 @@ export const userLogin = () => {
     type: 'userLogin',
   };
 };
-export const addListLoginForm = (data) => {
-  return {
-    type: 'addListLoginForm',
-    payload: data,
-  };
-};
+
 export const addCart = (data) => {
   return {
     type: 'addCart',
@@ -47,12 +42,7 @@ export const buyCart = (data) => {
     payload: data,
   };
 };
-export const addListRegisterForm = (data) => {
-  return {
-    type: 'addListRegisterForm',
-    payload: data,
-  };
-};
+
 export const ChangePerPage = (data) => {
   return {
     type: 'ChangePerPage',
