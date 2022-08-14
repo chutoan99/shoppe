@@ -26,3 +26,6 @@
 .slick-next {
   z-index: 1;
 }
+.app {
+  overflow: hidden;
+}

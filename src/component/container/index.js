@@ -3,10 +3,12 @@ import Discount from './Discount';
 import datas from '../../redux/data';
 import HomeFilter from './Home-Filter';
 import Category from './category/index';
-import Carousel from '../carousel/index';
+import Carousel from '../carousel/Pc';
 import HomeProduct from './Home_Product';
 import Pagination from '../pagination/index';
 import MobileCategory from './mobile_Category/index';
+import CarouselPc from '../carousel/Pc';
+import CarouselMobile from '../carousel/mobile';
 function Container() {
   const [perPage, setPerPage] = useState(48);
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,7 +43,8 @@ function Container() {
     <div className="App__Container marginT">
       <div className="grid wide">
         <div className="row sm-gutter pt-5">
-          <Carousel />
+          <CarouselPc />
+          <CarouselMobile />
           <Discount />
           <Category />
           <div className="col l-12 m-12 c-12">

@@ -1,4 +1,4 @@
-import MobileCarousel from './Mobile-Carousel';
+import MobileImgProduct from './mobile_img-product';
 function ProductImg(props) {
   const { item, handleShowImg, indexItem, animationAddCart } = props;
   return (
@@ -14,7 +14,7 @@ function ProductImg(props) {
         />
         {/* thẻ img dùng cho animation */}
       </div>
-      <MobileCarousel item={item}></MobileCarousel>
+      <MobileImgProduct item={item}></MobileImgProduct>
       <div class="container-fluid">
         <div className="row sm-gutter">
           <div className="col s-12 c-12  l-12 disp">

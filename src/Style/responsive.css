@@ -234,6 +234,12 @@
     .show-on-mobile {
       display: block !important;
     }
+    .pt-5 {
+      padding-top: unset !important;
+    }
+    .Header {
+      background-image: unset !important;
+    }
     label.Header_mobile-cart {
       display: block !important;
     }
