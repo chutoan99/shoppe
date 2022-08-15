@@ -9,6 +9,8 @@
   position: fixed;
   justify-content: center;
   z-index: 90000;
+  top: 50%;
+  transform: translatey(-50%);
 }
 .banner-img img {
   width: 70%;
