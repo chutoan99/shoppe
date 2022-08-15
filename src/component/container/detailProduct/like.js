@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
-import { updateHeartTrue, updateHeartFalse } from '../../redux/action';
+import { updateHeartTrue, updateHeartFalse } from '../../../redux/action';
 function Like() {
   const dispatch = useDispatch();
   const [like, setLike] = useState('fa-regular fa-heart');

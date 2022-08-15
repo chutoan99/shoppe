@@ -32,7 +32,7 @@ function HeaderCartList() {
         <button
           className="btn Header_cart-view-cart btn--prinary"
           onClick={() => {
-            navigate('/shoppingCartList');
+            navigate('/pay');
           }}
         >
           Xem giỏ hàng

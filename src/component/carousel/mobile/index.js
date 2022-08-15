@@ -6,7 +6,7 @@ export default function CarouselMobile() {
   const settings = {
     dots: true,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     infinite: true,
     arrows: true,
     speed: 500,

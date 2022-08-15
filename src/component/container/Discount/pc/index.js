@@ -1,11 +1,12 @@
-import './discount.css';
-import discounts from '../../../redux/dataDiscount';
-function Discount() {
+import './discount_pc.css';
+import discountsPC from '../../../../redux/dataDiscountPc';
+
+function DiscountPc() {
   return (
-    <div className="col l-12 m-12 c-12">
+    <div className="col l-12 m-12 c-12 Hide-on-mobile">
       <div className="discounts-main">
         <div className="discounts-list">
-          {discounts.map((discount, index) => (
+          {discountsPC.map((discount, index) => (
             <div className="discounts-item" key={index}>
               <img src={discount.src} className="discounts-image" alt="{discount.title}" />
               <div className="discounts-name">
@@ -18,4 +19,4 @@ function Discount() {
     </div>
   );
 }
-export default Discount;
+export default DiscountPc;

@@ -1,4 +1,5 @@
 import categorys from '../../../redux/dataCategory';
+import './category.css';
 function Category() {
   return (
     <div className="col l-12 m-12 c-12">

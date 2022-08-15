@@ -16,7 +16,7 @@ function HeaderCart() {
     <div
       className="Header-cart"
       onClick={() => {
-        navigate('/shoppingCartList');
+        navigate('/pay');
       }}
     >
       <div className="Header-cart-wrap">

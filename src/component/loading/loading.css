@@ -15,7 +15,7 @@
   height: 30px;
   border: 3px solid #f3f3f3; /* Light grey */
   border-top: 3px solid #383636; /* Black */
-  border-top: 3px solid #ee4d2d; /* Orange */
+  border-top: 3px solid var(--primary--color); /* Orange */
   border-radius: 50%;
   animation: spinner 1s linear infinite;
 }

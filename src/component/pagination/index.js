@@ -1,19 +1,14 @@
+import NumberPages from './numberPages';
+import './pagination.css';
 function Pagination(props) {
   const { handlePrevPages, handleNextPages, totalPages } = props;
-  const active = 'Pagination-item_link-active';
-  const renderNumberPage = (totalPages) => {
+  function renderNumberPage(totalPages) {
     var result = [];
     for (let i = 1; i <= totalPages; i++) {
-      result.push(
-        <li className="Pagination-item">
-          <span className="Pagination-item_link " href="# ">
-            {i}
-          </span>
-        </li>
-      );
+      result.push(<NumberPages i={i}></NumberPages>);
     }
     return result;
-  };
+  }
   return (
     <>
       <ul className="Pagination Home-product-pagination">

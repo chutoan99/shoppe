@@ -1,18 +1,46 @@
 import './productDes.css';
-
-function ProductDes() {
+function ProductDes(props) {
+  const { item } = props;
   return (
-    <div className="container">
-      <div className="wrapper">
-        <div className="productDes-heading">
-          <h3>CHI TIẾT SẢN PHẨM</h3>
-        </div>
-        <div className="productDes-content">
-          <h3>Danh Mục</h3>
-          <span>Shopee</span>
-          <span>Nhà Cửa & Đời Sống</span>
-          <span>Đồ nội thất</span>
-          <span>Nội thất văn phòng</span>
+    <div className="App__Container py-3">
+      <div className="grid wide">
+        <div className="sm-gutter row">
+          <div className="wrapper">
+            <div className="productDes_inner">
+              <div className="productDes-heading">CHI TIẾT SẢN PHẨM</div>
+              <div className="productDes_container">
+                <div className="productDes-title">
+                  <label>Danh Mục</label>
+                  {item.categories.map((element, index) => (
+                    <div className="productDes-title-detail" key={index}>
+                      <span>
+                        <a>{element.display_name}</a>
+                      </span>
+                      <i class="fa-solid fa-angle-right" />
+                    </div>
+                  ))}
+                </div>
+                <div className="productDes-content">
+                  {item.attributes === null ? null : (
+                    <>
+                      {item.attributes.map((element, index) => (
+                        <div className="productDes-content-detail" key={index}>
+                          <label>{element.name}</label>
+                          <span>{element.value}</span>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </div>
+              </div>
+              <div className="productDes-detail">
+                <div className="productDes-heading">MÔ TẢ SẢN PHẨM</div>
+                <div className="productDes-heading-des">
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -38,5 +38,5 @@
   color: var(--white-color);
 }
 .Pagination-item_link-active .Pagination-item_link:hover {
-  background-color: #de5c3f;
+  background-color: var(--primary--color);
 }

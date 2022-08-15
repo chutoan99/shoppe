@@ -61,7 +61,7 @@
   transform: scale(1);
 }
 .list-wrap li:before {
-  background: #ffffff;
+  background: var(--white-color);
 }
 
 .homeMobile-notify {

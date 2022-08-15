@@ -1,13 +1,14 @@
-import '../../Style/xxx.css';
+import '../../../Style/xxx.css';
 import { useDispatch } from 'react-redux/es/exports.js';
-import { addNumberCart, updateToast, addCart } from '../../redux/action';
-import '../../Style/produc-img.css';
-import datas from '../../redux/data';
+import { addNumberCart, updateToast, addCart } from '../../../redux/action';
+import './produc-img.css';
+import datas from '../../../redux/data';
 import { useState } from 'react';
 import ShopName from './shopName';
 import ProductImg from './product-img';
+import ProductDes from '../productDes';
 import ProductContent from './Product-content';
-import ToasMess from '../toasMess/index';
+import ToasMess from '../../toasMess/index';
 import { useSelector } from 'react-redux';
 function ProductItems() {
   const { toast } = useSelector((state) => state);
@@ -142,6 +143,7 @@ function ProductItems() {
           </div>
         </div>
       ) : null}
+      <ProductDes item={item} />
     </>
   );
 }

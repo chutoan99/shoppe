@@ -166,7 +166,7 @@
   z-index: 10;
 }
 .Home-product-item_sale-off-percent {
-  color: #ee4d2d;
+  color: var(--primary--color);
   font-weight: 600;
   font-size: 0.75rem;
   line-height: 0.75rem;

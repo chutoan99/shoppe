@@ -109,3 +109,53 @@ footer {
 .Footer_list li a {
   text-align: left;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .footer__content {
+    padding: 0 10px;
+  }
+  .Footer_item-link {
+    justify-content: left !important;
+  }
+  .Footer_heading {
+    text-align: left !important;
+  }
+  .Footer__download {
+    justify-content: left !important;
+  }
+}
+@media (min-width: 481px) and (max-width: 739px) {
+  .Footer_item-link {
+    text-align: left !important;
+  }
+}
+@media (max-width: 480px) {
+  .Footer_des {
+    margin-top: 5px !important;
+  }
+  .Footer_item-link {
+    justify-content: left !important;
+  }
+  .Footer_heading {
+    text-align: left !important;
+  }
+
+  .Footer_content-heading {
+    margin-top: 5px !important;
+  }
+  .Footer__download {
+    justify-content: left !important;
+  }
+  .Footer_heading {
+    text-align: center;
+  }
+  .Footer__download,
+  .Footer_item-link {
+    justify-content: center;
+  }
+  .Footer__download-apps {
+    flex: unset;
+  }
+  .footer__content {
+    padding: 0 10px;
+  }
+}

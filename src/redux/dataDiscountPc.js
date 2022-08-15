@@ -1,4 +1,4 @@
-const discounts = [
+const discountsPC = [
   {
     id: 1,
     src: 'https://cf.shopee.vn/file/46a2a2c810622f314d78455da5e5d926_xhdpi',
@@ -46,4 +46,4 @@ const discounts = [
     title: 'Chọn 6 Số Trúng Tiền Triệu',
   },
 ];
-export default discounts;
+export default discountsPC;

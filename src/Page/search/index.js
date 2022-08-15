@@ -2,8 +2,8 @@ import './search.css';
 import { useState } from 'react';
 import Header from '../../component/header';
 import Footer from '../../component/footer';
-import HomeProduct from '../../component//container/Home_Product';
-import SearchCategory from '../../component/container/SearchCategory';
+import HomeProduct from '../../component/container/detailProduct/Home_Product';
+import SearchCategory from '../../component/container/detailProduct/SearchCategory';
 let SearchImg = require('../../Img/Search.png');
 function Search() {
   const [perPage, setPerPage] = useState(48);

@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import Discount from './Discount';
 import datas from '../../redux/data';
-import HomeFilter from './Home-Filter';
 import Category from './category/index';
-import Carousel from '../carousel/Pc';
-import HomeProduct from './Home_Product';
-import Pagination from '../pagination/index';
-import MobileCategory from './mobile_Category/index';
 import CarouselPc from '../carousel/Pc';
+import Pagination from '../pagination/index';
+import DiscountPc from './Discount/pc/index';
+import DiscountMobile from './Discount/mobile/index';
 import CarouselMobile from '../carousel/mobile';
+import HomeFilter from './detailProduct/Home-Filter';
+import MobileCategory from './mobile_Category/index';
+import HomeProduct from './detailProduct/Home_Product';
 function Container() {
   const [perPage, setPerPage] = useState(48);
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,10 +45,11 @@ function Container() {
         <div className="row sm-gutter pt-5">
           <CarouselPc />
           <CarouselMobile />
-          <Discount />
+          <DiscountPc></DiscountPc>
+          <DiscountMobile></DiscountMobile>
           <Category />
           <div className="col l-12 m-12 c-12">
-            <HomeFilter />
+            <HomeFilter></HomeFilter>
             <MobileCategory />
             <HomeProduct handleClick={handleClick} start={start} end={end} />
             <Pagination

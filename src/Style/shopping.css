@@ -24,7 +24,7 @@
 
   height: 55px;
   font-size: 0.875rem;
-  background: #fff;
+  background: var(--white-color);
   text-transform: capitalize;
   margin-bottom: 12px;
   color: #888;
@@ -465,7 +465,7 @@ table .table_body-heading {
 }
 .product_cart-content-variation button {
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   color: #757575;
   border-radius: 2px;
   border-style: solid;

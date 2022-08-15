@@ -1,5 +1,5 @@
 import Like from './like';
-import datas from '../../redux/data';
+import datas from '../../../redux/data';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux/es/hooks/useDispatch';
 function HomeProduct(props) {
@@ -9,7 +9,7 @@ function HomeProduct(props) {
   const { handleClick } = props;
   const onHandleClick = (item, index) => {
     handleClick(item, index);
-    navigate('/shopping');
+    navigate('/detailProduct');
   };
   // const randomDatas = datas.items.sort(() => Math.random() - 0.5);
   return (

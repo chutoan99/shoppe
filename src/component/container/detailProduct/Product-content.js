@@ -170,7 +170,7 @@ function ProductContent(props) {
         <button className="product_cart-button" onClick={handleAddToCart}>
           <i class="fa-solid fa-cart-plus cart-plus-animation"></i>Thêm Vào Giỏ Hàng
         </button>
-        <button className="product_cart-button2" onClick={() => navigate('/shoppingCartList')}>
+        <button className="product_cart-button2" onClick={() => navigate('/pay')}>
           Mua Ngay
         </button>
       </div>

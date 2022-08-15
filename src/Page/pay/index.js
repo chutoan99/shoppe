@@ -1,15 +1,15 @@
 import '../../Style/shopping.css';
 import { useState } from 'react';
-import Button from '../../component/container/button';
+import Button from '../../component/container/detailProduct/button';
 import { deleteCart, buyCart } from '../../redux/action';
 import LogoShopee from '../../component/header/LogoShoppe';
-import BoxSelect from '../../component/container/boxSelect';
+import BoxSelect from '../../component/container/detailProduct/boxSelect';
 import HeaderNavbar from '../../component/header/headerNavbar';
-import SearchHistory from '../../component//header/Serch-history';
+import SearchHistory from '../../component/header/Serch-history';
 import { useDispatch, useSelector } from 'react-redux/es/exports.js';
 let Sale = require('../../Img/sale.png');
 let emptyCart = require('../../Img/empty-cart.png');
-function ShoppingCartList() {
+function Pay() {
   const dispatch = useDispatch();
   const [checked, setChecked] = useState([]);
   const { numberCart } = useSelector((state) => state);
@@ -253,4 +253,4 @@ function ShoppingCartList() {
     );
   }
 }
-export default ShoppingCartList;
+export default Pay;

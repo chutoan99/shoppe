@@ -1,5 +1,5 @@
 .discounts-main {
-  background-color: #fff;
+  background-color: var(--white-color);
   margin: 10px auto 0;
   min-height: 100px;
   padding-left: 20px;
@@ -24,9 +24,7 @@
 .discounts-image {
   width: 40%;
 }
-.category-item {
-  border: none;
-}
+
 .discounts-image {
 }
 .discounts-name {
@@ -35,7 +33,6 @@
   text-decoration: none;
   line-height: 0.781rem;
   height: 40px;
-
   display: flex;
   word-break: break-word;
   overflow: hidden;
@@ -44,4 +41,32 @@
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .discounts-image {
+    width: 60%;
+  }
+}
+@media (max-width: 480px) {
+  .discounts-main {
+    padding-left: unset !important;
+    padding-right: unset !important;
+  }
+  .discounts-list {
+    overflow-x: auto;
+    max-width: 100%;
+    justify-content: unset !important;
+  }
+  .discounts-item {
+    width: 75px !important;
+    flex-shrink: 0;
+    margin-right: 5px;
+  }
+  .discounts-image {
+    width: 45% !important;
+  }
+  .discounts-name {
+    font-size: 9px;
+  }
 }

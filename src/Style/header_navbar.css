@@ -219,7 +219,7 @@
   right: 58px;
   line-height: 0.875rem;
   border-radius: 10px;
-  border: 2px solid #ee4d2d;
+  border: 2px solid var(--primary--color);
   color: var(--primary--color);
   background-color: var(--white-color);
 }
