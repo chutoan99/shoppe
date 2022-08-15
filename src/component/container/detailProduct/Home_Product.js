@@ -1,23 +1,40 @@
 import Like from './like';
 import datas from '../../../redux/data';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux/es/hooks/useDispatch';
+import { useEffect, useState } from 'react';
 function HomeProduct(props) {
+  // const randomDatas = datas.items.sort(() => Math.random() - 0.5);
+  const [items, setItems] = useState([]);
   const { end, start } = props;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { handleClick } = props;
   const onHandleClick = (item, index) => {
     handleClick(item, index);
     navigate('/detailProduct');
   };
-  // const randomDatas = datas.items.sort(() => Math.random() - 0.5);
+  useEffect(() => {
+    const axios = require('axios');
+    const config = {
+      method: 'get',
+      url: 'http://localhost:3000/datas',
+      headers: {},
+    };
+    axios(config)
+      .then(function (response) {
+        if (response.status === 200) {
+          setItems(response.data.items);
+          console.log(response);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <div className="Home-product">
         <div className="row sm-gutter">
-          {/* m-4 */}
-          {datas.items.map((item, index) => (
+          {items.map((item, index) => (
             <div className="col l-2 mo-4 c-6" key={index}>
               {index >= start && index < end ? (
                 <div className="Home-product-item">
