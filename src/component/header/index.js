@@ -1,6 +1,5 @@
-import HeaderNavbar from './headerNavbar';
+import HeaderNavbar from './header_Navbar';
 import HeaderSortBar from './Header_Sort-Bar';
-import SuggestionList from './Suggestion-List';
 import HeaderWithSearch from './Header_With-Search';
 function Header() {
   return (

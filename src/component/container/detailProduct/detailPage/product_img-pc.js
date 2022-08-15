@@ -1,5 +1,5 @@
-import MobileImgProduct from './mobile_img-product';
-function ProductImg(props) {
+import MobileImgProduct from './product_img-mobile';
+function productImgPc(props) {
   const { item, handleShowImg, indexItem, animationAddCart } = props;
   return (
     <>
@@ -33,4 +33,4 @@ function ProductImg(props) {
     </>
   );
 }
-export default ProductImg;
+export default productImgPc;

@@ -1,14 +1,14 @@
-import '../../../Style/xxx.css';
+import './xxx.css';
 import { useDispatch } from 'react-redux/es/exports.js';
-import { addNumberCart, updateToast, addCart } from '../../../redux/action';
+import { addNumberCart, updateToast, addCart } from '../../../../redux/action';
 import './produc-img.css';
-import datas from '../../../redux/data';
+import datas from '../../../../redux/data';
 import { useState } from 'react';
-import ShopName from './shopName';
-import ProductImg from './product-img';
-import ProductDes from '../productDes';
-import ProductContent from './Product-content';
-import ToasMess from '../../toasMess/index';
+import ShopName from './product_shop';
+import ProductImg from './product_img-pc';
+import ProductDes from '../../productDes';
+import ProductContent from './product_content';
+import ToasMess from '../../../toasMess/index';
 import { useSelector } from 'react-redux';
 function ProductItems() {
   const { toast } = useSelector((state) => state);

@@ -1,11 +1,8 @@
-import InputSerch from './InputSerch';
+import InputSerch from './Input_Search';
 import LogoShopee from './LogoShoppe';
 import HeaderCart from './Header_Cart';
-import SuggestionList from './Suggestion-List';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
+import SuggestionList from './Suggestion_List';
 function HeaderWithSearch() {
-  const navigate = useNavigate();
   return (
     <div className="grid wide sm-gutter">
       <div className="Header-with-search sm-gutter">

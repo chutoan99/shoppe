@@ -1,6 +1,6 @@
-import SearchHistory from './Serch-history';
+import SearchHistory from './Search_history';
 import { useNavigate } from 'react-router-dom';
-function InputSerch() {
+function InputSearch() {
   const navigate = useNavigate();
   const handleSearch = () => {
     navigate('/search');
@@ -35,4 +35,4 @@ function InputSerch() {
     </div>
   );
 }
-export default InputSerch;
+export default InputSearch;

@@ -1,12 +1,12 @@
 import '../../Style/shopping.css';
 import { useState } from 'react';
-import Button from '../../component/container/detailProduct/button';
 import { deleteCart, buyCart } from '../../redux/action';
 import LogoShopee from '../../component/header/LogoShoppe';
-import BoxSelect from '../../component/container/detailProduct/boxSelect';
-import HeaderNavbar from '../../component/header/headerNavbar';
-import SearchHistory from '../../component/header/Serch-history';
+import HeaderNavbar from '../../component/header/header_Navbar';
+import SearchHistory from '../../component/header/Search_history';
 import { useDispatch, useSelector } from 'react-redux/es/exports.js';
+import Button from '../../component/container/detailProduct/detailPage/button';
+import BoxSelect from '../../component/container/detailProduct/pay/boxSelect';
 let Sale = require('../../Img/sale.png');
 let emptyCart = require('../../Img/empty-cart.png');
 function Pay() {

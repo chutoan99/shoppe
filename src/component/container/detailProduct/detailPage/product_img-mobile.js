@@ -1,8 +1,8 @@
-import './slider.css';
+import './product_img-mobile.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-export default function MobileImgProduct(props) {
+export default function ProductImgMobile(props) {
   const settings = {
     dots: true,
     infinite: true,

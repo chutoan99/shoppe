@@ -1,4 +1,4 @@
-function ShopName(props) {
+function ProductShop(props) {
   const { item } = props;
   return (
     <div className="App__Container py-3">
@@ -70,4 +70,4 @@ function ShopName(props) {
     </div>
   );
 }
-export default ShopName;
+export default ProductShop;

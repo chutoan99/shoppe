@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import HeaderNotify from '../Header_notify';
+import HeaderNotify from './Header_notify';
 import { useSelector } from 'react-redux/es/exports.js';
-let AppStoreImg = require('../../../Img/AppStore.png');
-let QRcodeImg = require('../../../Img/QRcode.png');
-let GooglePlayImg = require('../../../Img/GooglePlay.png');
-let UserImg = require('../../../Img/User.jpg');
+let AppStoreImg = require('../../Img/AppStore.png');
+let QRcodeImg = require('../../Img/QRcode.png');
+let GooglePlayImg = require('../../Img/GooglePlay.png');
+let UserImg = require('../../Img/User.jpg');
 let NumberNotyfy = 4;
 function HeaderNavbar() {
   const { userLogin } = useSelector((state) => state);

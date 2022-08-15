@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import datas from '../../redux/data';
-import Category from './category/index';
+import Category from '../category/category';
 import CarouselPc from '../carousel/Pc';
 import Pagination from '../pagination/index';
 import DiscountPc from './Discount/pc/index';
 import DiscountMobile from './Discount/mobile/index';
 import CarouselMobile from '../carousel/mobile';
-import HomeFilter from './detailProduct/Home-Filter';
 import MobileCategory from './mobile_Category/index';
-import HomeProduct from './detailProduct/Home_Product';
+import HomeFilter from '../home_Filter';
+import HomeProduct from './detailProduct/home/home_Product';
 function Container() {
   const [perPage, setPerPage] = useState(48);
   const [currentPage, setCurrentPage] = useState(1);

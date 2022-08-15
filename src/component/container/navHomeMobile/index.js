@@ -1,4 +1,4 @@
-import './navHomeMobile.css';
+import './nav_HomeMobile.css';
 import { useNavigate } from 'react-router-dom';
 function NavHomeMobile() {
   const navigate = useNavigate();

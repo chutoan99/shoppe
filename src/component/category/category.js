@@ -1,4 +1,4 @@
-import categorys from '../../../redux/dataCategory';
+import categorys from '../../redux/dataCategory';
 import './category.css';
 function Category() {
   return (

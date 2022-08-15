@@ -1,5 +1,5 @@
 import Like from './like';
-import datas from '../../../redux/data';
+import datas from '../../../../redux/data';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 function HomeProduct(props) {
@@ -23,7 +23,6 @@ function HomeProduct(props) {
       .then(function (response) {
         if (response.status === 200) {
           setItems(response.data.items);
-          console.log(response);
         }
       })
       .catch(function (error) {
@@ -34,7 +33,7 @@ function HomeProduct(props) {
     <div>
       <div className="Home-product">
         <div className="row sm-gutter">
-          {items.map((item, index) => (
+          {datas.items.map((item, index) => (
             <div className="col l-2 mo-4 c-6" key={index}>
               {index >= start && index < end ? (
                 <div className="Home-product-item">
