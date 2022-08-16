@@ -6,7 +6,10 @@ function ProductShop(props) {
         <div className="sm-gutter shop-content back center">
           <div>
             <div className="product_band">
-              <img src="https://cf.shopee.vn/file/47a0665f49b23e820b1d9e91b6f608e4" alt="" />
+              <img
+                src="https://cf.shopee.vn/file/47a0665f49b23e820b1d9e91b6f608e4"
+                alt="product_band"
+              />
             </div>
             <div className="product_band-title">
               <span>Yêu Thích</span>

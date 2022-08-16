@@ -9,7 +9,7 @@ function productImgPc(props) {
         <img
           className={animationAddCart}
           src={`${'https://cf.shopee.vn/file/'}${item.image}`}
-          alt=""
+          alt="animationAddCart"
           onClick={handleShowImg}
         />
         {/* thẻ img dùng cho animation */}
@@ -22,7 +22,7 @@ function productImgPc(props) {
               <div className="product_cart-list">
                 <img
                   src={`${'https://cf.shopee.vn/file/'}${image}`}
-                  alt=""
+                  alt="MobileImgProduct"
                   onClick={handleShowImg}
                 />
               </div>

@@ -11,7 +11,7 @@ function HeaderCartList() {
             <img
               className="Header_cart-item-img"
               src={`${'https://cf.shopee.vn/file/'}${item.image}`}
-              alt=""
+              alt="dataCart"
             />
             <div className="Header_cart-item-info">
               <div className="Header_cart-item-head">

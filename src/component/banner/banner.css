@@ -1,5 +1,4 @@
 .banner {
-  padding: 4.563rem 0;
   display: flex;
   justify-content: center;
 }
@@ -94,7 +93,7 @@
 }
 @keyframes myAnim3 {
   0% {
-    transform: scale(0.7);
+    transform: scale(1);
   }
 
   100% {

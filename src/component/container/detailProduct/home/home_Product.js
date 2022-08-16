@@ -39,7 +39,7 @@ function HomeProduct(props) {
                 <div className="Home-product-item">
                   <img
                     src={`${'https://cf.shopee.vn/file/'}${item.image}`}
-                    alt=""
+                    alt="itemProduct"
                     className="Home-product-item_img"
                     onClick={() => onHandleClick(item, index)}
                   />

@@ -165,7 +165,7 @@ function Pay() {
   function renderEmptyCart() {
     return (
       <div className="emptyCart-img">
-        <img src={emptyCart} alt="" />
+        <img src={emptyCart} alt="emptyCart" />
       </div>
     );
   }

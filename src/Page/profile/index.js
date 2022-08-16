@@ -30,7 +30,7 @@ function Profile() {
             </section>
 
             <section className="profile__main__avatar">
-              <img src="" alt="" />
+              <img src="" alt="profile-avatar" />
               <div className="changeAvatar">
                 <input
                   type="file"

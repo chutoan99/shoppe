@@ -135,7 +135,7 @@ function ProductContent(props) {
           <div className="product_cart-size-chart" onClick={HiddenTableSize}>
             <div className=" modal__size">
               <div className="modal__body">
-                <img src={`${'https://cf.shopee.vn/file/'}${item.size_chart}`} />
+                <img src={`${'https://cf.shopee.vn/file/'}${item.size_chart}`} alt="tableSize" />
               </div>
             </div>
           </div>

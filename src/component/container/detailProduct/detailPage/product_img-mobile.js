@@ -18,7 +18,7 @@ export default function ProductImgMobile(props) {
         <Slider {...settings}>
           {item.images.map((image) => (
             <div className="" key={item.itemid}>
-              <img src={`${'https://cf.shopee.vn/file/'}${image}`} alt="" />
+              <img src={`${'https://cf.shopee.vn/file/'}${image}`} alt="item" />
             </div>
           ))}
         </Slider>

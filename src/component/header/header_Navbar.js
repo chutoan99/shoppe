@@ -81,7 +81,7 @@ function HeaderNavbar() {
   function renderUserLogin() {
     return (
       <li className="Header__nav--item Header__nav-user">
-        <img className="Header__nav-item Header__nav-user-img" src={UserImg} alt="" />
+        <img className="Header__nav-item Header__nav-user-img" src={UserImg} alt="UserImg" />
         <span className="Header__nav-name">Toàn Trương</span>
         <ul className="Header__nav-user-menu">
           <li className="Header__nav-user-item">

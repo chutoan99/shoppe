@@ -118,7 +118,7 @@ function ProductItems() {
           <div className="image-overPlay">
             <div className="image-slice">
               <div>
-                <img src={`${'https://cf.shopee.vn/file/'}${item.images[indexImg]}`} alt="" />
+                <img src={`${'https://cf.shopee.vn/file/'}${item.images[indexImg]}`} alt="img" />
               </div>
             </div>
             <div className="image-slices">

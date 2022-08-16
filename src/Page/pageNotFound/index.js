@@ -6,7 +6,7 @@ function PageNotFound() {
     <div className="notFound">
       <Header></Header>
       <div className="Page_not">
-        <img src={PageNotFoundImg} alt="" />
+        <img src={PageNotFoundImg} alt="PageNotFoundImg" />
       </div>
     </div>
   );

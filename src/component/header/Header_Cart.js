@@ -33,7 +33,7 @@ function HeaderCart() {
             </>
           ) : (
             <div className="Header-cart--no-cart">
-              <img src={noCart} alt="" className="Header-cart--no-cart-img" />
+              <img src={noCart} alt="noCart" className="Header-cart--no-cart-img" />
               <p className="Header-cart-list-no-cart-msg">Chưa có sản phẩm</p>
             </div>
           )}
