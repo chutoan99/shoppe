@@ -1,9 +1,15 @@
+import { useSelector } from 'react-redux';
 import './loading.css';
 function Loading() {
+  const { loading } = useSelector((state) => state);
   return (
-    <div className="spinner-container">
-      <div className="loading-spinner"></div>
-    </div>
+    <>
+      {loading ? (
+        <div className="loading">
+          <span class="loader"></span>;
+        </div>
+      ) : null}
+    </>
   );
 }
 export default Loading;

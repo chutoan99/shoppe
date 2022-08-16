@@ -68,6 +68,7 @@ export const initState = {
   },
   toast: false,
   heart: false,
+  loading: false,
   numberCart: dataCartLists.length,
   perPage: 48,
   currentPage: 1,
@@ -113,6 +114,16 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         heart: true,
+      };
+    case 'LoadingTrue':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'LoadingFalse':
+      return {
+        ...state,
+        loading: false,
       };
     case 'buyCart':
       return {

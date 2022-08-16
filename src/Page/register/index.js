@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import isEmpty from 'validator/lib/isEmpty';
 import { useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import Footer from '../../component/footer/index.js';
+import { LoadingTrue, LoadingFalse } from '../../redux/action';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux/es/exports.js';
+import Loading from '../../component/loading/index.js';
 let Logo2 = require('../../Img/logo-2.png');
 let Logo = require('../../Img/shopee.png');
 function RegisterForm() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state);
   const [validationMsg, setValidationMsg] = useState({});
   const [nameRegister, setNameRegister] = useState('');
   const [emailRegister, setEmailRegister] = useState('');
@@ -50,7 +56,11 @@ function RegisterForm() {
       axios(config)
         .then(function (response) {
           if (response.status === 201) {
-            navigate('/login');
+            dispatch(LoadingTrue());
+            setTimeout(() => {
+              navigate('/login');
+              dispatch(LoadingFalse());
+            }, 3000);
           }
         })
         .catch(function (error) {
@@ -60,6 +70,7 @@ function RegisterForm() {
   };
   return (
     <>
+      {loading ? <Loading></Loading> : null}
       <div className="grid wide">
         <header>
           <div className="header_login">

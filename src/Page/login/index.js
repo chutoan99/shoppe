@@ -4,12 +4,15 @@ import { useDispatch } from 'react-redux';
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 import { useNavigate } from 'react-router-dom';
-import { userLogin } from '../../redux/action';
+import Loading from '../../component/loading/index.js';
+import { useSelector } from 'react-redux/es/exports.js';
+import { userLogin, LoadingTrue } from '../../redux/action';
 import Footer from '../../component/footer/index.js';
 let Logo2 = require('../../Img/logo-2.png');
 let Logo = require('../../Img/shopee.png');
 function LoginForm() {
   const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state);
   const navigate = useNavigate();
   const [validationMsg, setValidationMsg] = useState({});
   const [emailLogin, setEmailLogin] = useState('');
@@ -46,8 +49,11 @@ function LoginForm() {
     axios(config)
       .then(function (response) {
         if (response.data === 'Success') {
-          navigate('/');
-          dispatch(userLogin());
+          dispatch(LoadingTrue());
+          setTimeout(() => {
+            navigate('/');
+            dispatch(userLogin());
+          }, 3000);
         }
       })
       .catch(function (error) {
@@ -56,6 +62,7 @@ function LoginForm() {
   };
   return (
     <>
+      {loading ? <Loading></Loading> : null}
       <div className="grid wide">
         <header>
           <div className="header_login">

@@ -33,7 +33,7 @@ function HomeProduct(props) {
     <div>
       <div className="Home-product">
         <div className="row sm-gutter">
-          {datas.items.map((item, index) => (
+          {items.map((item, index) => (
             <div className="col l-2 mo-4 c-6" key={index}>
               {index >= start && index < end ? (
                 <div className="Home-product-item">

@@ -13,6 +13,21 @@ export const updateHeartTrue = () => {
     type: 'updateHeartTrue',
   };
 };
+export const updateLoading = () => {
+  return {
+    type: 'updateLoading',
+  };
+};
+export const LoadingTrue = () => {
+  return {
+    type: 'LoadingTrue',
+  };
+};
+export const LoadingFalse = () => {
+  return {
+    type: 'LoadingFalse',
+  };
+};
 export const updateHeartFalse = () => {
   return {
     type: 'updateHeartFalse',
