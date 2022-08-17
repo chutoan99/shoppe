@@ -1,4 +1,4 @@
-import './productDes.css';
+import './product_Des.css';
 function ProductDes(props) {
   const { item } = props;
   return (
@@ -11,14 +11,16 @@ function ProductDes(props) {
               <div className="productDes_container">
                 <div className="productDes-title">
                   <label>Danh Mục</label>
-                  {item.categories.map((element, index) => (
-                    <div className="productDes-title-detail" key={index}>
-                      <span>
-                        <a>{element.display_name}</a>
-                      </span>
-                      <i class="fa-solid fa-angle-right" />
-                    </div>
-                  ))}
+                  <div style={{ flexWrap: 'wrap', display: 'flex' }}>
+                    {item.categories.map((element, index) => (
+                      <div className="productDes-title-detail" key={index}>
+                        <span>
+                          <a>{element.display_name}</a>
+                        </span>
+                        <i class="fa-solid fa-angle-right" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="productDes-content">
                   {item.attributes === null ? null : (
@@ -35,6 +37,7 @@ function ProductDes(props) {
               </div>
               <div className="productDes-detail">
                 <div className="productDes-heading">MÔ TẢ SẢN PHẨM</div>
+
                 <div className="productDes-heading-des">
                   <p>{item.description}</p>
                 </div>

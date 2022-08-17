@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux/es/exports.js';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/exports.js';
 function ProductContent(props) {
   const {
     item,
@@ -12,8 +12,10 @@ function ProductContent(props) {
     handleReduced,
     handleAddToCart,
   } = props;
-  const { numberCart } = useSelector((state) => state);
+  const params = useParams();
   const navigate = useNavigate();
+  const [items, setItems] = useState([]);
+  const { numberCart } = useSelector((state) => state);
   return (
     <div className="padding">
       {renderItemHeading(item)}

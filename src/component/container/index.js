@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import datas from '../../redux/data';
 import Category from '../category/category';
 import CarouselPc from '../carousel/Pc';
 import Pagination from '../pagination/index';
-import DiscountPc from './Discount/pc/index';
-import DiscountMobile from './Discount/mobile/index';
+import DiscountPc from '../discount/discount_pc/index';
+import DiscountMobile from '../discount/discount_mobile/index';
 import CarouselMobile from '../carousel/mobile';
 import MobileCategory from './mobile_Category/index';
 import HomeFilter from '../home_Filter';
@@ -39,6 +38,7 @@ function Container() {
     return items;
   };
   const itemId = JSON.parse(localStorage.getItem('inforItem'));
+  console.log(window.innerWidth);
   return (
     <div className="App__Container marginT">
       <div className="grid wide">

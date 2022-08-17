@@ -1,6 +1,7 @@
 import MobileImgProduct from './product_img-mobile';
 function productImgPc(props) {
-  const { item, handleShowImg, indexItem, animationAddCart } = props;
+  const { item, handleShowImg, animationAddCart } = props;
+  // console.log(item);
   return (
     <>
       <div className="product_cart-img Hide-on-mobile">
@@ -15,7 +16,7 @@ function productImgPc(props) {
         {/* thẻ img dùng cho animation */}
       </div>
       <MobileImgProduct item={item}></MobileImgProduct>
-      <div class="container-fluid">
+      <div class="container-fluid Hide-on-mobile">
         <div className="row sm-gutter">
           <div className="col s-12 c-12  l-12 disp">
             {item.images.map((image) => (

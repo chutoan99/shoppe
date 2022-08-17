@@ -1,6 +1,5 @@
 import { useState } from 'react';
 function Button(props) {
-  console.log(props);
   const { amount, setAmounts } = props;
   const [amounts, setAmount] = useState(amount);
   const handleReduced = () => {
@@ -13,8 +12,6 @@ function Button(props) {
   };
   const handleIncrease = () => {
     setAmount(amounts + 1);
-    console.log('amounts +', amounts);
-    console.log('newAmounts +', amounts);
   };
   return (
     <div>

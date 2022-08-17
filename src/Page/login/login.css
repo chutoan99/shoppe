@@ -2,6 +2,7 @@
     font-size: 100%;
 } */
 .modals {
+    /* height: 100vh; */
     background-color: var(--primary--color);
     display: flex;
     justify-content: end;
@@ -255,13 +256,18 @@
           }
     }
   
-    @media (min-width: 481px) and (max-width: 739px) {
-      
+    @media (min-width: 481px) and (max-width: 880px) {
+        .modals {
+
+            padding-top: 50px;
+            padding-bottom: 50px;
+              }
     }
     /* mobile ngang */
     @media only screen and (max-width: 880px) {
         .auth-form {
             right: unset;
+            height: unset;
           }
           .header_login-logo-helps {
             width: 100vw;
@@ -270,6 +276,7 @@
             visibility: hidden !important;
             height: 40vh;
           }
+ 
     }
     /* mobile */
     @media (max-width: 480px) {

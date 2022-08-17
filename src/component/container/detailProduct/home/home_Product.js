@@ -1,5 +1,4 @@
 import Like from './like';
-import datas from '../../../../redux/data';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 function HomeProduct(props) {
@@ -10,8 +9,9 @@ function HomeProduct(props) {
   const { handleClick } = props;
   const onHandleClick = (item, index) => {
     handleClick(item, index);
-    navigate('/detailProduct');
+    navigate(`/detailProduct/${item.itemid}`);
   };
+  // lấy data
   useEffect(() => {
     const axios = require('axios');
     const config = {

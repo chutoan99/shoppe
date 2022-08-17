@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import HeaderNotify from './Header_notify';
 import { useSelector } from 'react-redux/es/exports.js';
 let AppStoreImg = require('../../Img/AppStore.png');
@@ -7,6 +7,7 @@ let GooglePlayImg = require('../../Img/GooglePlay.png');
 let UserImg = require('../../Img/User.jpg');
 let NumberNotyfy = 4;
 function HeaderNavbar() {
+  const navigate = useNavigate();
   const { userLogin } = useSelector((state) => state);
   return (
     <nav className="Header__navbar Hide-on-mobile">
@@ -85,16 +86,22 @@ function HeaderNavbar() {
         <span className="Header__nav-name">Toàn Trương</span>
         <ul className="Header__nav-user-menu">
           <li className="Header__nav-user-item">
-            <a href="# ">Tài khoản của tôi</a>
+            <span href="# " onClick={() => navigate('/profile')}>
+              Tài khoản của tôi
+            </span>
           </li>
           <li className="Header__nav-user-item">
-            <a href="# ">Địa chỉ của tôi</a>
+            <span href="# " onClick={() => navigate('/profile')}>
+              Địa chỉ của tôi
+            </span>
           </li>
           <li className="Header__nav-user-item">
-            <a href="# ">Đơn mua</a>
+            <span href="# " onClick={() => navigate('/oder')}>
+              Đơn mua
+            </span>
           </li>
           <li className="Header__nav-user-item Header__nav-user-item--separate">
-            <a href="# ">Đăng xuất</a>
+            <span href="# ">Đăng xuất</span>
           </li>
         </ul>
       </li>

@@ -1,6 +1,6 @@
-import discountsMobile from '../../../../redux/datadiscountMobile';
+import discountsMobile from '../../../redux/datadiscountMobile';
 import './discount_mobile.css';
-let sale = require('../../../../Img/sale.jpg');
+let sale = require('../../../Img/sale.jpg');
 function DiscountMobile() {
   return (
     <div className="col l-12 m-12 c-12 show-on-mobile display-none">

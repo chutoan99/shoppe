@@ -1,24 +1,31 @@
-import Pay from '../Page/pay';
-import RegisterForm from '../Page/register/index';
-import { Routes, Route } from 'react-router-dom';
-import PageNotFound from '../Page/pageNotFound';
-import LoginForm from '../Page/login/index.js';
-import Profile from '../Page/profile/index';
-import DetailProduct from '../Page/detailProduct';
-import Home from '../Page/home/index';
-import Search from '../Page/search';
 import React from 'react';
+import Pay from '../Page/pay/index';
+import Oder from '../Page/Oder/index';
+import Shop from '../Page/shop/index';
+import Search from '../Page/search/index';
+import Home from '../Page/home/index';
+import Profile from '../Page/profile/index';
+import LoginForm from '../Page/login/index.js';
+import PageNotFound from '../Page/pageNotFound';
+import { Routes, Route } from 'react-router-dom';
+import RegisterForm from '../Page/register/index';
+import DetailProduct from '../Page/detailProduct';
+import Categories from '../Page/Categories/index';
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/pay" element={<Pay />} />
-      <Route path="/search" element={<Search />} />
+      <Route path="/oder" element={<Oder />} />
+      <Route path="/shop/:id" element={<Shop />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/register" element={<RegisterForm />} />
+      <Route path="/search/:search" element={<Search />} />
       <Route path="/detailProduct" element={<DetailProduct />} />
+      <Route path="/detailProduct/:idItem" element={<DetailProduct />} />
+      <Route path="/categories/:categories_name" element={<Categories />} />
     </Routes>
   );
 }

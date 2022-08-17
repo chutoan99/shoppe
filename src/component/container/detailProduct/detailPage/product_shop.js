@@ -1,10 +1,31 @@
-function ProductShop(props) {
-  const { item } = props;
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+function ProductShop() {
+  const navigate = useNavigate();
+  const [item, setItem] = useState([]);
+  const params = useParams();
+  useEffect(() => {
+    const axios = require('axios');
+    const config = {
+      method: 'get',
+      url: `http://localhost:3000/data/item/${params.idItem}`,
+      headers: {},
+    };
+    axios(config)
+      .then(function (response) {
+        if (response.status === 200) {
+          setItem(response.data[0]);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [params.idItem]);
   return (
     <div className="App__Container py-3">
       <div className="grid wide">
         <div className="sm-gutter shop-content back center">
-          <div>
+          <div onClick={() => navigate(`/shop/${item.shopid}`)}>
             <div className="product_band">
               <img
                 src="https://cf.shopee.vn/file/47a0665f49b23e820b1d9e91b6f608e4"
@@ -15,7 +36,6 @@ function ProductShop(props) {
               <span>Yêu Thích</span>
             </div>
           </div>
-
           <div className="product_band-name">
             <div className="product_band-heading">
               <h2>{item.shop_name}</h2>

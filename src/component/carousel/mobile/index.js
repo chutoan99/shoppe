@@ -15,7 +15,7 @@ export default function CarouselMobile() {
   };
   return (
     <>
-      <div className="col l-8 m-8 c-12 display-none show-on-mobile">
+      <div className="col l-8 m-8 c-12 display-none show-on-mobile transform">
         <Slider {...settings}>
           <div class="image-slider-item">
             <img src="https://cf.shopee.vn/file/e0c270a915a5af34f3b42c0c90504a3d" alt="Slider" />

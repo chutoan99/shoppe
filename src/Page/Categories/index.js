@@ -1,18 +1,16 @@
-import './search.css';
-import { useEffect, useState } from 'react';
-import Header from '../../component/header';
 import Footer from '../../component/footer';
-import SearchCategory from '../../component/container/detailProduct/searchPage/SearchCategory';
+import Header from '../../component/header';
 import { useParams } from 'react-router-dom';
-let SearchImg = require('../../Img/Search.png');
-function Search() {
+import { useEffect, useState } from 'react';
+import SearchCategory from '../../component/container/detailProduct/searchPage/SearchCategory';
+function Categories() {
   const params = useParams();
   const [items, setItems] = useState([]);
   useEffect(() => {
     var axios = require('axios');
     var config = {
       method: 'get',
-      url: `http://localhost:3000/data/search?search=${params.search}`,
+      url: `http://localhost:3000/data/category/${params.categories_name}`,
       headers: {},
     };
     axios(config)
@@ -22,24 +20,13 @@ function Search() {
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  });
   return (
     <>
-      <Header />
+      <Header></Header>
       <div className="App">
-        <div className="App__Container">
+        <div className="App__Container py-5">
           <div className="grid wide">
-            <div className="shopee-search-empty-result-section">
-              <div className="shopee-search-empty-result-section-img">
-                <img src={SearchImg} alt="Search" />
-              </div>
-              <h2 className="shopee-search-empty-title">Không tìm thấy kết quả nào</h2>
-              <h3 className="shopee-search-empty-title-hint">
-                Hãy thử sử dụng các từ khóa chung chung hơn thấy kết quả nào
-              </h3>
-              <h3 className="shopee-search-empty-suggestions">bạn cũng có thể thích</h3>
-            </div>
-
             <div className="row sm-gutter">
               <div className="col l-2 col-sm-3 c-3">
                 <SearchCategory />
@@ -49,7 +36,7 @@ function Search() {
                 <div className="Home-product">
                   <div className="row sm-gutter">
                     {items.map((element, index) => (
-                      <div className="col l-3 mo-4 c-6" key={index}>
+                      <div className="col l-2 mo-4 c-6" key={index}>
                         <div className="Home-product-item">
                           <img
                             src={`${'https://cf.shopee.vn/file/'}${element.image}`}
@@ -132,4 +119,4 @@ function Search() {
     );
   }
 }
-export default Search;
+export default Categories;

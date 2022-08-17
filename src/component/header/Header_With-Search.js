@@ -2,7 +2,10 @@ import InputSerch from './Input_Search';
 import LogoShopee from './LogoShoppe';
 import HeaderCart from './Header_Cart';
 import SuggestionList from './Suggestion_List';
+import { useNavigate } from 'react-router-dom';
+let UserImg = require('../../Img/User.jpg');
 function HeaderWithSearch() {
+  const navigate = useNavigate();
   return (
     <div className="grid wide sm-gutter">
       <div className="Header-with-search sm-gutter">
@@ -14,10 +17,16 @@ function HeaderWithSearch() {
           className="Header__search-checkbox"
         />
         <div>
-          <InputSerch></InputSerch>
-          <SuggestionList></SuggestionList>
+          <InputSerch />
+          <SuggestionList />
         </div>
         <HeaderCart />
+        <li
+          className="Header__nav--item Header__nav-user display-none show-on-mobile"
+          onClick={() => navigate('/login')}
+        >
+          <img className="Header__nav-item Header__nav-user-img" src={UserImg} alt="UserImg" />
+        </li>
       </div>
     </div>
   );

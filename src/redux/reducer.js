@@ -78,7 +78,6 @@ export const initState = {
   dataCart: dataCartLists,
 };
 const rootReducer = (state = initState, action) => {
-  console.log(action);
   switch (action.type) {
     case 'addNumberCart':
       return {

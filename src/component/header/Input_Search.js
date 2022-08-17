@@ -1,14 +1,18 @@
 import SearchHistory from './Search_history';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 function InputSearch() {
   const navigate = useNavigate();
+  const [inputSearch, setInputSearch] = useState('');
   const handleSearch = () => {
-    navigate('/search');
+    navigate(`/search/${inputSearch}`);
   };
   return (
     <div className="Header__search">
       <div className="Header__search-input-wrap">
         <input
+          value={inputSearch}
+          onChange={(e) => setInputSearch(e.target.value)}
           type="text"
           placeholder="Nhập để tìm kiếm sản phẩm"
           className="Header_search-input"

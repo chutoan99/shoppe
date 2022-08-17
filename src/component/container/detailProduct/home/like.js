@@ -13,7 +13,7 @@ function Like() {
       dispatch(updateHeartTrue());
       setTimeout(() => {
         dispatch(updateHeartFalse());
-      }, 1000);
+      }, 1400);
     }
   };
   return (

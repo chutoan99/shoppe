@@ -38,7 +38,6 @@ function RegisterForm() {
   const handleRegisterForm = () => {
     const isValid = validateAll();
     if (isValid) {
-      console.log('true1');
       const axios = require('axios');
       const data = JSON.stringify({
         name: nameRegister,
