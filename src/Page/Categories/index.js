@@ -2,6 +2,7 @@ import Footer from '../../component/footer';
 import Header from '../../component/header';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import HomeProduct from '../../component/container/detailProduct/home/home_Product';
 import SearchCategory from '../../component/container/detailProduct/searchPage/SearchCategory';
 function Categories() {
   const params = useParams();
@@ -28,7 +29,7 @@ function Categories() {
         <div className="App__Container py-5">
           <div className="grid wide">
             <div className="row sm-gutter">
-              <div className="col l-2 col-sm-3 c-3">
+              <div className="col l-2 col-sm-3 c-3 Hide-on-mobile">
                 <SearchCategory />
               </div>
               <div className="col l-10">

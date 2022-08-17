@@ -2,12 +2,15 @@ import './search.css';
 import { useEffect, useState } from 'react';
 import Header from '../../component/header';
 import Footer from '../../component/footer';
-import SearchCategory from '../../component/container/detailProduct/searchPage/SearchCategory';
 import { useParams } from 'react-router-dom';
+import SearchCategory from '../../component/container/detailProduct/searchPage/SearchCategory';
+import Container from '../../component/container';
+import HomeProduct from '../../component/container/detailProduct/home/home_Product';
 let SearchImg = require('../../Img/Search.png');
 function Search() {
   const params = useParams();
   const [items, setItems] = useState([]);
+  const [inputSearch, setInputSearch] = useState(false);
   useEffect(() => {
     var axios = require('axios');
     var config = {
@@ -17,7 +20,12 @@ function Search() {
     };
     axios(config)
       .then(function (response) {
-        setItems(response.data);
+        if (response.status === 200) {
+          setItems(response.data);
+        }
+        if (response.data.length === 0) {
+          setInputSearch(true);
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -29,19 +37,20 @@ function Search() {
       <div className="App">
         <div className="App__Container">
           <div className="grid wide">
-            <div className="shopee-search-empty-result-section">
-              <div className="shopee-search-empty-result-section-img">
-                <img src={SearchImg} alt="Search" />
+            {inputSearch ? (
+              <div className="shopee-search-empty-result-section">
+                <div className="shopee-search-empty-result-section-img">
+                  <img src={SearchImg} alt="Search" />
+                </div>
+                <h2 className="shopee-search-empty-title">Không tìm thấy kết quả nào</h2>
+                <h3 className="shopee-search-empty-title-hint">
+                  Hãy thử sử dụng các từ khóa chung chung hơn thấy kết quả nào
+                </h3>
+                <h3 className="shopee-search-empty-suggestions">bạn cũng có thể thích</h3>
               </div>
-              <h2 className="shopee-search-empty-title">Không tìm thấy kết quả nào</h2>
-              <h3 className="shopee-search-empty-title-hint">
-                Hãy thử sử dụng các từ khóa chung chung hơn thấy kết quả nào
-              </h3>
-              <h3 className="shopee-search-empty-suggestions">bạn cũng có thể thích</h3>
-            </div>
-
+            ) : null}
             <div className="row sm-gutter">
-              <div className="col l-2 col-sm-3 c-3">
+              <div className="col l-2 col-sm-3 c-3 Hide-on-mobile">
                 <SearchCategory />
               </div>
               <div className="col l-10">
