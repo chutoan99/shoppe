@@ -15,22 +15,11 @@
   font-size: 1.313rem;
   box-shadow: 0 0 5px #aba4a4;
 }
-/* .modal_inner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  
-    bottom: 0;
-    z-index: 1000;
-  } */
 @keyframes modalShow {
   from {
-    /* top: -100px; */
     opacity: 0;
   }
   to {
-    /* top: 0; */
     opacity: 1;
   }
 }

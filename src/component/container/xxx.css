@@ -41,7 +41,6 @@
   left: 0;
   z-index: 100;
   display: flex;
-  /* display: none; */
   animation: growth linear 0.1s;
 }
 .disp {
@@ -53,7 +52,6 @@
   display: flex !important ;
 }
 .product-items-heding {
-  /* padding: 17px 0 10px 0; */
   padding-bottom: 10px;
 }
 .product-items-heding span {
@@ -311,7 +309,6 @@ sup {
 }
 .product_cart i {
   margin-right: 10px;
-  /* padding-right: 10px; */
 }
 
 .product_cart-button2 {

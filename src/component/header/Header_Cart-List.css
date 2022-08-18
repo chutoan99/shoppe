@@ -51,7 +51,6 @@
 }
 .Header-cart--no-cart .Header-cart--no-cart-img,
 .Header-cart--no-cart .Header-cart-list-no-cart-msg {
-  /* display: block; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -59,7 +58,6 @@
   width: 54%;
 }
 .Header-cart-list-no-cart-msg {
-  /* display: none; */
   font-size: 1.125rem;
   color: var(--text-color);
   margin-top: 14px;
@@ -76,10 +74,6 @@
   color: var(--primary--color);
   background-color: var(--white-color);
 }
-/* danh sách giỏ hàng */
-
-/* danh sách giỏ hàng */
-
 .Header_cart-heading {
   color: #999;
   font-size: 0.875rem;

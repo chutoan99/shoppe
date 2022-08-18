@@ -23,7 +23,6 @@
 }
 .Home-product-item:hover {
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
-  /* margin-top: 4px; */
   transform: translateY(-1px);
 }
 .Home-product-item_img {
@@ -42,7 +41,6 @@
   line-height: 1.125rem;
   height: 36px;
   margin: 10px 10px 10px 6px;
-  /* hiện dấu 3 chấm */
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;

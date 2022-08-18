@@ -22,9 +22,9 @@
   left: 50%;
   width: 30px;
   height: 30px;
-  border: 3px solid #f3f3f3; /* Light grey */
-  border-top: 3px solid #383636; /* Black */
-  border-top: 3px solid #ee4d2d; /* Orange */
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #383636;
+  border-top: 3px solid #ee4d2d;
   border-radius: 50%;
   animation: spinner 1s linear infinite;
 }
