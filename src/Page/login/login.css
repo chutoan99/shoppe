@@ -1,8 +1,5 @@
-/* :root{
-    font-size: 100%;
-} */
+
 .modals {
-    /* height: 100vh; */
     background-color: var(--primary--color);
     display: flex;
     justify-content: end;
@@ -75,7 +72,6 @@
     border-radius: 2px;
     outline: none;
 }
-/* khi nhấp chuột vào ô input thì đổi màu viền */
 .auth-form__input:focus{
     border-color: #888;
 }
@@ -109,7 +105,6 @@
     cursor: pointer;
     color: var(--text-color);
     line-height: 1.6rem;
-    /* display: inline-flex; */
 }
 .btn.btn--normal:hover{
     background-color: rgba(0, 0, 0, 0.2);
@@ -121,7 +116,6 @@
     background-color: var(--primary--color);
     color: var(--white-color);
 }
-/* khi nào hủy nút sẽ dủng */
 .btn.btn--disable{
     cursor: default;
     opacity: 0.9;
@@ -237,9 +231,7 @@
     font-size: 0.75rem;
     margin-left: 15px;
 }
-  /* mobile & tablet */
 @media (max-width: 1023px) {
-    /* tablet */
     @media (min-width: 740px) and (max-width: 1023px) {
         .modals {
             padding-top: unset;
@@ -263,7 +255,6 @@
             padding-bottom: 50px;
               }
     }
-    /* mobile ngang */
     @media only screen and (max-width: 880px) {
         .auth-form {
             right: unset;
@@ -278,7 +269,6 @@
           }
  
     }
-    /* mobile */
     @media (max-width: 480px) {
         .modals {
             margin-bottom: 10px;
