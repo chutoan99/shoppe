@@ -6,7 +6,6 @@ import Pagination from '../pagination/index';
 import DiscountPc from '../discount/discount_pc/index';
 import DiscountMobile from '../discount/discount_mobile/index';
 import CarouselMobile from '../carousel/mobile';
-import MobileCategory from './mobile_Category/index';
 import HomeFilter from '../home_Filter';
 import HomeProduct from './home_Product';
 function Container() {
@@ -47,7 +46,7 @@ function Container() {
           <Category />
           <div className="col l-12 m-12 c-12">
             <HomeFilter></HomeFilter>
-            <MobileCategory />
+
             <HomeProduct handleClick={handleClick} start={start} end={end} />
             <Pagination
               handleNextPages={handleNextPages}
