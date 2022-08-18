@@ -1,8 +1,23 @@
 import './footer.css';
 import { useState } from 'react';
-let QRcode = require('../../Img/QRcode.png');
-let AppStore = require('../../Img/AppStore.png');
-let GooglePlay = require('../../Img/GooglePlay.png');
+let QRcode = require('../../Img/qr-code.png');
+let AppStore = require('../../Img/app-store.png');
+let GooglePlay = require('../../Img/gg-play.png');
+let Gallery = require('../../Img/app-gallery.png');
+let Pay1 = require('../../Img/pay1.PNG');
+let Pay2 = require('../../Img/pay2.PNG');
+let Pay3 = require('../../Img/pay3.PNG');
+let Pay4 = require('../../Img/pay4.PNG');
+let Pay5 = require('../../Img/pay5.PNG');
+let Ship1 = require('../../Img/ship1.PNG');
+let Ship2 = require('../../Img/ship2.PNG');
+let Ship3 = require('../../Img/ship3.PNG');
+let Ship4 = require('../../Img/ship4.PNG');
+let Ship5 = require('../../Img/ship5.PNG');
+let Ship6 = require('../../Img/ship6.PNG');
+let Ship7 = require('../../Img/ship7.PNG');
+let Ship8 = require('../../Img/ship7.PNG');
+let Ship9 = require('../../Img/ship8.PNG');
 function Footer() {
   const [showFooter, setShowFooter] = useState('hidden');
   const [show, setShow] = useState('show');
@@ -132,7 +147,7 @@ function Footer() {
           </div>
         </div>
         <div className="row padd">
-          <div className="col l-2-4 mo-3 c-4">
+          <div className="col l-2-4 mo-3 c-6">
             <h3 className="Footer_heading">CHĂM SÓC KHÁCH HÀNG</h3>
             <ul className="Footer_list">
               <li className="Footer_list-item">
@@ -204,7 +219,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col l-2-4 mo-3 c-4">
+          <div className="col l-2-4 mo-3 c-6">
             <h3 className="Footer_heading">VỀ SHOPEE</h3>
             <ul className="Footer_list">
               <li className="Footer_list-item">
@@ -257,10 +272,35 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col l-2-4 mo-3 c-4">
-            <h3 className="Footer_heading">THANH TOÁN</h3>
+          <div className="col l-2-4 mo-3 c-6 pay-and-ship">
+            <div>
+              <h3 class="Footer_heading">THANH TOÁN</h3>
+              <div class="footer-sale-ship">
+                <img src={Pay1} class="footer-item-sale-ship" alt="pay" />
+                <img src={Pay2} class="footer-item-sale-ship" alt="pay" />
+                <img src={Pay3} class="footer-item-sale-ship" alt="pay" />
+                <img src={Pay4} class="footer-item-sale-ship" alt="pay" />
+                <img src={Pay5} class="footer-item-sale-ship" alt="pay" />
+              </div>
+            </div>
+            <div>
+              <h3 class="Footer_heading" style={{ padding: '15px 0' }}>
+                ĐƠN VỊ VẬN CHUYỂN
+              </h3>
+              <div class="footer-sale-ship">
+                <img src={Ship1} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship2} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship3} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship4} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship5} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship6} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship7} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship8} class="footer-item-sale-ship" alt="ship" />
+                <img src={Ship9} class="footer-item-sale-ship" alt="ship" />
+              </div>
+            </div>
           </div>
-          <div className="col l-2-4 mo-3 c-4">
+          <div className="col l-2-4 mo-3 c-6">
             <h3 className="Footer_heading">THEO DÕI CHÚNG TÔI TRÊN</h3>
             <ul className="Footer_list">
               <li className="Footer_list-item">
@@ -283,18 +323,21 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col l-2-4 mo-4 c-8">
+          <div className="col l-2-4 mo-3 c-6">
             <h3 className="Footer_heading">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h3>
-            <div className="Footer__download">
-              <a className="Footer_apps-link" href="https://shopee.vn/web">
-                <img className="Footer__download-qr" src={QRcode} alt="Qrcode" />
+            <div class="footer-download">
+              <a href="# " class="footer-download-link">
+                <img src={QRcode} class="footer-download-qr" alt="" />
               </a>
-              <div className="Footer__download-apps">
-                <a className="Footer_apps-link" href="https://shopee.vn/web">
-                  <img className="Footer__download-app-img" src={AppStore} alt="AppStore" />
+              <div class="footer-download-app">
+                <a href="# " class="footer-download-link">
+                  <img src={GooglePlay} class="footer-download-app-img" alt="" />
                 </a>
-                <a className="Footer_apps-link" href="https://shopee.vn/web">
-                  <img className="Footer__download-app-img" src={GooglePlay} alt="GooglePlay" />
+                <a href="# " class="footer-download-link">
+                  <img src={AppStore} class="footer-download-app-img" alt="" />
+                </a>
+                <a href="# " class="footer-download-link">
+                  <img src={Gallery} class="footer-download-app-img" alt="" />
                 </a>
               </div>
             </div>

@@ -1,10 +1,10 @@
 import Footer from '../../component/footer';
 import Header from '../../component/header';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import HomeProduct from '../../component/container/detailProduct/home/home_Product';
-import SearchCategory from '../../component/container/detailProduct/searchPage/SearchCategory';
+import SearchCategory from '../../component/search_filter/index';
 function Categories() {
+  const navigate = useNavigate();
   const params = useParams();
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -43,7 +43,7 @@ function Categories() {
                             src={`${'https://cf.shopee.vn/file/'}${element.image}`}
                             alt="itemProduct"
                             className="Home-product-item_img"
-                            //   onClick={}
+                            onClick={() => navigate(`/detailProduct/${element.itemid}`)}
                           />
                           <h4 className="Home-product-item-name">{element.name}</h4>
                           <div className="Home-product-item_price">
@@ -59,7 +59,7 @@ function Categories() {
                             </span>
                           </div>
                           <div className="Home-product-item_actiton">
-                            ?/////
+                            {renderRating()}
                             <span className="Home-product-item-sold">
                               {element.historical_sold}đã bán
                             </span>
@@ -117,6 +117,17 @@ function Categories() {
           </a>
         </li>
       </ul>
+    );
+  }
+  function renderRating() {
+    return (
+      <div className="Home-product-item_rating">
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+      </div>
     );
   }
 }

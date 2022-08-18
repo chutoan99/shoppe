@@ -54,3 +54,13 @@
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .Header_sort-bar {
+    display: flex;
+  }
+}
+@media (max-width: 480px) {
+  .Header_sort-bar {
+    display: flex;
+  }
+}

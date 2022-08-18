@@ -1,7 +1,6 @@
 import MobileImgProduct from './product_img-mobile';
 function productImgPc(props) {
-  const { item, handleShowImg, animationAddCart } = props;
-  // console.log(item);
+  const { handleShowImg, animationAddCart, item } = props;
   return (
     <>
       <div className="product_cart-img Hide-on-mobile">
@@ -19,8 +18,8 @@ function productImgPc(props) {
       <div class="container-fluid Hide-on-mobile">
         <div className="row sm-gutter">
           <div className="col s-12 c-12  l-12 disp">
-            {item.images.map((image) => (
-              <div className="product_cart-list">
+            {item.images.map((image, index) => (
+              <div className="product_cart-list" key={index}>
                 <img
                   src={`${'https://cf.shopee.vn/file/'}${image}`}
                   alt="MobileImgProduct"

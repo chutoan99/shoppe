@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import './banner.css';
+import { useEffect, useState } from 'react';
 let bannerImg = require('../../Img/banner.png');
 function Banner() {
   const [banner, setBanner] = useState(false);

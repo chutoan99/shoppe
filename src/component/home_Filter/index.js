@@ -1,3 +1,4 @@
+import './home_Filter.css';
 function HomeFilter() {
   return (
     <div className="Home Hide-on-table Hide-on-mobile">

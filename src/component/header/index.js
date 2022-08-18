@@ -1,3 +1,4 @@
+import './header.css';
 import HeaderNavbar from './header_Navbar';
 import HeaderSortBar from './Header_Sort-Bar';
 import HeaderWithSearch from './Header_With-Search';

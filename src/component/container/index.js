@@ -1,3 +1,4 @@
+import './xxx.css';
 import { useState } from 'react';
 import Category from '../category/category';
 import CarouselPc from '../carousel/Pc';
@@ -7,13 +8,12 @@ import DiscountMobile from '../discount/discount_mobile/index';
 import CarouselMobile from '../carousel/mobile';
 import MobileCategory from './mobile_Category/index';
 import HomeFilter from '../home_Filter';
-import HomeProduct from './detailProduct/home/home_Product';
+import HomeProduct from './home_Product';
 function Container() {
   const [perPage, setPerPage] = useState(48);
   const [currentPage, setCurrentPage] = useState(1);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(perPage);
-  // let totalPages = (datas.items.length / perPage).toFixed(0);
   let totalPages = 4;
   const handleNextPages = () => {
     setStart(currentPage - 1 + perPage);
@@ -28,7 +28,6 @@ function Container() {
       setCurrentPage(currentPage - 1);
     }
   };
-
   const handleClick = (item, index) => {
     const itemInfor = {
       item: item,
@@ -37,8 +36,6 @@ function Container() {
     const items = localStorage.setItem('inforItem', JSON.stringify(itemInfor));
     return items;
   };
-  const itemId = JSON.parse(localStorage.getItem('inforItem'));
-  console.log(window.innerWidth);
   return (
     <div className="App__Container marginT">
       <div className="grid wide">

@@ -1,3 +1,4 @@
+import './Header_Sort-Bar.css';
 function HeaderSortBar() {
   return (
     <>

@@ -1,26 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-function ProductShop() {
+import { useNavigate } from 'react-router-dom';
+function ProductShop(props) {
+  const { item } = props;
   const navigate = useNavigate();
-  const [item, setItem] = useState([]);
-  const params = useParams();
-  useEffect(() => {
-    const axios = require('axios');
-    const config = {
-      method: 'get',
-      url: `http://localhost:3000/data/item/${params.idItem}`,
-      headers: {},
-    };
-    axios(config)
-      .then(function (response) {
-        if (response.status === 200) {
-          setItem(response.data[0]);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [params.idItem]);
   return (
     <div className="App__Container py-3">
       <div className="grid wide">

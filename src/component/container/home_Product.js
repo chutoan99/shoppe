@@ -1,8 +1,8 @@
-import Like from './like';
+import Like from '../like';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 function HomeProduct(props) {
-  // const randomDatas = datas.items.sort(() => Math.random() - 0.5);
+  // const random =items.sort(() => Math.random() - 0.5);
   const [items, setItems] = useState([]);
   const { end, start } = props;
   const navigate = useNavigate();
@@ -78,7 +78,6 @@ function HomeProduct(props) {
         </div>
       </div>
     </div>
-    //
   );
   function renderRating() {
     return (

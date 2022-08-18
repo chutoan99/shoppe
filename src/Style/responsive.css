@@ -69,9 +69,7 @@
     .app-content {
       padding-top: 60px !important;
     }
-    .Header_sort-bar {
-      display: flex;
-    }
+
     .SuggestionList-item {
       margin-right: unset;
     }
@@ -240,9 +238,7 @@
       width: 30px !important;
       height: 27px !important;
     }
-    .Header_sort-bar {
-      display: flex;
-    }
+
     .App {
       overflow: hidden;
     }
