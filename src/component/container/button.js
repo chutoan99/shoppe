@@ -16,11 +16,11 @@ function Button(props) {
   return (
     <div>
       <button onClick={handleReduced}>
-        <i class="fa-solid fa-minus"></i>
+        <i className="fa-solid fa-minus"></i>
       </button>
       <button>{amounts}</button>
       <button onClick={handleIncrease}>
-        <i class="fa-solid fa-plus"></i>
+        <i className="fa-solid fa-plus"></i>
       </button>
     </div>
   );

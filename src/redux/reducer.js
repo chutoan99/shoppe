@@ -56,6 +56,7 @@ const dataCartLists = [
     amount: 1,
   },
 ];
+
 const dataCart = localStorage.setItem('dataCart', JSON.stringify(dataCartLists));
 export const initState = {
   userLogin: false,
@@ -74,10 +75,11 @@ export const initState = {
   currentPage: 1,
   start: 0,
   end: 48,
-  // dataCarts: JSON.parse(localStorage.getItem('dataCart')),
   dataCart: dataCartLists,
 };
 const rootReducer = (state = initState, action) => {
+  console.log(action);
+  console.log(state.inputSearch);
   switch (action.type) {
     case 'addNumberCart':
       return {
@@ -127,7 +129,7 @@ const rootReducer = (state = initState, action) => {
     case 'buyCart':
       return {
         ...state,
-        dataCart: state.dataCart.splice((action.payload, 1)),
+        dataCart: state.dataCart.splice(action.payload, 1),
       };
     case 'userLogin':
       return {

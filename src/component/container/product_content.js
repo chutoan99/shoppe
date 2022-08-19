@@ -20,7 +20,7 @@ function ProductContent(props) {
     <div className="padding">
       {renderItemHeading(item)}
       {renderPrice(item)}
-      <div class="container-fluid container-detail">
+      <div className="container-fluid container-detail">
         {renderMiniVoucher()}
         {renderTierVariations(item)}
         {renderSizeChart(item)}
@@ -154,11 +154,11 @@ function ProductContent(props) {
         <div className="product_cart-amount">
           <div className="product_cart-amount-button">
             <button onClick={handleReduced}>
-              <i class="fa-solid fa-minus"></i>
+              <i className="fa-solid fa-minus"></i>
             </button>
             <button>{amount}</button>
             <button onClick={handleIncrease}>
-              <i class="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-plus"></i>
             </button>
           </div>
           <h2>{item.stock} sản phẩm có sẵn</h2>
@@ -170,7 +170,10 @@ function ProductContent(props) {
     return (
       <div className="product_cart">
         <button className="product_cart-button" onClick={handleAddToCart}>
-          <i class="fa-solid fa-cart-plus cart-plus-animation"></i>Thêm Vào Giỏ Hàng
+          <i className="fa-solid fa-cart-plus cart-plus-animation"></i>Chat ngay
+        </button>
+        <button className="product_cart-button" onClick={handleAddToCart}>
+          <i className="fa-solid fa-cart-plus cart-plus-animation"></i>Thêm Vào Giỏ Hàng
         </button>
         <button className="product_cart-button2" onClick={() => navigate('/pay')}>
           Mua Ngay
@@ -181,11 +184,11 @@ function ProductContent(props) {
   function renderRating() {
     return (
       <div className="product-items-content-rating-icons">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
       </div>
     );
   }

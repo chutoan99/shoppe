@@ -14,7 +14,7 @@ function productImgPc(props) {
         />
         {/* thẻ img dùng cho animation */}
       </div>
-      <MobileImgProduct item={item}></MobileImgProduct>
+      <MobileImgProduct item={item} />
       <div class="container-fluid Hide-on-mobile">
         <div className="row sm-gutter">
           <div className="col s-12 c-12  l-12 disp">

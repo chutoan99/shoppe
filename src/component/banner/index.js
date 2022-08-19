@@ -21,7 +21,7 @@ function Banner() {
             <div className="banner-img">
               <img src={bannerImg} alt="banner"></img>
               <span className="banner-close" onClick={handelCloseBanner}>
-                <i class="fa-solid fa-x"></i>
+                <i className="fa-solid fa-x"></i>
               </span>
             </div>
           </div>

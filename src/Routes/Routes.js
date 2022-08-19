@@ -24,7 +24,7 @@ function App() {
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/search/:search" element={<Search />} />
       <Route path="/detailProduct" element={<DetailProduct />} />
-      <Route path="/detailProduct/:idItem" element={<DetailProduct />} />
+      <Route path="/detailProduct/:idItem/:name" element={<DetailProduct />} />
       <Route path="/categories/:categories_name" element={<Categories />} />
     </Routes>
   );

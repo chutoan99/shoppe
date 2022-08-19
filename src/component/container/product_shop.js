@@ -24,10 +24,10 @@ function ProductShop(props) {
             </div>
             <div className="product_band-chat">
               <button>
-                <i class="fa-solid fa-message"></i>Chat Ngay
+                <i className="fa-solid fa-message"></i>Chat Ngay
               </button>
               <button>
-                <i class="fa-solid fa-house"></i>Xem Shop
+                <i className="fa-solid fa-house"></i>Xem Shop
               </button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-function SuggestionList() {
+function SuggestList() {
   return (
     <div className="SuggestionList  Hide-on-mobile">
       <div className="SuggestionList-item">
@@ -27,4 +27,4 @@ function SuggestionList() {
     </div>
   );
 }
-export default SuggestionList;
+export default SuggestList;

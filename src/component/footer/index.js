@@ -59,7 +59,7 @@ function Footer() {
               </p>
               <div className={show}>
                 <h2 className="Footer_content-heading click" onClick={handleShowFooter}>
-                  Xem Thêm<i class="fa-solid fa-angle-right"></i>
+                  Xem Thêm<i className="fa-solid fa-angle-right"></i>
                 </h2>
               </div>
 
@@ -274,29 +274,29 @@ function Footer() {
           </div>
           <div className="col l-2-4 mo-3 c-6 pay-and-ship">
             <div>
-              <h3 class="Footer_heading">THANH TOÁN</h3>
-              <div class="footer-sale-ship">
-                <img src={Pay1} class="footer-item-sale-ship" alt="pay" />
-                <img src={Pay2} class="footer-item-sale-ship" alt="pay" />
-                <img src={Pay3} class="footer-item-sale-ship" alt="pay" />
-                <img src={Pay4} class="footer-item-sale-ship" alt="pay" />
-                <img src={Pay5} class="footer-item-sale-ship" alt="pay" />
+              <h3 className="Footer_heading">THANH TOÁN</h3>
+              <div className="footer-sale-ship">
+                <img src={Pay1} className="footer-item-sale-ship" alt="pay" />
+                <img src={Pay2} className="footer-item-sale-ship" alt="pay" />
+                <img src={Pay3} className="footer-item-sale-ship" alt="pay" />
+                <img src={Pay4} className="footer-item-sale-ship" alt="pay" />
+                <img src={Pay5} className="footer-item-sale-ship" alt="pay" />
               </div>
             </div>
             <div>
-              <h3 class="Footer_heading" style={{ padding: '15px 0' }}>
+              <h3 className="Footer_heading" style={{ padding: '15px 0' }}>
                 ĐƠN VỊ VẬN CHUYỂN
               </h3>
-              <div class="footer-sale-ship">
-                <img src={Ship1} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship2} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship3} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship4} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship5} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship6} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship7} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship8} class="footer-item-sale-ship" alt="ship" />
-                <img src={Ship9} class="footer-item-sale-ship" alt="ship" />
+              <div className="footer-sale-ship">
+                <img src={Ship1} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship2} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship3} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship4} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship5} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship6} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship7} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship8} className="footer-item-sale-ship" alt="ship" />
+                <img src={Ship9} className="footer-item-sale-ship" alt="ship" />
               </div>
             </div>
           </div>
@@ -325,19 +325,19 @@ function Footer() {
           </div>
           <div className="col l-2-4 mo-3 c-6">
             <h3 className="Footer_heading">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h3>
-            <div class="footer-download">
-              <a href="# " class="footer-download-link">
-                <img src={QRcode} class="footer-download-qr" alt="" />
+            <div className="footer-download">
+              <a href="# " className="footer-download-link">
+                <img src={QRcode} className="footer-download-qr" alt="" />
               </a>
-              <div class="footer-download-app">
-                <a href="# " class="footer-download-link">
-                  <img src={GooglePlay} class="footer-download-app-img" alt="" />
+              <div className="footer-download-app">
+                <a href="# " className="footer-download-link">
+                  <img src={GooglePlay} className="footer-download-app-img" alt="" />
                 </a>
-                <a href="# " class="footer-download-link">
-                  <img src={AppStore} class="footer-download-app-img" alt="" />
+                <a href="# " className="footer-download-link">
+                  <img src={AppStore} className="footer-download-app-img" alt="" />
                 </a>
-                <a href="# " class="footer-download-link">
-                  <img src={Gallery} class="footer-download-app-img" alt="" />
+                <a href="# " className="footer-download-link">
+                  <img src={Gallery} className="footer-download-app-img" alt="" />
                 </a>
               </div>
             </div>

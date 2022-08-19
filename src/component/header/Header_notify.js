@@ -7,9 +7,11 @@ function HeaderNotify() {
       </header>
       <ul className="Header_notify-list">
         <HeaderNotifyItem />
+        <HeaderNotifyItem />
+        <HeaderNotifyItem />
       </ul>
       <footer className="Header__notify-footer">
-        <a href="https://shopee.vn/user/notifications/order" className="Header__notify-btn">
+        <a href="# " className="Header__notify-btn">
           Xem tất cả
         </a>
       </footer>

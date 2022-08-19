@@ -11,7 +11,7 @@ export default function BoxSelect(props) {
       onClick={handleShowBoxSelect}
     >
       <h1 className="shopping_cart-classify-icon">
-        Phân Loại Hàng<i class="fa-solid fa-caret-down"></i>
+        Phân Loại Hàng<i className="fa-solid fa-caret-down"></i>
       </h1>
       <div className={boxSelect}>
         {item.tier_variations.map((variations) => (

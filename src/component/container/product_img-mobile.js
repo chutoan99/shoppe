@@ -14,7 +14,7 @@ export default function ProductImgMobile(props) {
   };
   return (
     <div className="mobile-carousel-img">
-      <div className="col s-12 c-12 l-12">
+      <div className="s-12 c-12 l-12">
         <Slider {...settings}>
           {item.images.map((image, index) => (
             <div className="" key={index}>

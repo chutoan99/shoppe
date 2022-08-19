@@ -13,6 +13,7 @@
 .product_cart-img {
   position: relative;
   width: 100%;
+  cursor: pointer;
   padding: 3px;
   padding-top: 20px;
   padding-bottom: 40px;
@@ -26,7 +27,7 @@
   width: 100%;
 }
 .product_cart-list {
-  display: inline-block;
+  cursor: pointer;
   display: flex;
   height: 82px;
   flex-shrink: 0;
@@ -466,4 +467,7 @@ sup {
   display: grid;
   grid-template-areas: 'aa bb';
   grid-template-columns: 0.5fr 2fr;
+}
+.paddingT {
+  padding-top: 20px;
 }

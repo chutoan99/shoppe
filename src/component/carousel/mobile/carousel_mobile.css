@@ -1,7 +1,20 @@
 .display-none {
   display: none;
 }
-.transform {
-}
-@media (max-width: 480px) {
+
+@media (max-width: 1023px) {
+  @media (min-width: 740px) and (max-width: 1023px) {
+  }
+  @media (min-width: 481px) and (max-width: 739px) {
+  }
+  @media only screen and (max-width: 880px) {
+  }
+  @media (max-width: 480px) {
+    .pt-4 {
+    }
+    .marginT {
+    }
+    .transform {
+    }
+  }
 }

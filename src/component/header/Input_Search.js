@@ -7,6 +7,7 @@ function InputSearch() {
   const handleSearch = () => {
     navigate(`/search/${inputSearch}`);
   };
+  const newkey = inputSearch;
   return (
     <div className="Header__search">
       <div className="Header__search-input-wrap">

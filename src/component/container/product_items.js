@@ -12,11 +12,14 @@ import { useParams } from 'react-router-dom';
 import ProductContent from './product_content';
 import { useDispatch } from 'react-redux/es/exports.js';
 import { addNumberCart, addCart } from '../../redux/action';
+import HomeProduct from './home_Product';
 function ProductItems() {
   const params = useParams();
   const dispatch = useDispatch();
   const { toast } = useSelector((state) => state);
   const [item, setItem] = useState({});
+  const [itemSuggest, setItemSuggest] = useState({});
+  const [itemSuggestList, setItemSuggestList] = useState({});
   const [toastMess, setToastMess] = useState(toast);
   const [loading, setLoading] = useState(true);
   const [animationAddCart, setAnimationAddCart] = useState('cartAnimation');
@@ -103,8 +106,44 @@ function ProductItems() {
       }, 1000);
     }
   };
+  const ApiProductSuggest = async () => {
+    setLoading(true);
+    try {
+      const url = `http://localhost:3000/data/category/${params.name}`;
+      const { data } = await axios({
+        url: url,
+        method: 'get',
+      });
+      setItemSuggest(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
+  const ApiProductSuggestList = async () => {
+    setLoading(true);
+    try {
+      const url = `http://localhost:3000/datas`;
+      const { data } = await axios({
+        url: url,
+        method: 'get',
+      });
+      setItemSuggestList(data.items);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
   useEffect(() => {
     callApi();
+    ApiProductSuggest();
+    ApiProductSuggestList();
   }, [params.idItem]);
   return (
     <>
@@ -113,31 +152,34 @@ function ProductItems() {
       ) : (
         <>
           {toastMess ? <ToasMess /> : null}
-          <div className="App__Container App__Container_padding-Button marginT">
-            <div className="grid wide">
-              <div className="row sm-gutter back">
-                <div className="col c-12 mo-5 l-5">
-                  <ProductImg
-                    handleShowImg={handleShowImg}
-                    animationAddCart={animationAddCart}
-                    item={item}
-                  />
-                </div>
-                <div className="col c-12  m-7 l-7 ">
-                  <ProductContent
-                    item={item}
-                    amount={amount}
-                    showTableSize={showTableSize}
-                    handleShowSizeTable={handleShowSizeTable}
-                    handleIncrease={handleIncrease}
-                    handleReduced={handleReduced}
-                    HiddenTableSize={HiddenTableSize}
-                    handleAddToCart={handleAddToCart}
-                  />
+          <>
+            <div style={{ marginTop: '120px' }} className="Hide-on-mobile"></div>
+            <div className="App__Container App__Container_padding-Button paddingT">
+              <div className="grid wide">
+                <div className="row sm-gutter back">
+                  <div className="col c-12 mo-5 l-5">
+                    <ProductImg
+                      handleShowImg={handleShowImg}
+                      animationAddCart={animationAddCart}
+                      item={item}
+                    />
+                  </div>
+                  <div className="col c-12  m-7 l-7 ">
+                    <ProductContent
+                      item={item}
+                      amount={amount}
+                      showTableSize={showTableSize}
+                      handleShowSizeTable={handleShowSizeTable}
+                      handleIncrease={handleIncrease}
+                      handleReduced={handleReduced}
+                      HiddenTableSize={HiddenTableSize}
+                      handleAddToCart={handleAddToCart}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </>
           <ProductShop item={item} />
           {showImg ? (
             <div className="image Hide-on-mobile">
@@ -172,7 +214,32 @@ function ProductItems() {
               </div>
             </div>
           ) : null}
-          <ProductDes item={item} />
+          <div className="App__Container py-1">
+            <div className="grid wide">
+              <div className="row">
+                <div className="col-lg-10">
+                  <ProductDes item={item} />
+                  <div className="App__Container py-3">
+                    <div className="grid wide">
+                      <div className="row">
+                        <HomeProduct
+                          items={itemSuggestList}
+                          start={0}
+                          end={20}
+                          col={'col l-2-4 mo-4 c-6'}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-2">
+                  <div className="wrapper">
+                    <HomeProduct items={itemSuggest} start={0} end={4} col={'col l-12 mo-4 c-6'} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </>
       )}
     </>

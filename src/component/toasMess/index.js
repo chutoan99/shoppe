@@ -13,7 +13,7 @@ function ToasMess() {
         <div className="container_modal">
           <div className="header_modal">
             <span className="header_modal-icon" onClick={handelLostToass}>
-              <i class="fa-solid fa-x"></i>
+              <i className="fa-solid fa-x"></i>
             </span>
           </div>
           <div className="content_modal">

@@ -18,7 +18,7 @@ function Like() {
   };
   return (
     <span className="Home-product-item_like Home-product-item_liked" onClick={changeLike}>
-      <i class={like}></i>
+      <i className={like}></i>
     </span>
   );
 }

@@ -1,15 +1,21 @@
-import './search.css';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Header from '../../component/header';
 import Footer from '../../component/footer';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Loading2 from '../../component/loading2/index';
 import SearchCategory from '../../component/search_filter/index';
-let SearchImg = require('../../Img/Search.png');
+import HomeProduct from '../../component/container/home_Product';
+import SearchEmpty from '../../component/search_empty';
 function Search() {
   const params = useParams();
-  const navigate = useNavigate();
+  const [perPage, setPerPage] = useState(48);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(perPage);
   const [items, setItems] = useState([]);
   const [inputSearch, setInputSearch] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [itemSuggestList, setItemSuggestList] = useState({});
   useEffect(() => {
     var axios = require('axios');
     var config = {
@@ -30,92 +36,68 @@ function Search() {
         console.log(error);
       });
   }, []);
+  const ApiSuggestLit = async () => {
+    setLoading(true);
+    try {
+      const url = `http://localhost:3000/datas`;
+      const { data } = await axios({
+        url: url,
+        method: 'get',
+      });
+      setItemSuggestList(data.items);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
+  useEffect(() => {
+    ApiSuggestLit();
+  }, []);
   return (
     <>
       <Header />
-      <div className="App">
-        <div className="App__Container">
-          <div className="grid wide">
-            {inputSearch ? (
-              <div className="shopee-search-empty-result-section">
-                <div className="shopee-search-empty-result-section-img">
-                  <img src={SearchImg} alt="Search" />
+      {loading ? (
+        <Loading2 />
+      ) : (
+        <div className="App">
+          <div className="App__Container py-4">
+            <div className="grid wide">
+              {inputSearch ? <SearchEmpty></SearchEmpty> : null}
+              <div className="row sm-gutter">
+                <div className="col l-2 col-sm-3 c-3 Hide-on-mobile">
+                  <SearchCategory />
                 </div>
-                <h2 className="shopee-search-empty-title">Không tìm thấy kết quả nào</h2>
-                <h3 className="shopee-search-empty-title-hint">
-                  Hãy thử sử dụng các từ khóa chung chung hơn thấy kết quả nào
-                </h3>
-                <h3 className="shopee-search-empty-suggestions">bạn cũng có thể thích</h3>
-              </div>
-            ) : null}
-            <div className="row sm-gutter">
-              <div className="col l-2 col-sm-3 c-3 Hide-on-mobile">
-                <SearchCategory />
-              </div>
-              <div className="col l-10">
-                {renderHeaderSortBars()}
-                <div className="Home-product">
-                  <div className="row sm-gutter">
-                    {items.map((element, index) => (
-                      <div className="col l-3 mo-4 c-6" key={index}>
-                        <div className="Home-product-item">
-                          <img
-                            src={`${'https://cf.shopee.vn/file/'}${element.image}`}
-                            alt="itemProduct"
-                            className="Home-product-item_img"
-                            onClick={() => navigate(`/detailProduct/${element.itemid}`)}
-                          />
-                          <h4 className="Home-product-item-name">{element.name}</h4>
-                          <div className="Home-product-item_price">
-                            <span className="Home-product-item_price-old">
-                              {element.price_before_discount === 0
-                                ? null
-                                : `${(element.price_before_discount / 100000).toLocaleString(
-                                    'it-IT'
-                                  )}${'đ'}`}
-                            </span>
-                            <span className="Home-product-item_price-current">
-                              {(element.price / 100000).toLocaleString('it-IT')}đ
-                            </span>
-                          </div>
-                          <div className="Home-product-item_actiton">
-                            {renderRating()}
-                            <span className="Home-product-item-sold">
-                              {element.historical_sold}đã bán
-                            </span>
-                          </div>
-                          <div className="Home-product-item_origin">
-                            <span className="Home-product-item_brand">{element.item_brand}</span>
-                            <span className="Home-product-item_orgin-name">
-                              {element.item_orgin_name}
-                            </span>
-                          </div>
-                          <div className="Home-product-item_favourite">
-                            <i className="fa-solid fa-check"></i>
-                            <span>Yêu thích</span>
-                          </div>
-                          <div className="Home-product-item_sale-off">
-                            <span className="Home-product-item_sale-off-percent">
-                              {element.discount}
-                            </span>
-                            <br></br>s<span className="Home-product-item_sale-off-label">Giảm</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <div className="col l-10">
+                  {renderHeaderSortBars()}
+                  <HomeProduct
+                    items={items}
+                    start={start}
+                    end={end}
+                    col={'col l-2 mo-4 c-6'}
+                  ></HomeProduct>
+                  {inputSearch ? (
+                    <HomeProduct
+                      items={itemSuggestList}
+                      start={start}
+                      end={end}
+                      col={'col l-2-4 mo-4 c-6'}
+                    ></HomeProduct>
+                  ) : null}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
       <Footer></Footer>
     </>
   );
   function renderHeaderSortBars() {
     return (
-      <ul className="Header_sort-bars">
+      <ul className="Header_sort-bars mb-3">
         <li className="Header_sort-item">
           <a href="# " className="Header_sort-link">
             Liên quan
@@ -137,17 +119,6 @@ function Search() {
           </a>
         </li>
       </ul>
-    );
-  }
-  function renderRating() {
-    return (
-      <div className="Home-product-item_rating">
-        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-        <i className="Home-product-item_rating--gold fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-      </div>
     );
   }
 }

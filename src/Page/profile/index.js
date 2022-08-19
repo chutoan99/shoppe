@@ -25,7 +25,7 @@ function Profile() {
               <div className="detail-user-name">
                 <span>chutoan</span>
                 <span>
-                  <i class="fa-solid fa-pen"></i>sửa hồ sơ
+                  <i className="fa-solid fa-pen"></i>sửa hồ sơ
                 </span>
               </div>
               <div className="detail-user-content">
@@ -43,22 +43,22 @@ function Profile() {
                 <span>25.8 Lương Về Sale To</span>
               </div>
               <div className="detail-user-content">
-                <i class="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user"></i>
                 <span>Tài khoản của tôi</span>
                 <label>Hồ sơ</label>
                 <label>Ngân hàng</label>
                 <label>Địa chỉ</label>
               </div>
               <div className="detail-user-content">
-                <i class="fa-solid fa-memo"></i>
+                <i className="fa-solid fa-memo"></i>
                 <span>Đơn Mua</span>
               </div>
               <div className="detail-user-content">
-                <i class="fa-solid fa-memo"></i>
+                <i className="fa-solid fa-memo"></i>
                 <span>Thông Báo</span>
               </div>
               <div className="detail-user-content">
-                <i class="fa-brands fa-cc-discover"></i>
+                <i className="fa-brands fa-cc-discover"></i>
                 <span>Kho Voucher</span>
               </div>
               <div className="detail-user-content">

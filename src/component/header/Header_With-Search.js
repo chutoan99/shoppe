@@ -1,7 +1,7 @@
 import InputSerch from './Input_Search';
 import LogoShopee from './LogoShoppe';
 import HeaderCart from './Header_Cart';
-import SuggestionList from './Suggestion_List';
+import SuggestList from './Suggest_List';
 import { useNavigate } from 'react-router-dom';
 let UserImg = require('../../Img/User.jpg');
 function HeaderWithSearch() {
@@ -18,7 +18,7 @@ function HeaderWithSearch() {
         />
         <div>
           <InputSerch />
-          <SuggestionList />
+          <SuggestList />
         </div>
         <HeaderCart />
         <li
