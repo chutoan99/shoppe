@@ -15,7 +15,7 @@ function HomeFilter() {
   };
   const handleNext = () => {
     setFilterDay(filterDay + 1);
-    if (filterDay > 31) {
+    if (filterDay > 30) {
       setFilterDay(1);
       setFilterMonth(filterMonth + 1);
     }

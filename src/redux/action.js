@@ -38,7 +38,11 @@ export const userLogin = () => {
     type: 'userLogin',
   };
 };
-
+export const logOut = () => {
+  return {
+    type: 'logOut',
+  };
+};
 export const addCart = (data) => {
   return {
     type: 'addCart',
@@ -51,13 +55,6 @@ export const deleteCart = (data) => {
     payload: data,
   };
 };
-export const buyCart = (data) => {
-  return {
-    type: 'buyCart',
-    payload: data,
-  };
-};
-
 export const ChangePerPage = (data) => {
   return {
     type: 'ChangePerPage',
@@ -79,6 +76,36 @@ export const ChangeStart = (data) => {
 export const ChangeEnd = (data) => {
   return {
     type: 'ChangeEnd',
+    payload: data,
+  };
+};
+export const UpdateOptions = (data) => {
+  return {
+    type: 'UpdateOptions',
+    payload: data,
+  };
+};
+export const updateAmount = (data) => {
+  return {
+    type: 'updateAmount',
+    payload: data,
+  };
+};
+export const addBuyCart = (data) => {
+  return {
+    type: 'addBuyCart',
+    payload: data,
+  };
+};
+export const deleteBuyCart = (data) => {
+  return {
+    type: 'deleteBuyCart',
+    payload: data,
+  };
+};
+export const addStatusOrder = (data) => {
+  return {
+    type: 'addStatusOrder',
     payload: data,
   };
 };

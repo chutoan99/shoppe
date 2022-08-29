@@ -15,7 +15,7 @@ export default function CarouselPc() {
   };
   return (
     <>
-      <div className="col l-8 m-8 c-12 Hide-on-mobile" style={{ paddingTop: '150px' }}>
+      <div className="col l-8 m-8 c-8 Hide-on-mobile" style={{ paddingTop: '150px' }}>
         <Slider {...settings}>
           <div className="image-slider-item">
             <img
@@ -79,7 +79,7 @@ export default function CarouselPc() {
           </div>
         </Slider>
       </div>
-      <div className="col l-4 m-0-4 Hide-on-mobile" style={{ paddingTop: '150px' }}>
+      <div className="col l-4 m-0-4 c-4 Hide-on-mobile" style={{ paddingTop: '150px' }}>
         <div className="carousel-item-imgs">
           <div className="carousel-item-img ">
             <img

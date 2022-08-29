@@ -6,8 +6,8 @@ function HeaderCart() {
   const navigate = useNavigate();
   const { numberCart } = useSelector((state) => state);
   const renderNumberCart = (numberCart) => {
-    if (numberCart === 0) {
-      return null;
+    if (numberCart === 0 || numberCart === undefined) {
+      return <span></span>;
     } else {
       return <span className="Header-cart-notice">{numberCart}</span>;
     }

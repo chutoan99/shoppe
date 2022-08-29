@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/exports.js';
 function HeaderCartList() {
   const navigate = useNavigate();
-  const { dataCart } = useSelector((state) => state);
+  const dataCart = JSON.parse(localStorage.getItem('dataCart'));
   return (
     <>
       <ul className="Header_cart-list-item">

@@ -1,14 +1,20 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { UpdateOptions } from '../../redux/action';
 export default function BoxSelect(props) {
-  const { item } = props;
+  const { item, index } = props;
   const [boxSelect, setBoxSelect] = useState('box-select hiden');
-  const handleShowBoxSelect = () => {
+  const handleShowBoxSelect = (index) => {
     setBoxSelect('box-select');
+  };
+  const handleCloseBoxSelect = () => {
+    setBoxSelect('box-select hiden');
   };
   return (
     <div
       className="shopping_cart-classify Hide-on-mobile Hide-on-table"
-      onClick={handleShowBoxSelect}
+      onClick={(index) => handleShowBoxSelect(index)}
+      onDoubleClick={handleCloseBoxSelect}
     >
       <h1 className="shopping_cart-classify-icon">
         Phân Loại Hàng<i className="fa-solid fa-caret-down"></i>
@@ -26,7 +32,7 @@ export default function BoxSelect(props) {
                 <div className="l-9 product_cart-content-variation-item">
                   {variations.options.map((option) => (
                     <div className="product_cart-content-variation">
-                      <button>{option}</button>
+                      <Option option={option} item={item} index={index} />
                     </div>
                   ))}
                 </div>
@@ -35,6 +41,29 @@ export default function BoxSelect(props) {
           </div>
         ))}
       </div>
+      <div>{item.newOption}</div>
     </div>
+  );
+}
+export function Option(props) {
+  const { option, index } = props;
+  const [options, setOptions] = useState('');
+  const dispatch = useDispatch();
+  const handleSetOptions = (option, index) => {
+    setOptions('product_cart-variation-active');
+    if (options !== '') {
+      setOptions('');
+    }
+    dispatch(
+      UpdateOptions({
+        option: option,
+        index: index,
+      })
+    );
+  };
+  return (
+    <button className={options} onClick={() => handleSetOptions(option, index)}>
+      {option}
+    </button>
   );
 }

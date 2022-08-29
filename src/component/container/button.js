@@ -1,6 +1,6 @@
 import { useState } from 'react';
 function Button(props) {
-  const { amount, setAmounts } = props;
+  const { amount } = props;
   const [amounts, setAmount] = useState(amount);
   const handleReduced = () => {
     if (amounts > 1) {

@@ -1,6 +1,7 @@
 import './product_item.css';
 import './produc-img.css';
 import axios from 'axios';
+import ProductComment from './product_comment';
 import ProductDes from './product_Des';
 import ToasMess from '../toasMess/index';
 import Loading2 from '../loading2/index';
@@ -11,7 +12,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductContent from './product_content';
 import { useDispatch } from 'react-redux/es/exports.js';
-import { addNumberCart, addCart } from '../../redux/action';
+import { addCart } from '../../redux/action';
 import HomeProduct from './home_Product';
 function ProductItems() {
   const params = useParams();
@@ -20,13 +21,16 @@ function ProductItems() {
   const [item, setItem] = useState({});
   const [itemSuggest, setItemSuggest] = useState({});
   const [itemSuggestList, setItemSuggestList] = useState({});
-  const [toastMess, setToastMess] = useState(toast);
+  const [comment, setComment] = useState({});
+  const [itemShop, setItemShop] = useState({});
   const [loading, setLoading] = useState(true);
+  const [toastMess, setToastMess] = useState(toast);
   const [animationAddCart, setAnimationAddCart] = useState('cartAnimation');
   const [showImg, setShowImg] = useState(false);
   const [showTableSize, setShowTableSize] = useState(false);
   const [indexImg, setIndexImg] = useState(0);
   const [amount, setAmount] = useState(1);
+  const [NewOption, setNewOption] = useState('');
   const handleIncrease = () => {
     setAmount(amount + 1);
   };
@@ -54,7 +58,6 @@ function ProductItems() {
     setIndexImg(index);
   };
   const handleAddToCart = () => {
-    dispatch(addNumberCart());
     const cart = {
       itemid: item.itemid,
       name: item.name,
@@ -67,12 +70,12 @@ function ProductItems() {
       liked: item.liked,
       liked_count: item.liked_count,
       view_count: item.view_count,
-      price: item.price,
+      price: item.price * amount,
       price_min: item.price_min,
       price_max: item.price_max,
       price_min_before_discount: item.price_min_before_discount,
       price_max_before_discount: item.price_max_before_discount,
-      price_before_discount: item.price_before_discount,
+      price_before_discount: item.price_before_discount * amount,
       has_lowest_price_guarantee: item.has_lowest_price_guarantee,
       show_discount: item.show_discount,
       raw_discount: item.raw_discount,
@@ -81,6 +84,7 @@ function ProductItems() {
       tier_variations: item.tier_variations,
       shop_name: item.shop_name,
       amount: amount,
+      newOption: NewOption,
     };
     dispatch(addCart(cart));
     setAnimationAddCart('cartAnimation product_cart-img-animation');
@@ -140,8 +144,44 @@ function ProductItems() {
       }, 1000);
     }
   };
+  const ApiShop = async () => {
+    setLoading(true);
+    try {
+      const url = `http://localhost:3000/dataShop/${params.shopId}`;
+      const { data } = await axios({
+        url: url,
+        method: 'get',
+      });
+      setItemShop(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
+  const ApiComment = async () => {
+    setLoading(true);
+    try {
+      const url = `http://localhost:3000/data/comment/${params.idItem}`;
+      const { data } = await axios({
+        url: url,
+        method: 'get',
+      });
+      setComment(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
   useEffect(() => {
     callApi();
+    ApiComment();
+    ApiShop();
     ApiProductSuggest();
     ApiProductSuggestList();
   }, [params.idItem]);
@@ -169,6 +209,7 @@ function ProductItems() {
                       item={item}
                       amount={amount}
                       showTableSize={showTableSize}
+                      setNewOption={setNewOption}
                       handleShowSizeTable={handleShowSizeTable}
                       handleIncrease={handleIncrease}
                       handleReduced={handleReduced}
@@ -180,7 +221,7 @@ function ProductItems() {
               </div>
             </div>
           </>
-          <ProductShop item={item} />
+          <ProductShop item={itemShop} />
           {showImg ? (
             <div className="image Hide-on-mobile">
               <div className="image-overPlay">
@@ -219,6 +260,16 @@ function ProductItems() {
               <div className="row">
                 <div className="col-lg-10">
                   <ProductDes item={item} />
+                  <div className="App__Container py-1">
+                    <div className="grid wide">
+                      <div className="row">
+                        <div className="col-lg-12">
+                          <ProductComment items={comment} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="App__Container py-3">
                     <div className="grid wide">
                       <div className="row">
@@ -234,7 +285,7 @@ function ProductItems() {
                 </div>
                 <div className="col-lg-2">
                   <div className="wrapper">
-                    <HomeProduct items={itemSuggest} start={0} end={4} col={'col l-12 mo-4 c-6'} />
+                    <HomeProduct items={itemSuggest} start={0} end={16} col={'col l-12 mo-4 c-6'} />
                   </div>
                 </div>
               </div>

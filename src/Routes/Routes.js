@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 import RegisterForm from '../Page/register/index';
 import DetailProduct from '../Page/detailProduct';
 import Categories from '../Page/Categories/index';
+import StatusOrder from '../Page/statusOrder';
 function App() {
   return (
     <Routes>
@@ -23,8 +24,9 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/search/:search" element={<Search />} />
+      <Route path="/StatusOrder" element={<StatusOrder />} />
       <Route path="/detailProduct" element={<DetailProduct />} />
-      <Route path="/detailProduct/:idItem/:name" element={<DetailProduct />} />
+      <Route path="/detailProduct/:idItem/:name/:shopId" element={<DetailProduct />} />
       <Route path="/categories/:categories_name" element={<Categories />} />
     </Routes>
   );

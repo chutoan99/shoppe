@@ -37,6 +37,7 @@ function Categories() {
                 <SearchCategory />
               </div>
               <div className="col l-10">
+                <div className="padding-search"></div>
                 {renderHeaderSortBars()}
                 <HomeProduct
                   items={items}

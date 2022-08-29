@@ -1,21 +1,18 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux/es/exports.js';
+import { useNavigate } from 'react-router-dom';
 function ProductContent(props) {
   const {
     item,
     amount,
     showTableSize,
+    setNewOption,
     handleShowSizeTable,
     HiddenTableSize,
     handleIncrease,
     handleReduced,
     handleAddToCart,
   } = props;
-  const params = useParams();
   const navigate = useNavigate();
-  const [items, setItems] = useState([]);
-  const { numberCart } = useSelector((state) => state);
   return (
     <div className="padding">
       {renderItemHeading(item)}
@@ -106,7 +103,7 @@ function ProductContent(props) {
                     <div className="product_cart-option">
                       {variations.options.map((option) => (
                         <div className="product_cart-variation">
-                          <button>{option}</button>
+                          <Option option={option} setNewOption={setNewOption}></Option>
                         </div>
                       ))}
                     </div>
@@ -223,3 +220,20 @@ function ProductContent(props) {
   }
 }
 export default ProductContent;
+
+export function Option(props) {
+  const { option, setNewOption } = props;
+  const [options, setOptions] = useState('');
+  const handleSetOptions = (option) => {
+    setOptions('product_cart-variation-active');
+    if (options !== '') {
+      setOptions('');
+    }
+    setNewOption(option);
+  };
+  return (
+    <button className={options} onClick={() => handleSetOptions(option)}>
+      {option}
+    </button>
+  );
+}

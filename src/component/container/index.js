@@ -8,6 +8,7 @@ import DiscountMobile from '../discount/discount_mobile/index';
 import CarouselMobile from '../carousel/mobile';
 import HomeFilter from '../home_Filter';
 import HomeProduct from './home_Product';
+import Best from './best';
 function Container() {
   const [items, setItems] = useState([]);
   const [perPage, setPerPage] = useState(48);
@@ -53,7 +54,6 @@ function Container() {
         <CarouselMobile />
         <div className="row sm-gutter">
           <CarouselPc />
-
           <DiscountPc></DiscountPc>
           <DiscountMobile></DiscountMobile>
           <Category />

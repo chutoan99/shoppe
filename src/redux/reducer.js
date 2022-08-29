@@ -1,8 +1,7 @@
-import { type } from '@testing-library/user-event/dist/type';
 const dataCartLists = [
   {
     itemid: 17765176559,
-    name: 'Giày air force 1 af1 chính hãng cho nam nữ, af1 all white bao check fullbox,The Bang Sneaker',
+    name: '01Giày air force 1 af1 chính hãng cho nam nữ, af1 all white bao check fullbox,The Bang Sneaker',
     image: 'd0891276e39ae7986b4318103519e8e9',
     currency: 'VND',
     stock: 326,
@@ -12,6 +11,7 @@ const dataCartLists = [
     liked: null,
     liked_count: 442,
     view_count: null,
+    amount: 3,
     price: 185000000000,
     price_min: 185000000000,
     price_max: 210000000000,
@@ -53,11 +53,11 @@ const dataCartLists = [
       },
     ],
     shop_name: 'Giaychinhhanggiare',
-    amount: 1,
+    newOption: '36',
   },
 ];
-
-const dataCart = localStorage.setItem('dataCart', JSON.stringify(dataCartLists));
+localStorage.setItem('dataCart', JSON.stringify(dataCartLists));
+const getNewDataCart = JSON.parse(localStorage.getItem('dataCart'));
 export const initState = {
   userLogin: false,
   users: {
@@ -70,31 +70,58 @@ export const initState = {
   toast: false,
   heart: false,
   loading: false,
-  numberCart: dataCartLists.length,
   perPage: 48,
   currentPage: 1,
   start: 0,
   end: 48,
-  dataCart: dataCartLists,
+  dataCart: getNewDataCart,
+  numberCart: getNewDataCart.length,
+  BuyCart: [],
+  statusOrder: [],
 };
 const rootReducer = (state = initState, action) => {
   console.log(action);
-  console.log(state.inputSearch);
   switch (action.type) {
-    case 'addNumberCart':
-      return {
-        ...state,
-        numberCart: state.numberCart + 1,
-      };
     case 'addCart':
       return {
         ...state,
         dataCart: [...state.dataCart, action.payload],
       };
     case 'deleteCart':
+      const newCart = [...state.dataCart];
+      newCart.splice(action.payload, 1);
       return {
         ...state,
-        dataCart: state.dataCart.splice((action.payload, 1)),
+        dataCart: newCart,
+      };
+    case 'UpdateOptions':
+      const { option, index } = action.payload;
+      let currentDataCart = [...state.dataCart];
+      currentDataCart[index].newOption = option;
+      return {
+        ...state,
+        dataCart: currentDataCart,
+      };
+    case 'updateAmount':
+      const { indexAmount, newAmount } = action.payload;
+      let currentDataAmont = [...state.dataCart];
+      currentDataAmont[indexAmount].amount = newAmount;
+      console.log(state.dataCart[indexAmount]);
+      return {
+        ...state,
+        dataCart: currentDataAmont,
+      };
+    case 'addBuyCart':
+      return {
+        ...state,
+        BuyCart: [...state.BuyCart, action.payload],
+      };
+    case 'deleteBuyCart':
+      const newBuyCart = [...state.BuyCart];
+      newBuyCart.splice(0, action.payload);
+      return {
+        ...state,
+        BuyCart: newBuyCart,
       };
     case 'updateToast':
       return {
@@ -126,14 +153,13 @@ const rootReducer = (state = initState, action) => {
         ...state,
         loading: false,
       };
-    case 'buyCart':
-      return {
-        ...state,
-        dataCart: state.dataCart.splice(action.payload, 1),
-      };
     case 'userLogin':
       return {
         userLogin: true,
+      };
+    case 'logOut':
+      return {
+        userLogin: false,
       };
     case 'ChangePerPage':
       return {
@@ -150,6 +176,11 @@ const rootReducer = (state = initState, action) => {
     case 'ChangeEnd':
       return {
         perPage: action.payload,
+      };
+    case 'addStatusOrder':
+      return {
+        ...state,
+        statusOrder: [...state.statusOrder, action.payload],
       };
     default:
       return state;

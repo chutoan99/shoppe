@@ -1,7 +1,9 @@
 import './Header_Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import HeaderNotify from './Header_notify';
-import { useSelector } from 'react-redux/es/exports.js';
+import { useDispatch, useSelector } from 'react-redux/es/exports.js';
+import { logOut } from '../../redux/action';
+import { useState } from 'react';
 let AppStoreImg = require('../../Img/AppStore.png');
 let QRcodeImg = require('../../Img/QRcode.png');
 let GooglePlayImg = require('../../Img/GooglePlay.png');
@@ -9,7 +11,13 @@ let UserImg = require('../../Img/User.jpg');
 let NumberNotyfy = 4;
 function HeaderNavbar() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const Ten = localStorage.getItem('users');
+  const [user, setUser] = useState(Ten || '');
   const { userLogin } = useSelector((state) => state);
+  const handelLogOut = () => {
+    dispatch(logOut());
+  };
   return (
     <nav className="Header__navbar Hide-on-mobile">
       <ul className="Heder__navbar--list">
@@ -19,7 +27,7 @@ function HeaderNavbar() {
       <ul className="Heder__navbar--list">
         {renderNotify()}
         {renderHelp()}
-        {userLogin ? <>{renderUserLogin()}</> : <>{renderLogin()}</>}
+        {!userLogin ? <>{renderUserLogin()}</> : <>{renderLogin()}</>}
       </ul>
     </nav>
   );
@@ -84,7 +92,7 @@ function HeaderNavbar() {
     return (
       <li className="Header__nav--item Header__nav-user">
         <img className="Header__nav-item Header__nav-user-img" src={UserImg} alt="UserImg" />
-        <span className="Header__nav-name">Toàn Trương</span>
+        <span className="Header__nav-name">{user}</span>
         <ul className="Header__nav-user-menu">
           <li className="Header__nav-user-item">
             <span href="# " onClick={() => navigate('/profile')}>
@@ -97,12 +105,14 @@ function HeaderNavbar() {
             </span>
           </li>
           <li className="Header__nav-user-item">
-            <span href="# " onClick={() => navigate('/oder')}>
+            <span href="# " onClick={() => navigate('/statusOrder')}>
               Đơn mua
             </span>
           </li>
           <li className="Header__nav-user-item Header__nav-user-item--separate">
-            <span href="# ">Đăng xuất</span>
+            <span href="# " onClick={handelLogOut}>
+              Đăng xuất
+            </span>
           </li>
         </ul>
       </li>

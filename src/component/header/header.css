@@ -1,8 +1,9 @@
 .Header-with-search {
   height: 82px;
   display: flex;
+  background-image: linear-gradient(0, #fe6433, #f53e2d);
   align-items: center;
-  margin: 0 8px;
+  padding: 0 8px;
 }
 
 .Header {

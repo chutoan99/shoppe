@@ -103,7 +103,6 @@
     padding: 0 12px;
     outline: none;
     cursor: pointer;
-    color: var(--text-color);
     line-height: 1.6rem;
 }
 .btn.btn--normal:hover{
@@ -292,8 +291,8 @@
             display: block;
           }
           .header_login-logo-helps {
-            text-align: end;
-            padding: 10px 10px !important;
+            text-align: start;
+            padding: 5px 10px !important;
           }
           .header_login-logo img {
             width: 55% !important;

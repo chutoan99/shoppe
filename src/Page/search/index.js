@@ -71,12 +71,13 @@ function Search() {
                   <SearchCategory />
                 </div>
                 <div className="col l-10">
+                  <div className="padding-search"></div>
                   {renderHeaderSortBars()}
                   <HomeProduct
                     items={items}
                     start={start}
                     end={end}
-                    col={'col l-2 mo-4 c-6'}
+                    col={'col l-2-4 mo-4 c-6'}
                   ></HomeProduct>
                   {inputSearch ? (
                     <HomeProduct

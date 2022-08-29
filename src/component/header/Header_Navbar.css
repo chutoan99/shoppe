@@ -4,6 +4,7 @@
 }
 .Header__navbar {
   display: flex;
+  background-color: var(--primary--color);
   justify-content: space-between;
 }
 .Heder__navbar--list {

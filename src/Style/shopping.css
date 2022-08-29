@@ -190,11 +190,12 @@
 .shopping_cart-classify {
   font-size: 0.875rem;
   text-align: center;
-  margin-left: 15px;
-
+  margin-left: 10px;
+  flex-direction: column;
+  display: flex;
   color: rgba(0, 0, 0, 0.54);
 }
-.shopping_cart-classify h1 {
+ {
   margin-bottom: 5px;
   position: relative;
   cursor: pointer;
@@ -442,6 +443,7 @@ table .table_body-heading {
   position: absolute;
   content: '';
   left: 390px;
+  transform: translateY(40px);
   height: 139px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -457,6 +459,20 @@ table .table_body-heading {
   border-style: solid;
   border-width: 1px;
   border-color: #757575;
+  font-size: 0.625rem;
+  line-height: 1.05rem;
+  margin: 0px 4px 4px 0px;
+  padding: 2px 5px;
+  min-width: 56px;
+}
+.product_cart-content-variation .product_cart-variation-active {
+  align-items: center;
+  background-color: var(--white-color);
+  color: var(--primary--color);
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border: 1px solid var(--primary--color);
   font-size: 0.625rem;
   line-height: 1.05rem;
   margin: 0px 4px 4px 0px;

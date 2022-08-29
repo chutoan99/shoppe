@@ -1,5 +1,5 @@
 .display-none {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 1023px) {
@@ -10,11 +10,8 @@
   @media only screen and (max-width: 880px) {
   }
   @media (max-width: 480px) {
-    .pt-4 {
-    }
-    .marginT {
-    }
-    .transform {
+    .display-none {
+      display: block !important;
     }
   }
 }

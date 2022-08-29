@@ -29,3 +29,7 @@
 .app {
   overflow: hidden;
 }
+.padding-search {
+  padding-top: 50px;
+  display: none;
+}

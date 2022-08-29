@@ -15,7 +15,9 @@ function HomeProduct(props) {
                   alt="itemProduct"
                   className="Home-product-item_img"
                   onClick={() =>
-                    navigate(`/detailProduct/${item.itemid}/${item.categories[0].display_name}`)
+                    navigate(
+                      `/detailProduct/${item.itemid}/${item.categories[0].display_name}/${item.shopid}`
+                    )
                   }
                 />
                 <h4 className="Home-product-item-name">{item.name}</h4>
@@ -46,6 +48,7 @@ function HomeProduct(props) {
                   <span className="Home-product-item_sale-off-percent">{item.discount}</span>
                   <br></br>s<span className="Home-product-item_sale-off-label">Giảm</span>
                 </div>
+                <div class="home-product-item-footer">Tìm sản phẩm tương tự</div>
               </div>
             ) : null}
           </div>

@@ -51,8 +51,15 @@
   display: flex;
   padding-left: 0;
   margin: 0;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
+}
+.category-group--margin {
+  background-color: var(--primary--color);
+  color: white;
+}
+.category-group-filter-btn {
+  background-color: var(--primary--color);
+  color: white;
 }
 @media (min-width: 740px) and (max-width: 1023px) {
   .Header_sort-bar {

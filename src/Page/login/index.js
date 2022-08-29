@@ -4,18 +4,18 @@ import { useDispatch } from 'react-redux';
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../component/footer/index.js';
 import Loading from '../../component/loading/index.js';
 import { useSelector } from 'react-redux/es/exports.js';
-import { userLogin, LoadingTrue } from '../../redux/action';
-import Footer from '../../component/footer/index.js';
+import { LoadingTrue, LoadingFalse, userLogin } from '../../redux/action';
 let Logo2 = require('../../Img/logo-2.png');
 let Logo = require('../../Img/shopee.png');
 function LoginForm() {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state);
   const navigate = useNavigate();
-  const [validationMsg, setValidationMsg] = useState({});
+  const { loading } = useSelector((state) => state);
   const [emailLogin, setEmailLogin] = useState('');
+  const [validationMsg, setValidationMsg] = useState({});
   const [passWordLogin, SetPassWordLogin] = useState('');
   const validateAll = () => {
     const msg = {};
@@ -52,9 +52,13 @@ function LoginForm() {
           dispatch(LoadingTrue());
           setTimeout(() => {
             navigate('/');
-            dispatch(userLogin());
           }, 3000);
+          dispatch(LoadingFalse());
         }
+      })
+      .finally(function () {
+        localStorage.setItem('users', emailLogin);
+        dispatch(userLogin());
       })
       .catch(function (error) {
         console.log(error);

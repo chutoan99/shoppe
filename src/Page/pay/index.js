@@ -2,46 +2,52 @@ import '../../Style/shopping.css';
 import './pay.css';
 import { useState } from 'react';
 import Button from '../../component/container/button';
-import { deleteCart, buyCart } from '../../redux/action';
+import { deleteCart } from '../../redux/action';
 import LogoShopee from '../../component/header/LogoShoppe';
 import BoxSelect from '../../component/container/box_Select';
 import HeaderNavbar from '../../component/header/header_Navbar';
 import { useDispatch, useSelector } from 'react-redux/es/exports.js';
+import { useNavigate } from 'react-router-dom';
+import { updateAmount, addBuyCart } from '../../redux/action';
 let Sale = require('../../Img/sale.png');
 let emptyCart = require('../../Img/empty-cart.png');
 function Pay() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { userLogin, numberCart, dataCart } = useSelector((state) => state);
   const [checked, setChecked] = useState([]);
-  const { numberCart } = useSelector((state) => state);
-  const [renderCart, setRenderCart] = useState(numberCart);
-  const { dataCart } = useSelector((state) => state);
-  var indexCart = 0;
-  const handleCheck = (itemid, price, index) => {
-    setChecked((prev) => {
-      const isChecked = checked.includes(price);
-      if (isChecked) {
-        return checked.filter((item) => item !== price);
-      } else {
-        return [...prev, price];
-      }
-    });
-    indexCart = index;
-  };
-  var total = 0;
-  if (checked.length > 0) {
-    for (let i = 0; i < checked.length; i++) {
-      total += checked[i];
-    }
-  }
-  const handleBuyCart = (amount) => {
-    dispatch(buyCart(indexCart));
-  };
   const onDeleteCartItem = (index) => {
     dispatch(deleteCart(index));
   };
+  const handleCheck = (itemid, price, index) => {
+    setChecked((prev) => {
+      const isChecked = checked.includes(index);
+      if (isChecked) {
+        return checked.filter((item) => item !== index);
+      } else {
+        return [...prev, index];
+      }
+    });
+  };
+  var totals = [];
+  checked.forEach((e) => totals.push(dataCart[e].price));
+  var total = 0;
+  if (totals.length > 0) {
+    for (let i = 0; i < totals.length; i++) {
+      total += totals[i];
+    }
+  }
+  const handleBuyCart = () => {
+    var addBuyCarts = [];
+    checked.forEach((e) => addBuyCarts.push(dataCart[e]));
+    dispatch(addBuyCart(addBuyCarts));
+    if (addBuyCart.length > 0) {
+      navigate('/oder');
+    }
+  };
   return (
     <>
-      {renderCart === 0 ? (
+      {numberCart === 0 ? (
         <>
           {renderHeader()}
           {renderEmptyCart()}
@@ -80,7 +86,7 @@ function Pay() {
           <label class="shopping_cart-checkBox">
             <input
               type="checkbox"
-              checked={checked.includes(item.price)}
+              checked={checked.includes(index)}
               onChange={() => handleCheck(item.itemid, item.price, index)}
             />
             <span className="checkmark"></span>
@@ -94,18 +100,14 @@ function Pay() {
               <img src={Sale} alt="sale" />
             </div>
           </div>
-          {item.tier_variations[0].name === '' ? null : (
-            <>
-              <BoxSelect item={item} />
-            </>
-          )}
+          {item.tier_variations[0].name === '' ? null : <BoxSelect item={item} index={index} />}
         </div>
         <div className="shopping_cart-0ld-price Hide-on-mobile">
-          <h1>đ {(item.price_before_discount / 100000).toLocaleString('it-IT')}</h1>
-          <h2>đ {(item.price / 100000).toLocaleString('it-IT')}</h2>
+          <h1>đ {(item.price_max_before_discount / 100000).toLocaleString('it-IT')}</h1>
+          <h2>đ {(item.price_max / 100000).toLocaleString('it-IT')}</h2>
         </div>
         <div className="shopping_cart-unit-price">
-          <Button amount={item.amount} />
+          <BottonAmount amount={item.amount} index={index} />
           <div className="shopping_cart-warehouse Hide-on-mobile">
             <h1>Còn {item.stock} Sản Phẩm</h1>
           </div>
@@ -165,6 +167,33 @@ function Pay() {
     return (
       <div className="emptyCart-img">
         <img src={emptyCart} alt="emptyCart" />
+      </div>
+    );
+  }
+  function renderTitleTable() {
+    return (
+      <div className="tile-content-container Hide-on-mobile">
+        <div className="title-content">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <label className="shopping_cart-checkBox">
+              <input type="checkbox" />
+              <span className="checkmark"></span>
+            </label>
+            <p>Sản Phẩm</p>
+          </div>
+        </div>
+        <div className="title-content">
+          <p style={{ textAlign: 'center' }}>Đơn Giá</p>
+        </div>
+        <div className="title-content">
+          <p style={{ textAlign: 'center' }}>Số Lượng</p>
+        </div>
+        <div className="title-content">
+          <p style={{ textAlign: 'center' }}>Số Tiền</p>
+        </div>
+        <div className="title-content">
+          <p style={{ textAlign: 'center' }}>Thao Tác</p>
+        </div>
       </div>
     );
   }
@@ -228,32 +257,44 @@ function Pay() {
       </div>
     );
   }
-  function renderTitleTable() {
-    return (
-      <div className="tile-content-container Hide-on-mobile">
-        <div className="title-content">
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <label className="shopping_cart-checkBox">
-              <input type="checkbox" />
-              <span className="checkmark"></span>
-            </label>
-            <p>Sản Phẩm</p>
-          </div>
-        </div>
-        <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Đơn Giá</p>
-        </div>
-        <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Số Lượng</p>
-        </div>
-        <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Số Tiền</p>
-        </div>
-        <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Thao Tác</p>
-        </div>
-      </div>
-    );
-  }
 }
 export default Pay;
+function BottonAmount(props) {
+  const { amount, index } = props;
+  const dispatch = useDispatch();
+  const [newAmout, setNewAmount] = useState(amount);
+  const handleReduced = () => {
+    if (newAmout > 1) {
+      setNewAmount(newAmout - 1);
+    }
+    if (newAmout < 1) {
+      setNewAmount(1);
+    }
+    dispatch(
+      updateAmount({
+        index: index,
+        newAmount: newAmout,
+      })
+    );
+  };
+  const handleIncrease = () => {
+    setNewAmount(newAmout + 1);
+    dispatch(
+      updateAmount({
+        indexAmount: index,
+        newAmount: newAmout,
+      })
+    );
+  };
+  return (
+    <div>
+      <button onClick={handleReduced}>
+        <i className="fa-solid fa-minus"></i>
+      </button>
+      <button>{newAmout}</button>
+      <button onClick={handleIncrease}>
+        <i className="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  );
+}
