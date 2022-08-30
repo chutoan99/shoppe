@@ -38,9 +38,6 @@ footer {
   color: #939393;
   text-align: center;
 }
-.padd {
-  padding-top: 50px;
-}
 
 .Footer_content-heading {
   font-size: 0.875rem;
@@ -76,15 +73,11 @@ footer {
   align-items: center;
   padding-left: 10px;
 }
-.hidden {
-  display: none;
-}
 .show {
   display: block;
 }
 .boder-b {
   border-bottom: 1px solid #ccc;
-  padding-bottom: 50px;
 }
 .Footer_list li a {
   text-align: left;

@@ -4,7 +4,12 @@ function productImgPc(props) {
   return (
     <>
       <div className="product_cart-img Hide-on-mobile">
-        <img src={`${'https://cf.shopee.vn/file/'}${item.image}`} alt="" onClick={handleShowImg} />
+        <img
+          className="product_cart-img-re"
+          src={`${'https://cf.shopee.vn/file/'}${item.image}`}
+          alt=""
+          onClick={handleShowImg}
+        />
         {/* thẻ img dùng cho animation */}
         <img
           className={animationAddCart}

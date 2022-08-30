@@ -30,14 +30,14 @@ function Categories() {
     <>
       <Header></Header>
       <div className="App">
-        <div className="App__Container py-4">
+        <div className="App__Container py-[24px]">
           <div className="grid wide">
             <div className="row sm-gutter">
               <div className="col l-2 col-sm-3 c-3 Hide-on-mobile">
                 <SearchCategory />
               </div>
               <div className="col l-10">
-                <div className="padding-search"></div>
+                <div className="padding-search mob:pt-[50px] mob:hidden block"></div>
                 {renderHeaderSortBars()}
                 <HomeProduct
                   items={items}

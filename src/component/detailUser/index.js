@@ -3,7 +3,7 @@ let userImg = require('../../Img/User.jpg');
 function DetailUser() {
   return (
     <div className="detail-user">
-      <div style={{ display: 'flex' }}>
+      <div className="flex">
         <div className="detail-user-img">
           <img src={userImg} alt="userImg"></img>
         </div>

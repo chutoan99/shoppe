@@ -489,21 +489,12 @@ table .table_body-heading {
   font-size: 0.75rem;
   color: rgba(0, 0, 0, 0.54);
 }
-.hiden {
-  display: none;
-}
 .pay-container {
   display: flex;
   padding-left: 10px;
   padding-right: 10px;
   justify-content: space-between;
   align-items: center;
-}
-.mt-10 {
-  margin-top: 120px;
-}
-.min-h {
-  min-height: 380px;
 }
 .fixed {
   position: fixed;

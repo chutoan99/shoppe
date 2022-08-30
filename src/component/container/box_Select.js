@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux';
 import { UpdateOptions } from '../../redux/action';
 export default function BoxSelect(props) {
   const { item, index } = props;
-  const [boxSelect, setBoxSelect] = useState('box-select hiden');
+  const [boxSelect, setBoxSelect] = useState('box-select hidden');
   const handleShowBoxSelect = (index) => {
     setBoxSelect('box-select');
   };
   const handleCloseBoxSelect = () => {
-    setBoxSelect('box-select hiden');
+    setBoxSelect('box-select hidden');
   };
   return (
     <div

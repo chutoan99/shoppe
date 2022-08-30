@@ -19,7 +19,7 @@ function Profile() {
         <div className="row py">
           <div className="col-lg-3">
             <div className="detail-user">
-              <div style={{ display: 'flex' }}>
+              <div className="flex">
                 <div className="detail-user-img">
                   <img src={userImg} alt="userImg"></img>
                 </div>

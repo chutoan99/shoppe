@@ -3,9 +3,9 @@ function ProductShop(props) {
   const { item } = props;
   const navigate = useNavigate();
   return (
-    <div className="App__Container py-3">
+    <div className="App__Container py-[16px]">
       <div className="grid wide">
-        <div className="sm-gutter shop-content back center">
+        <div className="sm-gutter shop-content pb-[30px] bg-[white] p-[25px]">
           <div onClick={() => navigate(`/shop/${item.shopid}`)}>
             <div className="product_band">
               <img

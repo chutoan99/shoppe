@@ -27,7 +27,7 @@ function HeaderNavbar() {
       <ul className="Heder__navbar--list">
         {renderNotify()}
         {renderHelp()}
-        {!userLogin ? <>{renderUserLogin()}</> : <>{renderLogin()}</>}
+        {userLogin ? <>{renderUserLogin()}</> : <>{renderLogin()}</>}
       </ul>
     </nav>
   );

@@ -58,13 +58,13 @@ function Shop() {
         <Loading2></Loading2>
       ) : (
         <>
-          <div className="" style={{ paddingTop: '120px' }}>
+          <div className="pt-[120px] ">
             <ProductShop item={itemShop} />
           </div>
           <div className="App__Container">
             <div className="grid wide">
-              <div className="row sm-gutter pt-3">
-                <div className="col l-12 m-12 c-12">
+              <div className="row sm-gutter pt-[16px]">
+                <div className="col l-12 mo-12 c-12">
                   <HomeProduct
                     items={items}
                     start={start}

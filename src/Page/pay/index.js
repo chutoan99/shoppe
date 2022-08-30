@@ -14,7 +14,8 @@ let emptyCart = require('../../Img/empty-cart.png');
 function Pay() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { userLogin, numberCart, dataCart } = useSelector((state) => state);
+  const { dataCart, userLogin } = useSelector((state) => state);
+
   const [checked, setChecked] = useState([]);
   const onDeleteCartItem = (index) => {
     dispatch(deleteCart(index));
@@ -41,13 +42,17 @@ function Pay() {
     var addBuyCarts = [];
     checked.forEach((e) => addBuyCarts.push(dataCart[e]));
     dispatch(addBuyCart(addBuyCarts));
-    if (addBuyCart.length > 0) {
+    if (userLogin === false) {
+      navigate('/login');
+    }
+    if (addBuyCart.length > 0 && userLogin) {
       navigate('/oder');
     }
   };
+  const numberCart = dataCart.length;
   return (
     <>
-      {numberCart === 0 ? (
+      {numberCart === 0 || dataCart === undefined ? (
         <>
           {renderHeader()}
           {renderEmptyCart()}
@@ -55,8 +60,8 @@ function Pay() {
       ) : (
         <>
           {renderHeader()}
-          <div className="App__Container mt-10 min-h">
-            <div className="grid wide pt-3">
+          <div className="App__Container mob:mt-[120px] min-h-[380px]">
+            <div className="grid wide pt-[16px]">
               <div className="sm-gutter">
                 <div className="grid backR">
                   {renderTitleTable()}
@@ -174,25 +179,25 @@ function Pay() {
     return (
       <div className="tile-content-container Hide-on-mobile">
         <div className="title-content">
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <label className="shopping_cart-checkBox">
+          <div className="flex items-center">
+            {/* <label className="shopping_cart-checkBox">
               <input type="checkbox" />
               <span className="checkmark"></span>
-            </label>
-            <p>Sản Phẩm</p>
+            </label> */}
+            <p className="pl-[30px]">Sản Phẩm</p>
           </div>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Đơn Giá</p>
+          <p className="text-center">Đơn Giá</p>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Số Lượng</p>
+          <p className="text-center">Số Lượng</p>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Số Tiền</p>
+          <p className="text-center">Số Tiền</p>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Thao Tác</p>
+          <p className="text-center">Thao Tác</p>
         </div>
       </div>
     );
@@ -260,39 +265,16 @@ function Pay() {
 }
 export default Pay;
 function BottonAmount(props) {
-  const { amount, index } = props;
-  const dispatch = useDispatch();
+  const { amount } = props;
   const [newAmout, setNewAmount] = useState(amount);
-  const handleReduced = () => {
-    if (newAmout > 1) {
-      setNewAmount(newAmout - 1);
-    }
-    if (newAmout < 1) {
-      setNewAmount(1);
-    }
-    dispatch(
-      updateAmount({
-        index: index,
-        newAmount: newAmout,
-      })
-    );
-  };
-  const handleIncrease = () => {
-    setNewAmount(newAmout + 1);
-    dispatch(
-      updateAmount({
-        indexAmount: index,
-        newAmount: newAmout,
-      })
-    );
-  };
+
   return (
     <div>
-      <button onClick={handleReduced}>
+      <button className="cursor-no-drop" disabled>
         <i className="fa-solid fa-minus"></i>
       </button>
-      <button>{newAmout}</button>
-      <button onClick={handleIncrease}>
+      <button disabled>{newAmout}</button>
+      <button className="cursor-no-drop" disabled>
         <i className="fa-solid fa-plus"></i>
       </button>
     </div>

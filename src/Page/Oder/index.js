@@ -21,22 +21,30 @@ function Oder() {
   };
   const handelSubmit = () => {
     setLoading(true);
+    console.log(BuyCart);
     setTimeout(() => {
       const lenghtCart = BuyCart[0].length;
-      dispatch(addStatusOrder(BuyCart));
+
+      dispatch(addStatusOrder(BuyCart[0][0]));
       dispatch(deleteBuyCart(lenghtCart));
       navigate('/');
       setLoading(false);
     }, 2000);
   };
+  const totalShip = priceShip * BuyCart[0].length;
+  var totals = [];
+  BuyCart[0].forEach((e) => totals.push(e.price));
+  var total = 0;
+  if (totals.length > 0) {
+    for (let i = 0; i < totals.length; i++) {
+      total += totals[i];
+    }
+  }
   return (
     <>
       {loading ? <Loading2 /> : null}
-      <div>
-        <HeaderNavbar></HeaderNavbar>
-        {renderHeader()}
-      </div>
-      <div style={{ padding: '1.25rem', backgroundColor: '#f5f5f5' }}>
+      <div>{renderHeader()}</div>
+      <div className="p-[1.25rem]" style={{ backgroundColor: '#f5f5f5' }}>
         <div className="order-border"></div>
         {renderInforUser()}
         {renderTitleContent()}
@@ -48,7 +56,6 @@ function Oder() {
       <Footer></Footer>
     </>
   );
-
   function renderCart() {
     return (
       <>
@@ -71,18 +78,18 @@ function Oder() {
                   </div>
                   <div className="shopping_cart-img-title-order">
                     <div className="title-order-content">{item.name}</div>
-                    <div style={{ display: 'flex' }}>
+                    <div className="flex">
                       {item.tier_variations.map((tier_variation) => (
                         <div className="shopping_cart-tier_variation">
-                          {tier_variation.name}: <span>{item.newOption}</span>
+                          {tier_variation.name} <span>{item.newOption}</span>
                         </div>
                       ))}
                     </div>
-                    <div className="shopping_cart-0ld-price" style={{ padding: '0 5px' }}>
+                    <div className="shopping_cart-0ld-price px-[5px]">
                       <h2>đ {(item.price_max / 100000).toLocaleString('it-IT')}</h2>
                     </div>
-                    <div style={{ textAlign: 'center', padding: '0 5px' }}>x{item.amount}</div>
-                    <div className="shopping_cart-new-price" style={{ padding: '0 5px' }}>
+                    <div className="px-[5px] text-center">x{item.amount}</div>
+                    <div className="shopping_cart-new-price px-[5px]">
                       đ {(item.price / 100000).toLocaleString('it-IT')}
                     </div>
                   </div>
@@ -130,14 +137,14 @@ function Oder() {
               <h3>Tổng thanh toán:</h3>
             </div>
             <div className="order-pay-content">
-              <h3>₫886.252</h3>
-              <h3>đ{(priceShip / 100000).toLocaleString('it-IT')}</h3>
-              <h1>₫936.452</h1>
+              <h3>đ {(total / 100000).toLocaleString('it-IT')}</h3>
+              <h3>đ{(totalShip / 100000).toLocaleString('it-IT')}</h3>
+              <h1>₫{((total + totalShip) / 100000).toLocaleString('it-IT')}</h1>
             </div>
           </div>
           <div class="order-pay-footer">
             <div class="order-pay-footer-des">
-              Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo{' '}
+              Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo
               <a href="https://shopee.vn/legaldoc/policies/">Điều khoản Shopee</a>
             </div>
             <button onClick={handelSubmit}>Đặt hàng</button>
@@ -150,7 +157,7 @@ function Oder() {
     return (
       <header>
         <div className="header_login">
-          <div className="header_login-logo">
+          <div className="header_login-logo mob:pt-[10px]">
             <img src={Logo2} alt="logo" onClick={handleGotoHome} />
             <span style={{ color: '#ee4d2d' }}>Thanh Toán</span>
           </div>
@@ -179,23 +186,22 @@ function Oder() {
     return (
       <div className="tile-content-container-oder Hide-on-mobile">
         <div className="title-content">
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="text-center items-center">
             <p>Sản Phẩm</p>
           </div>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Đơn Giá</p>
+          <p className="text-center">Đơn Giá</p>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Số Lượng</p>
+          <p className="text-center">Số Lượng</p>
         </div>
         <div className="title-content">
-          <p style={{ textAlign: 'center' }}>Thành Tiền</p>
+          <p className="text-center">Thành Tiền</p>
         </div>
       </div>
     );
   }
-
   function renderVouchers() {
     return (
       <div className="order-shopee-xu">

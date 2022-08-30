@@ -73,7 +73,7 @@ function RegisterForm() {
       <div className="grid wide">
         <header>
           <div className="header_login">
-            <div className="header_login-logo">
+            <div className="header_login-logo mob:pt-[10px]">
               <img src={Logo2} alt="logo" onClick={() => navigate('/')} />
               <span>Đăng Ký</span>
             </div>

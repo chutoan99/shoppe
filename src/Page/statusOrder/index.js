@@ -21,9 +21,9 @@ function StatusOrder() {
   return (
     <div>
       <Header />
-      <div style={{ paddingTop: '120px' }}></div>
+      <div className="pt-[120px]"></div>
       <div style={{ backgroundColor: '#f5f5f5' }}>
-        <div className="container-fuil" style={{ padding: '20px 20px 20px 20px ' }}>
+        <div className="container-fuil p-[20px]">
           <div className="row">
             <div className="col-lg-2">
               <DetailUser />
@@ -56,7 +56,7 @@ function StatusOrder() {
                     renderEmptyorder()
                   ) : (
                     <>
-                      {statusOrder[0][0].map((item, index) => (
+                      {statusOrder.map((item, index) => (
                         <div className="table-body-list" key={index}>
                           <div>
                             <div className="backR1">
@@ -78,26 +78,18 @@ function StatusOrder() {
                                 </div>
                                 <div className="shopping_cart-img-title-order">
                                   <div className="title-order-content">{item.name}</div>
-                                  <div style={{ display: 'flex' }}>
+                                  <div className="flex">
                                     {item.tier_variations.map((tier_variation) => (
                                       <div className="shopping_cart-tier_variation">
                                         {tier_variation.name}: <span>{item.newOption}</span>
                                       </div>
                                     ))}
                                   </div>
-                                  <div
-                                    className="shopping_cart-0ld-price"
-                                    style={{ padding: '0 5px' }}
-                                  >
+                                  <div className="shopping_cart-0ld-price px-[5px]">
                                     <h2>đ {(item.price_max / 100000).toLocaleString('it-IT')}</h2>
                                   </div>
-                                  <div style={{ textAlign: 'center', padding: '0 5px' }}>
-                                    x{item.amount}
-                                  </div>
-                                  <div
-                                    className="shopping_cart-new-price"
-                                    style={{ padding: '0 5px' }}
-                                  >
+                                  <div className="px-[5px] text-center">x{item.amount}</div>
+                                  <div className="shopping_cart-new-price px-[5px]">
                                     đ {(item.price / 100000).toLocaleString('it-IT')}
                                   </div>
                                 </div>

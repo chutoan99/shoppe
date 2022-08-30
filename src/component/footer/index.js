@@ -29,8 +29,8 @@ function Footer() {
     <footer className="footer">
       <div className="grid wide footer__content">
         <div className="grid wide">
-          <div className="row boder-b">
-            <div className="l-12 m-12 m-12 c-12">
+          <div className="row boder-b pb-[50px]">
+            <div className="l-12 mo-12 mo-12 c-12">
               <h2 className="Footer_content-heading">SHOPEE - GÌ CŨNG CÓ, MUA HẾT Ở SHOPEE</h2>
               <p className="Footer_des">
                 Shopee - ứng dụng mua sắm trực tuyến thú vị, tin cậy, an toàn và miễn phí! Shopee là
@@ -146,7 +146,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="row padd">
+        <div className="row pt-[50px]">
           <div className="col l-2-4 mo-3 c-6">
             <h3 className="Footer_heading">CHĂM SÓC KHÁCH HÀNG</h3>
             <ul className="Footer_list">
@@ -284,9 +284,7 @@ function Footer() {
               </div>
             </div>
             <div>
-              <h3 className="Footer_heading" style={{ padding: '15px 0' }}>
-                ĐƠN VỊ VẬN CHUYỂN
-              </h3>
+              <h3 className="Footer_heading py-[15px]">ĐƠN VỊ VẬN CHUYỂN</h3>
               <div className="footer-sale-ship">
                 <img src={Ship1} className="footer-item-sale-ship" alt="ship" />
                 <img src={Ship2} className="footer-item-sale-ship" alt="ship" />

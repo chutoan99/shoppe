@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductContent from './product_content';
 import { useDispatch } from 'react-redux/es/exports.js';
-import { addCart } from '../../redux/action';
+import { addCart, addNumberCart } from '../../redux/action';
 import HomeProduct from './home_Product';
 function ProductItems() {
   const params = useParams();
@@ -87,6 +87,7 @@ function ProductItems() {
       newOption: NewOption,
     };
     dispatch(addCart(cart));
+    dispatch(addNumberCart());
     setAnimationAddCart('cartAnimation product_cart-img-animation');
     setTimeout(() => {
       setAnimationAddCart('cartAnimation');
@@ -193,10 +194,10 @@ function ProductItems() {
         <>
           {toastMess ? <ToasMess /> : null}
           <>
-            <div style={{ marginTop: '120px' }} className="Hide-on-mobile"></div>
-            <div className="App__Container App__Container_padding-Button paddingT">
+            <div className=" Hide-on-mobile mt-[120px]"></div>
+            <div className="App__Container App__Container_padding-Button mob:pt-[20px]">
               <div className="grid wide">
-                <div className="row sm-gutter back">
+                <div className="row sm-gutter pb-[30px] bg-[white]">
                   <div className="col c-12 mo-5 l-5">
                     <ProductImg
                       handleShowImg={handleShowImg}
@@ -204,7 +205,7 @@ function ProductItems() {
                       item={item}
                     />
                   </div>
-                  <div className="col c-12  m-7 l-7 ">
+                  <div className="col c-12  mo-7 l-7 ">
                     <ProductContent
                       item={item}
                       amount={amount}
@@ -234,7 +235,7 @@ function ProductItems() {
                   </div>
                 </div>
                 <div className="image-slices">
-                  <div className="l-12 m-12 c-12">
+                  <div className="l-12 mo-12 c-12">
                     <div className="image-slices-icon" onClick={hiddenImg}>
                       <i className="fa-regular fa-circle-xmark"></i>
                     </div>
@@ -255,12 +256,12 @@ function ProductItems() {
               </div>
             </div>
           ) : null}
-          <div className="App__Container py-1">
+          <div className="App__Container py-[12px]">
             <div className="grid wide">
               <div className="row">
                 <div className="col-lg-10">
                   <ProductDes item={item} />
-                  <div className="App__Container py-1">
+                  <div className="App__Container py-[12px]">
                     <div className="grid wide">
                       <div className="row">
                         <div className="col-lg-12">
@@ -270,7 +271,7 @@ function ProductItems() {
                     </div>
                   </div>
 
-                  <div className="App__Container py-3">
+                  <div className="App__Container py-[16px]">
                     <div className="grid wide">
                       <div className="row">
                         <HomeProduct

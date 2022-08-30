@@ -613,7 +613,7 @@
     .order-shopee-xu-heading,
     .order-shopee-xu-footer,
     .checkout-payment-setting {
-      padding: 10pxs 16px !important;
+      padding: 10px 16px !important;
     }
     .order-pay .order-pay-inner {
       padding: 0 16px 0 0;
@@ -655,9 +655,6 @@
     }
     .header_login-logo-helps {
       text-align: start;
-    }
-    .header_login-logo {
-      padding-top: unset !important;
     }
   }
 }

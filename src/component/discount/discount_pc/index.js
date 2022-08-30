@@ -2,7 +2,7 @@ import './discount_pc.css';
 import discountsPC from '../../../redux/dataDiscountPc';
 function DiscountPc() {
   return (
-    <div className="col l-12 m-12 c-12 Hide-on-mobile">
+    <div className="col l-12 mo-12 c-12 Hide-on-mobile">
       <div className="discounts-main">
         <div className="discounts-list">
           {discountsPC.map((discount, index) => (

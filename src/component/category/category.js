@@ -4,7 +4,7 @@ import './category.css';
 function Category() {
   const navigate = useNavigate();
   return (
-    <div className="col l-12 m-12 c-12">
+    <div className="col l-12 mo-12 c-12">
       <div className="category-main">
         <div className="category-inner">
           <div className="category-header">DANH MỤC</div>

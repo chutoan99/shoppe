@@ -14,7 +14,7 @@ function ProductContent(props) {
   } = props;
   const navigate = useNavigate();
   return (
-    <div className="padding">
+    <div className="p-[10px] mob:pt-[20px] mob:pr-[35px] mob:pl-[20px]">
       {renderItemHeading(item)}
       {renderPrice(item)}
       <div className="container-fluid container-detail">
@@ -30,7 +30,7 @@ function ProductContent(props) {
   function renderItemHeading(item) {
     return (
       <>
-        <div className="product-items-heding">
+        <div className="product-items-heding ">
           <h2>
             <span>Yêu Thích</span>
             {item.name}
@@ -97,7 +97,7 @@ function ProductContent(props) {
               <>
                 {variations.name === ' ' ? null : (
                   <>
-                    <div className="product_cart-variation mt">
+                    <div className="product_cart-variation mt-[5px]">
                       <h3>{variations.name}</h3>
                     </div>
                     <div className="product_cart-option">
@@ -166,7 +166,7 @@ function ProductContent(props) {
   function renderBtnBuy() {
     return (
       <div className="product_cart">
-        <button className="product_cart-button" onClick={handleAddToCart}>
+        <button className="product_cart-button">
           <i className="fa-solid fa-cart-plus cart-plus-animation"></i>Chat ngay
         </button>
         <button className="product_cart-button" onClick={handleAddToCart}>

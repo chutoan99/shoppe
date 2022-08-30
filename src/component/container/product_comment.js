@@ -137,7 +137,7 @@ export function CommentImg(props) {
   };
   return (
     <>
-      <div style={{ width: '100%' }}>
+      <div className="w-full">
         <div className="comment-rating">
           {item.images === null ? null : (
             <>

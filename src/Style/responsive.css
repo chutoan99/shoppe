@@ -220,9 +220,6 @@
     .app-content {
       padding-top: 70px !important;
     }
-    .padding {
-      padding: 10px !important;
-    }
     .product_rating {
       margin-top: unset !important;
       margin-bottom: unset !important;
@@ -239,9 +236,7 @@
     .table_body-shop-name {
       padding-left: 5px;
     }
-    .backR2 {
-      padding-left: 5px;
-    }
+
     .shop-content {
       grid-template-columns: 22vw 1fr !important;
       grid-template-areas:
@@ -375,9 +370,6 @@
   .product_cart-option {
     grid-template-columns: 1fr 1fr 1fr !important;
   }
-  .paddingT {
-    padding-top: unset !important;
-  }
   .Header__search {
     margin-top: unset !important;
   }
@@ -406,10 +398,6 @@
   .product_cart-button2 {
     flex: 1;
     border: none;
-  }
-
-  .padding-search {
-    display: block;
   }
   .Header-with-search {
     background-image: unset !important;

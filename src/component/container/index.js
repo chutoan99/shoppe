@@ -49,7 +49,7 @@ function Container() {
   }, []);
   // const random = items.sort(() => Math.random() - 0.5);
   return (
-    <div className="App__Container marginT">
+    <div className="App__Container">
       <div className="grid wide">
         <CarouselMobile />
         <div className="row sm-gutter">
@@ -57,7 +57,7 @@ function Container() {
           <DiscountPc></DiscountPc>
           <DiscountMobile></DiscountMobile>
           <Category />
-          <div className="col l-12 m-12 c-12">
+          <div className="col l-12 mo-12 c-12">
             <HomeFilter></HomeFilter>
             <HomeProduct start={start} end={end} items={items} col={'col l-2 mo-4 c-6'} />
             <Pagination

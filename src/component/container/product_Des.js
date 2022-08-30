@@ -8,7 +8,7 @@ function ProductDes(props) {
         <div className="productDes_container">
           <div className="productDes-title">
             <label>Danh Mục</label>
-            <div style={{ flexWrap: 'wrap', display: 'flex' }}>
+            <div className="flex flex-wrap">
               {item.categories.map((element, index) => (
                 <div className="productDes-title-detail" key={index}>
                   <span>

@@ -3,7 +3,7 @@ import './discount_mobile.css';
 let sale = require('../../../Img/sale.jpg');
 function DiscountMobile() {
   return (
-    <div className="col l-12 m-12 c-12 show-on-mobile display-none">
+    <div className="col l-12 mo-12 c-12 show-on-mobile display-none">
       <div className="discounts_main-mobile">
         <div className="discounts_list-mobile">
           {discountsMobile.map((discount, index) => (

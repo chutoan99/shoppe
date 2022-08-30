@@ -63,7 +63,7 @@ function Search() {
         <Loading2 />
       ) : (
         <div className="App">
-          <div className="App__Container py-4">
+          <div className="App__Container py-[24px]">
             <div className="grid wide">
               {inputSearch ? <SearchEmpty></SearchEmpty> : null}
               <div className="row sm-gutter">
@@ -71,7 +71,7 @@ function Search() {
                   <SearchCategory />
                 </div>
                 <div className="col l-10">
-                  <div className="padding-search"></div>
+                  <div className="mob:pt-[50px] mob:hidden block"></div>
                   {renderHeaderSortBars()}
                   <HomeProduct
                     items={items}

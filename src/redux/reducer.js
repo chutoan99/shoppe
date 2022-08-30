@@ -1,65 +1,5 @@
-const dataCartLists = [
-  {
-    itemid: 17765176559,
-    name: '01Giày air force 1 af1 chính hãng cho nam nữ, af1 all white bao check fullbox,The Bang Sneaker',
-    image: 'd0891276e39ae7986b4318103519e8e9',
-    currency: 'VND',
-    stock: 326,
-    status: 1,
-    sold: 106,
-    historical_sold: 123,
-    liked: null,
-    liked_count: 442,
-    view_count: null,
-    amount: 3,
-    price: 185000000000,
-    price_min: 185000000000,
-    price_max: 210000000000,
-    price_min_before_discount: 210000000000,
-    price_max_before_discount: 299900000000,
-    price_before_discount: 210000000000,
-    has_lowest_price_guarantee: false,
-    show_discount: 30,
-    raw_discount: 30,
-    discount: '30%',
-    size_chart: '18ed720993f3db6b1b1c741f4e8560ac',
-    tier_variations: [
-      {
-        name: 'Loại Giày',
-        options: ['FULL BOX', 'NO BOX'],
-        images: null,
-        properties: [],
-        type: 0,
-      },
-      {
-        name: 'Size',
-        options: [
-          '36',
-          '36.5',
-          '37.5',
-          '38',
-          '38.5',
-          '39',
-          '40',
-          '40.5',
-          '41',
-          '42',
-          '42.5',
-          '43',
-          '44',
-          '44.5',
-          '45',
-        ],
-      },
-    ],
-    shop_name: 'Giaychinhhanggiare',
-    newOption: '36',
-  },
-];
-localStorage.setItem('dataCart', JSON.stringify(dataCartLists));
-const getNewDataCart = JSON.parse(localStorage.getItem('dataCart'));
+const dataCartLists = [];
 export const initState = {
-  userLogin: false,
   users: {
     id: 1,
     name: 'Chu Toàn',
@@ -74,13 +14,13 @@ export const initState = {
   currentPage: 1,
   start: 0,
   end: 48,
-  dataCart: getNewDataCart,
-  numberCart: getNewDataCart.length,
+  dataCart: dataCartLists,
+  numberCart: dataCartLists.length,
   BuyCart: [],
   statusOrder: [],
+  userLogin: false,
 };
 const rootReducer = (state = initState, action) => {
-  console.log(action);
   switch (action.type) {
     case 'addCart':
       return {
@@ -155,10 +95,12 @@ const rootReducer = (state = initState, action) => {
       };
     case 'userLogin':
       return {
+        ...state,
         userLogin: true,
       };
     case 'logOut':
       return {
+        ...state,
         userLogin: false,
       };
     case 'ChangePerPage':
@@ -171,16 +113,23 @@ const rootReducer = (state = initState, action) => {
       };
     case 'ChangeStart':
       return {
+        ...state,
         start: action.payload,
       };
     case 'ChangeEnd':
       return {
+        ...state,
         perPage: action.payload,
       };
     case 'addStatusOrder':
       return {
         ...state,
         statusOrder: [...state.statusOrder, action.payload],
+      };
+    case 'addNumberCart':
+      return {
+        ...state,
+        numberCart: state.numberCart + 1,
       };
     default:
       return state;

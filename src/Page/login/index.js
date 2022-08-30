@@ -54,11 +54,11 @@ function LoginForm() {
             navigate('/');
           }, 3000);
           dispatch(LoadingFalse());
+          dispatch(userLogin());
         }
       })
       .finally(function () {
         localStorage.setItem('users', emailLogin);
-        dispatch(userLogin());
       })
       .catch(function (error) {
         console.log(error);
@@ -70,7 +70,7 @@ function LoginForm() {
       <div className="grid wide">
         <header>
           <div className="header_login">
-            <div className="header_login-logo">
+            <div className="header_login-logo mob:pt-[10px]">
               <img src={Logo2} alt="logo" onClick={() => navigate('/')} />
               <span>Đăng Nhập</span>
             </div>

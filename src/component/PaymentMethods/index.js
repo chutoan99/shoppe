@@ -51,8 +51,8 @@ function PaymentMethods() {
           </div>
           <div>
             <div
-              class="bank-transfer-category"
-              style={{ borderTop: '0.0625rem dashed rgba(0, 0, 0, 0.09)', marginTop: '20px' }}
+              class="bank-transfer-category mt-[20px]"
+              style={{ borderTop: '0.0625rem dashed rgba(0, 0, 0, 0.09)' }}
             >
               <div class="bank-transfer-category__body">
                 <div class="checkout-bank-transfer-item checkout-bank-transfer-item--disabled">
