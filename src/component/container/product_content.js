@@ -165,8 +165,8 @@ function ProductContent(props) {
   }
   function renderBtnBuy() {
     return (
-      <div className="product_cart">
-        <button className="product_cart-button">
+      <div className="product_cart ">
+        <button className="product_cart-button mob:hidden">
           <i className="fa-solid fa-cart-plus cart-plus-animation"></i>Chat ngay
         </button>
         <button className="product_cart-button" onClick={handleAddToCart}>
