@@ -18,7 +18,7 @@ function Shop() {
   const ApiShop = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/dataShop/${params.id}`;
+      const url = `https://servershopee.herokuapp.com/dataShop/${params.id}`;
       const { data } = await axios({
         url: url,
         method: 'get',
@@ -36,7 +36,7 @@ function Shop() {
     const axios = require('axios');
     const config = {
       method: 'get',
-      url: `http://localhost:3000/data/shop/${params.id}`,
+      url: `https://servershopee.herokuapp.com/data/shop/${params.id}`,
       headers: {},
     };
     axios(config)
@@ -50,7 +50,6 @@ function Shop() {
   useEffect(() => {
     ApiShop();
   }, [params.id]);
-  console.log(items);
   return (
     <>
       <Header />

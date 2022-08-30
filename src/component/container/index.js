@@ -34,7 +34,7 @@ function Container() {
     const axios = require('axios');
     const config = {
       method: 'get',
-      url: 'http://localhost:3000/datas',
+      url: 'https://servershopee.herokuapp.com/datas',
       headers: {},
     };
     axios(config)

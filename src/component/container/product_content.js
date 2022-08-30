@@ -93,7 +93,7 @@ function ProductContent(props) {
       <>
         {item.tier_variations[0].name === '' ? null : (
           <>
-            {item.tier_variations.map((variations) => (
+            {item.tier_variations.map((variations, index) => (
               <>
                 {variations.name === ' ' ? null : (
                   <>
@@ -101,8 +101,8 @@ function ProductContent(props) {
                       <h3>{variations.name}</h3>
                     </div>
                     <div className="product_cart-option">
-                      {variations.options.map((option) => (
-                        <div className="product_cart-variation">
+                      {variations.options.map((option, index) => (
+                        <div className="product_cart-variation" key={index}>
                           <Option option={option} setNewOption={setNewOption}></Option>
                         </div>
                       ))}

@@ -46,7 +46,7 @@ function RegisterForm() {
       });
       const config = {
         method: 'post',
-        url: 'http://localhost:3000/users',
+        url: 'https://servershopee.herokuapp.com/users',
         headers: {
           'Content-Type': 'application/json',
         },

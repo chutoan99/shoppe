@@ -40,7 +40,7 @@ function LoginForm() {
     });
     var config = {
       method: 'post',
-      url: 'http://localhost:3000/users/login',
+      url: 'https://servershopee.herokuapp.com/users/login',
       headers: {
         'Content-Type': 'application/json',
       },

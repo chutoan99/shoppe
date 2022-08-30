@@ -97,7 +97,7 @@ function ProductItems() {
   const callApi = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/data/item/${params.idItem}`;
+      const url = `https://servershopee.herokuapp.com/data/item/${params.idItem}`;
       const { data } = await axios({
         url: url,
         method: 'get',
@@ -114,7 +114,7 @@ function ProductItems() {
   const ApiProductSuggest = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/data/category/${params.name}`;
+      const url = `https://servershopee.herokuapp.com/data/category/${params.name}`;
       const { data } = await axios({
         url: url,
         method: 'get',
@@ -131,7 +131,7 @@ function ProductItems() {
   const ApiProductSuggestList = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/datas`;
+      const url = `https://servershopee.herokuapp.com/datas`;
       const { data } = await axios({
         url: url,
         method: 'get',
@@ -148,7 +148,7 @@ function ProductItems() {
   const ApiShop = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/dataShop/${params.shopId}`;
+      const url = `https://servershopee.herokuapp.com/dataShop/${params.shopId}`;
       const { data } = await axios({
         url: url,
         method: 'get',
@@ -165,7 +165,7 @@ function ProductItems() {
   const ApiComment = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/data/comment/${params.idItem}`;
+      const url = `https://servershopee.herokuapp.com/data/comment/${params.idItem}`;
       const { data } = await axios({
         url: url,
         method: 'get',
@@ -245,6 +245,7 @@ function ProductItems() {
                     <div className="image-slices-items">
                       {item.images.map((image, index) => (
                         <img
+                          key={index}
                           src={`${'https://cf.shopee.vn/file/'}${image}`}
                           alt=""
                           onClick={() => handleChangeImg(index)}

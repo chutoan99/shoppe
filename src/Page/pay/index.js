@@ -67,7 +67,7 @@ function Pay() {
                   {renderTitleTable()}
                   <div>
                     {dataCart.map((item, index) => (
-                      <div className="table-body-list">
+                      <div className="table-body-list" key={index}>
                         <div>
                           {renderShopName(item)}
                           {renderItemList(item, index)}

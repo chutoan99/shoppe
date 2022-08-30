@@ -15,7 +15,7 @@ function Categories() {
     var axios = require('axios');
     var config = {
       method: 'get',
-      url: `http://localhost:3000/data/category/${params.categories_name}`,
+      url: `https://servershopee.herokuapp.com/data/category/${params.categories_name}`,
       headers: {},
     };
     axios(config)

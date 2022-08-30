@@ -41,8 +41,8 @@ function ProductComment(props) {
         <>
           {items.length === 0 ? null : (
             <>
-              {items.map((item) => (
-                <div className="product-comment-content">
+              {items.map((item, index) => (
+                <div className="product-comment-content" key={index}>
                   <div className="product-comment-avatar">
                     <img
                       src={`${'https://cf.shopee.vn/file/'}${item.author_portrait}`}

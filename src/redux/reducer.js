@@ -46,7 +46,6 @@ const rootReducer = (state = initState, action) => {
       const { indexAmount, newAmount } = action.payload;
       let currentDataAmont = [...state.dataCart];
       currentDataAmont[indexAmount].amount = newAmount;
-      console.log(state.dataCart[indexAmount]);
       return {
         ...state,
         dataCart: currentDataAmont,

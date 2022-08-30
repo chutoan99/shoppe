@@ -39,7 +39,7 @@ function Search() {
   const ApiSuggestLit = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:3000/datas`;
+      const url = `https://servershopee.herokuapp.com/datas`;
       const { data } = await axios({
         url: url,
         method: 'get',

@@ -79,8 +79,8 @@ function StatusOrder() {
                                 <div className="shopping_cart-img-title-order">
                                   <div className="title-order-content">{item.name}</div>
                                   <div className="flex">
-                                    {item.tier_variations.map((tier_variation) => (
-                                      <div className="shopping_cart-tier_variation">
+                                    {item.tier_variations.map((tier_variation, index) => (
+                                      <div className="shopping_cart-tier_variation" key={index}>
                                         {tier_variation.name}: <span>{item.newOption}</span>
                                       </div>
                                     ))}

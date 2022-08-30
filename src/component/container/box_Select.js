@@ -30,8 +30,8 @@ export default function BoxSelect(props) {
                   </div>
                 </div>
                 <div className="l-9 product_cart-content-variation-item">
-                  {variations.options.map((option) => (
-                    <div className="product_cart-content-variation">
+                  {variations.options.map((option, index) => (
+                    <div className="product_cart-content-variation" key={index}>
                       <Option option={option} item={item} index={index} />
                     </div>
                   ))}
