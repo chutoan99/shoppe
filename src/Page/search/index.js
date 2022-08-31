@@ -20,11 +20,12 @@ function Search() {
     var axios = require('axios');
     var config = {
       method: 'get',
-      url: `http://localhost:3000/data/search?search=${params.search}`,
+      url: `https://servershopee.herokuapp.com/data/search?search=${params.search}`,
       headers: {},
     };
     axios(config)
       .then(function (response) {
+        console.log(response);
         if (response.status === 200) {
           setItems(response.data);
         }

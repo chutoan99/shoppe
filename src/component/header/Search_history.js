@@ -1,23 +1,15 @@
-function SearchHistory(props) {
+function SearchHistory() {
   return (
     <div className="Header__search-history">
       <h3 className="Header__search-history-heading"> Lịch sử tìm kiếm </h3>
       <ul className="Header__search-history-list">
-        <li className="Header__search-history-item">
-          <a href="# ">Kem dưỡng da</a>
-        </li>
-        <li className="Header__search-history-item">
-          <a href="# ">Kem dưỡng da</a>
-        </li>
-        <li className="Header__search-history-item">
-          <a href="# ">Kem dưỡng da</a>
-        </li>
-        <li className="Header__search-history-item">
-          <a href="# ">Kem dưỡng da</a>
-        </li>
-        <li className="Header__search-history-item">
-          <a href="# ">Kem dưỡng da</a>
-        </li>
+        {['Kem dưỡng da', 'Kem dưỡng da', 'Kem dưỡng da', 'Kem dưỡng da', 'Kem dưỡng da'].map(
+          (item, index) => (
+            <li className="Header__search-history-item" key={index}>
+              <a href="# ">{item}</a>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
