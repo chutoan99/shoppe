@@ -108,7 +108,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 3000);
     }
   };
   const ApiProductSuggest = async () => {
@@ -125,7 +125,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 3000);
     }
   };
   const ApiProductSuggestList = async () => {
@@ -142,7 +142,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 3000);
     }
   };
   const ApiShop = async () => {
@@ -159,7 +159,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 3000);
     }
   };
   const ApiComment = async () => {
@@ -176,7 +176,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 3000);
     }
   };
   useEffect(() => {

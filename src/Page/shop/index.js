@@ -29,7 +29,7 @@ function Shop() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 3000);
     }
   };
   useEffect(() => {
@@ -76,7 +76,6 @@ function Shop() {
           </div>
         </>
       )}
-
       <Footer />
     </>
   );
