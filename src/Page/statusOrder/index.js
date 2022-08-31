@@ -6,17 +6,22 @@ import DetailUser from '../../component/detailUser';
 import { useSelector } from 'react-redux';
 let emptyOrderImg = require('../../Img/empty_order.png');
 function StatusOrder() {
-  const active = 'r-S3nG';
   const { statusOrder } = useSelector((state) => state);
   const [confirm, setConfirm] = useState(false);
-  const [emptyOrder, setEmptyOrder] = useState(true);
-  const handeShowConfirm = () => {
-    setEmptyOrder(!emptyOrder);
-    setConfirm(true);
-  };
-  const handleShowEmptyOrder = () => {
-    setEmptyOrder(true);
-    setConfirm(false);
+  const [emptyOrder, setEmptyOrder] = useState(false);
+  const [status, setStatus] = useState(undefined);
+  const handelChangeStatus = (item, index) => {
+    setStatus(item);
+    if (index === 1) {
+      console.log('1', statusOrder, confirm);
+      setEmptyOrder(true);
+      setConfirm(false);
+    }
+    if (index !== 1) {
+      console.log('0', statusOrder, emptyOrder);
+      setEmptyOrder(false);
+      setConfirm(true);
+    }
   };
   return (
     <div>
@@ -30,27 +35,20 @@ function StatusOrder() {
             </div>
             <div className="col-lg-10">
               <div class="_0obGFe">
-                <span class="vAkdD0" onClick={handleShowEmptyOrder}>
-                  <span class="_0rjE9m">Tất cả</span>
-                </span>
-                <span class="vAkdD0" onClick={handeShowConfirm}>
-                  <span class="_0rjE9m">Chờ xác nhận</span>
-                </span>
-                <span class="vAkdD0" onClick={handleShowEmptyOrder}>
-                  <span class="_0rjE9m">Chờ lấy hàng</span>
-                </span>
-                <span class="vAkdD0" onClick={handleShowEmptyOrder}>
-                  <span class="_0rjE9m">Đang giao</span>
-                </span>
-                <span class="vAkdD0" onClick={handleShowEmptyOrder}>
-                  <span class="_0rjE9m">Đã Giao</span>
-                </span>
-                <span class="vAkdD0" onClick={handleShowEmptyOrder}>
-                  <span class="_0rjE9m">Đã Hủy</span>
-                </span>
+                {['Tất cả', 'Chờ xác nhận', 'Chờ lấy hàng', 'Đang giao', 'Đã Giao', 'Đã Hủy'].map(
+                  (item, index) => (
+                    <span
+                      className={`vAkdD0 ${status === item ? 'r-S3nG' : ''}`}
+                      key={index}
+                      onClick={() => handelChangeStatus(item, index)}
+                    >
+                      <span className="_0rjE9m">{item}</span>
+                    </span>
+                  )
+                )}
               </div>
-              {emptyOrder ? renderEmptyorder() : null}
-              {confirm ? (
+              {emptyOrder ? null : renderEmptyorder()}
+              {confirm ? null : (
                 <>
                   {!statusOrder.length > 0 ? (
                     renderEmptyorder()
@@ -101,7 +99,7 @@ function StatusOrder() {
                     </>
                   )}
                 </>
-              ) : null}
+              )}
             </div>
           </div>
         </div>

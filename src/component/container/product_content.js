@@ -5,6 +5,7 @@ function ProductContent(props) {
     item,
     amount,
     showTableSize,
+    NewOption,
     setNewOption,
     handleShowSizeTable,
     HiddenTableSize,
@@ -103,7 +104,14 @@ function ProductContent(props) {
                     <div className="product_cart-option">
                       {variations.options.map((option, index) => (
                         <div className="product_cart-variation" key={index}>
-                          <Option option={option} setNewOption={setNewOption}></Option>
+                          <button
+                            className={`${
+                              NewOption === option ? 'product_cart-variation-active' : ''
+                            }`}
+                            onClick={() => setNewOption(option)}
+                          >
+                            {option}
+                          </button>
                         </div>
                       ))}
                     </div>
@@ -113,32 +121,6 @@ function ProductContent(props) {
             ))}
           </>
         )}
-      </>
-    );
-  }
-  function renderSizeChart(item) {
-    return (
-      <>
-        {item.size_chart === null ? null : (
-          <h3 className="product_cart-size-table" onClick={handleShowSizeTable}>
-            bảng quy đổi kích thước
-          </h3>
-        )}
-      </>
-    );
-  }
-  function renderTableSize(item) {
-    return (
-      <>
-        {showTableSize ? (
-          <div className="product_cart-size-chart" onClick={HiddenTableSize}>
-            <div className=" modal__size">
-              <div className="modal__body">
-                <img src={`${'https://cf.shopee.vn/file/'}${item.size_chart}`} alt="tableSize" />
-              </div>
-            </div>
-          </div>
-        ) : null}
       </>
     );
   }
@@ -218,22 +200,31 @@ function ProductContent(props) {
       </>
     );
   }
+  function renderSizeChart(item) {
+    return (
+      <>
+        {item.size_chart === null ? null : (
+          <h3 className="product_cart-size-table" onClick={handleShowSizeTable}>
+            bảng quy đổi kích thước
+          </h3>
+        )}
+      </>
+    );
+  }
+  function renderTableSize(item) {
+    return (
+      <>
+        {showTableSize ? (
+          <div className="product_cart-size-chart" onClick={HiddenTableSize}>
+            <div className=" modal__size">
+              <div className="modal__body">
+                <img src={`${'https://cf.shopee.vn/file/'}${item.size_chart}`} alt="tableSize" />
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </>
+    );
+  }
 }
 export default ProductContent;
-
-export function Option(props) {
-  const { option, setNewOption } = props;
-  const [options, setOptions] = useState('');
-  const handleSetOptions = (option) => {
-    setOptions('product_cart-variation-active');
-    if (options !== '') {
-      setOptions('');
-    }
-    setNewOption(option);
-  };
-  return (
-    <button className={options} onClick={() => handleSetOptions(option)}>
-      {option}
-    </button>
-  );
-}

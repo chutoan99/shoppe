@@ -30,7 +30,7 @@ function ProductItems() {
   const [showTableSize, setShowTableSize] = useState(false);
   const [indexImg, setIndexImg] = useState(0);
   const [amount, setAmount] = useState(1);
-  const [NewOption, setNewOption] = useState('');
+  const [NewOption, setNewOption] = useState(undefined);
   const handleIncrease = () => {
     setAmount(amount + 1);
   };
@@ -91,7 +91,7 @@ function ProductItems() {
     setAnimationAddCart('cartAnimation product_cart-img-animation');
     setTimeout(() => {
       setAnimationAddCart('cartAnimation');
-    }, 3500);
+    }, 3400);
     setToastMess(true);
   };
   const callApi = async () => {
@@ -108,7 +108,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     }
   };
   const ApiProductSuggest = async () => {
@@ -125,7 +125,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     }
   };
   const ApiProductSuggestList = async () => {
@@ -142,7 +142,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     }
   };
   const ApiShop = async () => {
@@ -159,7 +159,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     }
   };
   const ApiComment = async () => {
@@ -176,7 +176,7 @@ function ProductItems() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     }
   };
   useEffect(() => {
@@ -210,6 +210,7 @@ function ProductItems() {
                       item={item}
                       amount={amount}
                       showTableSize={showTableSize}
+                      NewOption={NewOption}
                       setNewOption={setNewOption}
                       handleShowSizeTable={handleShowSizeTable}
                       handleIncrease={handleIncrease}
@@ -271,7 +272,6 @@ function ProductItems() {
                       </div>
                     </div>
                   </div>
-
                   <div className="App__Container py-[16px]">
                     <div className="grid wide">
                       <div className="row">

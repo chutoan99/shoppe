@@ -3,32 +3,43 @@ import './payment_Methods.css';
 let Sales = require('../../Img/sales.jpg');
 let Pay = require('../../Img/pay.png');
 function PaymentMethods() {
-  const payment = [
-    {
-      id: 1,
-      pay: 'Ví ShopeePay',
-    },
-    {
-      id: 2,
-      pay: 'Thẻ Tín dụng/Ghi nợ',
-    },
-    {
-      id: 3,
-      pay: 'Số dư TK Shopee(₫0)',
-    },
-    {
-      id: 4,
-      pay: 'Thanh toán khi nhận hàng',
-    },
-  ];
   const [banners, setBanners] = useState(false);
+  const [variation, setVariation] = useState(undefined);
+  const handelChangeVariation = (item, index) => {
+    setVariation(item);
+    if (index === 0) {
+      setBanners(true);
+    } else {
+      setBanners(false);
+    }
+  };
   return (
     <>
       <div class="checkout-payment-method-view__current checkout-payment-setting">
         <div class="checkout-payment-method-view__current-title">Phương thức thanh toán</div>
         <div class="checkout-payment-setting__payment-methods-tab">
-          {payment.map((item, index) => (
-            <Payment item={item} setBanners={setBanners}></Payment>
+          {[
+            'Ví ShopeePay',
+            'Thẻ Tín dụng/Ghi nợ',
+            'Số dư TK Shopee(₫0)',
+            'Thanh toán khi nhận hàng',
+          ].map((item, index) => (
+            <button
+              className={`product-variation ${
+                variation === item ? 'product-variation--selected' : ''
+              }`}
+              onClick={() => {
+                handelChangeVariation(item, index);
+              }}
+              key={index}
+            >
+              {item}
+              {variation === item ? (
+                <div class="product-variation__tick">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              ) : null}
+            </button>
           ))}
         </div>
       </div>
@@ -133,28 +144,3 @@ function PaymentMethods() {
   );
 }
 export default PaymentMethods;
-export function Payment(props) {
-  const { item, setBanners } = props;
-  const [bannerTick, setBannersTick] = useState(false);
-  const [variation, setVariation] = useState('product-variation');
-  const handleShowBanners = () => {
-    setBanners(true);
-    setBannersTick(true);
-    setVariation('product-variation product-variation--selected');
-  };
-  const handleCloseBanners = () => {
-    setBanners(false);
-    setBannersTick(false);
-    setVariation('product-variation');
-  };
-  return (
-    <button class={variation} onClick={handleShowBanners} onDoubleClick={handleCloseBanners}>
-      {item.pay}
-      {bannerTick ? (
-        <div class="product-variation__tick">
-          <i class="fa-solid fa-check"></i>
-        </div>
-      ) : null}
-    </button>
-  );
-}
