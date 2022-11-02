@@ -2,8 +2,7 @@ import './product_img-mobile.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-export default function ProductImgMobile(props) {
-  const { item } = props;
+export default function ProductImgMobile({ item }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -16,11 +15,13 @@ export default function ProductImgMobile(props) {
     <div className="mobile-carousel-img">
       <div className="s-12 c-12 l-12">
         <Slider {...settings}>
-          {item.images.map((image, index) => (
-            <div className="" key={index}>
-              <img src={`${'https://cf.shopee.vn/file/'}${image}`} alt="item" />
-            </div>
-          ))}
+          {item?.images?.map((image, index) => {
+            return (
+              <div key={index}>
+                <img src={`${'https://cf.shopee.vn/file/'}${image}`} alt="item" />
+              </div>
+            );
+          })}
         </Slider>
       </div>
     </div>

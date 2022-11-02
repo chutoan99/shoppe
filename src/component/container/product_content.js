@@ -1,18 +1,18 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-function ProductContent(props) {
-  const {
-    item,
-    amount,
-    showTableSize,
-    NewOption,
-    setNewOption,
-    handleShowSizeTable,
-    HiddenTableSize,
-    handleIncrease,
-    handleReduced,
-    handleAddToCart,
-  } = props;
+import ICON from '../../assets/icont';
+import { formatPriceWithAmount } from '../../utils/fomarPrice';
+function ProductContent({
+  item,
+  amount,
+  showTableSize,
+  NewOption,
+  setNewOption,
+  handleShowSizeTable,
+  HiddenTableSize,
+  handleIncrease,
+  handleReduced,
+  handleAddToCart,
+}) {
   const navigate = useNavigate();
   return (
     <div className="p-[10px] mob:pt-[20px] mob:pr-[35px] mob:pl-[20px]">
@@ -34,12 +34,12 @@ function ProductContent(props) {
         <div className="product-items-heding ">
           <h2>
             <span>Yêu Thích</span>
-            {item.name}
+            {item?.name}
           </h2>
         </div>
         <div className="product-items-content">
           <div className="product-items-content-rating">
-            <h3>{item.shop_rating.toFixed(1)}</h3>
+            <h3>{item?.shop_rating.toFixed(1)}</h3>
             {renderRating()}
           </div>
           <div className="product-items-content-evaluat">
@@ -47,7 +47,7 @@ function ProductContent(props) {
             <h4>Đánh Giá</h4>
           </div>
           <div className="product-items-content-sold">
-            <h3>{item.historical_sold}</h3>
+            <h3>{item?.historical_sold}</h3>
             <h4>Đã bán</h4>
           </div>
         </div>
@@ -58,51 +58,51 @@ function ProductContent(props) {
     return (
       <div className="product-items-price">
         <div className="product-items-old-price">
-          {item.price_min_before_discount === item.price_max_before_discount ? (
+          {item?.price_min_before_discount === item?.price_max_before_discount ? (
             <h3>
               <sup>đ</sup>
-              {(item.price_min_before_discount / 100000).toLocaleString('it-IT')}
+              {formatPriceWithAmount(item?.price_min_before_discount)}
             </h3>
           ) : (
             <h3>
               <sup>đ</sup>
-              {(item.price_min_before_discount / 100000).toLocaleString('it-IT')} - <sup>đ</sup>
-              {(item.price_max_before_discount / 100000).toLocaleString('it-IT')}
+              {formatPriceWithAmount(item?.price_min_before_discount)}- <sup>đ</sup>
+              {formatPriceWithAmount(item?.price_max_before_discount)}
             </h3>
           )}
         </div>
         <div className="product-items-new-price">
-          {item.price_min === item.price_max ? (
+          {item?.price_min === item?.price_max ? (
             <h3>
               <sup>đ</sup>
-              {(item.price_min / 100000).toLocaleString('it-IT')}
+              {formatPriceWithAmount(item?.price_min)}
             </h3>
           ) : (
             <h3>
               <sup>đ</sup>
-              {(item.price_min / 100000).toLocaleString('it-IT')} - <sup>đ</sup>
-              {(item.price_max / 100000).toLocaleString('it-IT')}
+              {formatPriceWithAmount(item?.price_min)}- <sup>đ</sup>
+              {formatPriceWithAmount(item?.price_max)}
             </h3>
           )}
         </div>
-        <span>{item.discount} giảm</span>
+        <span>{item?.discount} giảm</span>
       </div>
     );
   }
   function renderTierVariations(item) {
     return (
       <>
-        {item.tier_variations[0].name === '' ? null : (
+        {item?.tier_variations[0].name === '' ? null : (
           <>
-            {item.tier_variations.map((variations, index) => (
+            {item?.tier_variations.map((variations, index) => (
               <>
-                {variations.name === ' ' ? null : (
+                {variations?.name === ' ' ? null : (
                   <>
                     <div className="product_cart-variation mt-[5px]">
-                      <h3>{variations.name}</h3>
+                      <h3>{variations?.name}</h3>
                     </div>
                     <div className="product_cart-option">
-                      {variations.options.map((option, index) => (
+                      {variations?.options.map((option, index) => (
                         <div className="product_cart-variation" key={index}>
                           <button
                             className={`${
@@ -132,15 +132,11 @@ function ProductContent(props) {
         </div>
         <div className="product_cart-amount">
           <div className="product_cart-amount-button">
-            <button onClick={handleReduced}>
-              <i className="fa-solid fa-minus"></i>
-            </button>
+            <button onClick={handleReduced}>{ICON.MINUS}</button>
             <button>{amount}</button>
-            <button onClick={handleIncrease}>
-              <i className="fa-solid fa-plus"></i>
-            </button>
+            <button onClick={handleIncrease}>{ICON.PLUS}</button>
           </div>
-          <h2>{item.stock} sản phẩm có sẵn</h2>
+          <h2>{item?.stock} sản phẩm có sẵn</h2>
         </div>
       </>
     );
@@ -148,11 +144,9 @@ function ProductContent(props) {
   function renderBtnBuy() {
     return (
       <div className="product_cart ">
-        <button className="product_cart-button mob:hidden">
-          <i className="fa-solid fa-cart-plus cart-plus-animation"></i>Chat ngay
-        </button>
+        <button className="product_cart-button mob:hidden">{ICON.CART}Chat ngay</button>
         <button className="product_cart-button" onClick={handleAddToCart}>
-          <i className="fa-solid fa-cart-plus cart-plus-animation"></i>Thêm Vào Giỏ Hàng
+          <span className="cart-plus-animation">{ICON.CART}</span>Thêm Vào Giỏ Hàng
         </button>
         <button className="product_cart-button2" onClick={() => navigate('/pay')}>
           Mua Ngay
@@ -163,11 +157,11 @@ function ProductContent(props) {
   function renderRating() {
     return (
       <div className="product-items-content-rating-icons">
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
+        {ICON.START}
+        {ICON.START}
+        {ICON.START}
+        {ICON.START}
+        {ICON.START}
       </div>
     );
   }
@@ -203,7 +197,7 @@ function ProductContent(props) {
   function renderSizeChart(item) {
     return (
       <>
-        {item.size_chart === null ? null : (
+        {item?.size_chart === null ? null : (
           <h3 className="product_cart-size-table" onClick={handleShowSizeTable}>
             bảng quy đổi kích thước
           </h3>
@@ -218,7 +212,7 @@ function ProductContent(props) {
           <div className="product_cart-size-chart" onClick={HiddenTableSize}>
             <div className=" modal__size">
               <div className="modal__body">
-                <img src={`${'https://cf.shopee.vn/file/'}${item.size_chart}`} alt="tableSize" />
+                <img src={`${'https://cf.shopee.vn/file/'}${item?.size_chart}`} alt="tableSize" />
               </div>
             </div>
           </div>

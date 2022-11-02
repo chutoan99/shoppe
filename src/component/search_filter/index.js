@@ -1,9 +1,10 @@
+import ICON from '../../assets/icont';
 import './Search_filter.css';
 function SearchFilter() {
   return (
     <nav className="category">
       <h3 className="category-heading">
-        <i className="category-heading-icon fas fa-list-ul"></i>
+        <span className="category-heading-icon">{ICON.LIST}</span>
         Bộ lọc tìm kiếm
       </h3>
       <div className="category-group">
@@ -86,7 +87,8 @@ function SearchFilter() {
         <div className="category-group-title">Khoảng Giá</div>
         <div className="category-group-filter">
           <input type="number" placeholder="đ TỪ" className="category-group-filter-input" />
-          <i className="fas fa-arrow-right"></i>
+
+          {ICON.ARROW_RIGHT}
           <input type="number" placeholder="đ ĐẾN" className="category-group-filter-input" />
         </div>
         <button className="btn btn--primary category-group-filter-btn">Áp dụng</button>
@@ -142,43 +144,43 @@ function SearchFilter() {
         <div className="category-group-title">Đánh Giá</div>
         <div className="rating-star">
           <input type="checkbox" className="category-group-item-check" />
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
         </div>
         <div className="rating-star">
           <input type="checkbox" className="category-group-item-check" />
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-        </div>
-        <div class="rating-star">
-          <input type="checkbox" className="category-group-item-check" />
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_UNCHECKED}
         </div>
         <div className="rating-star">
           <input type="checkbox" className="category-group-item-check" />
-          <i className="star-checked far fa-star"></i>
-          <i className="star-checked far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_UNCHECKED}
+          {ICON.START_UNCHECKED}
         </div>
         <div className="rating-star">
           <input type="checkbox" className="category-group-item-check" />
-          <i className="star-checked far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
-          <i className="star-uncheck far fa-star"></i>
+          {ICON.START_CHECKED}
+          {ICON.START_CHECKED}
+          {ICON.START_UNCHECKED}
+          {ICON.START_UNCHECKED}
+          {ICON.START_UNCHECKED}
+        </div>
+        <div className="rating-star">
+          <input type="checkbox" className="category-group-item-check" />
+          {ICON.START_CHECKED}
+          {ICON.START_UNCHECKED}
+          {ICON.START_UNCHECKED}
+          {ICON.START_UNCHECKED}
+          {ICON.START_UNCHECKED}
         </div>
       </div>
       <div className="category-group">

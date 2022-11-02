@@ -1,9 +1,8 @@
 import { useState } from 'react';
+import ICON from '../../assets/icont';
+import IMG from '../../assets/img';
 import './product_comment.css';
-let emptyComment = require('../../Img/rating.png');
-function ProductComment(props) {
-  const { items } = props;
-
+function ProductComment({ items }) {
   return (
     <div className="wrapper">
       <div className="productDes_inner">
@@ -28,61 +27,53 @@ function ProductComment(props) {
             <span>Có Hình Ảnh/ Video (15)</span>
           </div>
         </div>
-        <>
-          {items.length === 0 ? (
-            <div className="product-comment-empty">
-              <div className="product-comment-empty-img">
-                <img src={emptyComment} alt="emptyComment"></img>
-              </div>
-              <p className="product-comment-empty-des">Chưa Có Bình Luận Nào</p>
+        {items?.length === 0 && (
+          <div className="product-comment-empty">
+            <div className="product-comment-empty-img">
+              <img src={IMG.EMPTY_COMMENT} alt="emptyComment"></img>
             </div>
-          ) : null}
-        </>
-        <>
-          {items.length === 0 ? null : (
-            <>
-              {items.map((item, index) => (
-                <div className="product-comment-content" key={index}>
-                  <div className="product-comment-avatar">
-                    <img
-                      src={`${'https://cf.shopee.vn/file/'}${item.author_portrait}`}
-                      alt="item"
-                    />
-                  </div>
-                  <div className="product-comment-main">
-                    <>
-                      <h3>{item.author_username}</h3>
-                      {renderStart()}
-                      {renderTime(item.ctime)}
-                      <p>{item.comment}</p>
-                      <div className="comment-rating">
-                        <CommentImg item={item} />
-                      </div>
-                      {item.ItemRatingReply === null ? null : (
-                        <div className="comment-main-shop-feedback">
-                          <h3>Phản Hồi Của Người Bán</h3>
-                          <p>{item.ItemRatingReply.comment}</p>
-                        </div>
-                      )}
-                      <RatingActions />
-                    </>
-                  </div>
+            <p className="product-comment-empty-des">Chưa Có Bình Luận Nào</p>
+          </div>
+        )}
+        {items?.length !== 0 &&
+          items?.map((item, index) => {
+            return (
+              <div className="product-comment-content" key={index}>
+                <div className="product-comment-avatar">
+                  <img src={`${'https://cf.shopee.vn/file/'}${item?.author_portrait}`} alt="item" />
                 </div>
-              ))}
-            </>
-          )}
-        </>
+                <div className="product-comment-main">
+                  <>
+                    <h3>{item?.author_username}</h3>
+                    {renderStart()}
+                    {renderTime(item?.ctime)}
+                    <p>{item?.comment}</p>
+                    <div className="comment-rating">
+                      <CommentImg item={item} />
+                    </div>
+                    {item?.ItemRatingReply === null ? null : (
+                      <div className="comment-main-shop-feedback">
+                        <h3>Phản Hồi Của Người Bán</h3>
+                        <p>{item?.ItemRatingReply?.comment}</p>
+                      </div>
+                    )}
+                    <RatingActions />
+                  </>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
   function renderStart() {
     return (
       <div className="product-items-content-rating-icons">
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
-        <i className="fa-solid fa-star"></i>
+        {ICON.START}
+        {ICON.START}
+        {ICON.START}
+        {ICON.START}
+        {ICON.START}
       </div>
     );
   }
@@ -112,8 +103,7 @@ export function RatingActions() {
     </div>
   );
 }
-export function CommentImg(props) {
-  const { item } = props;
+export function CommentImg({ item }) {
   const [index, setIndex] = useState(0);
   const [ShowImg, setShowImg] = useState(false);
   const [ShowVideo, setShowVideo] = useState(false);
@@ -139,9 +129,9 @@ export function CommentImg(props) {
     <>
       <div className="w-full">
         <div className="comment-rating">
-          {item.images === null ? null : (
+          {item?.images === null ? null : (
             <>
-              {item.videos.map((video, index) => (
+              {item?.videos?.map((video, index) => (
                 <div
                   className="comment-video"
                   onClick={() => {
@@ -151,10 +141,10 @@ export function CommentImg(props) {
                   key={index}
                 >
                   <img src={video.cover} alt="" />
-                  <i class="fa-solid fa-video"></i>
+                  {IMG.VIDEO}
                 </div>
               ))}
-              {item.images.map((img, index) => (
+              {item?.images?.map((img, index) => (
                 <div className="comment-rating-img" key={index} onClick={() => setIndex(index)}>
                   <img
                     src={`${'https://cf.shopee.vn/file/'}${img}`}

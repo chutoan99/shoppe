@@ -1,10 +1,10 @@
-let logoSale = require('../../Img/f.jpg');
+import IMG from '../../assets/img';
 function HeaderNotifyItem() {
   return (
     <li className="Header_notify-item Header_notify-item--viewed">
       <a href="# " className="Header_notify-link">
         <div>
-          <img src={logoSale} alt="logoSale" className="Header_notify-img" />
+          <img src={IMG.FLASH_SALE} alt="logoSale" className="Header_notify-img" />
         </div>
         <div className="Header_notify-infor">
           <span className="Header_notify-name">SIÊU SALE HÀNG QUỐC TẾ DƯỚI 99K </span>

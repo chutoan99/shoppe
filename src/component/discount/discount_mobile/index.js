@@ -1,6 +1,6 @@
-import discountsMobile from '../../../redux/datadiscountMobile';
+import IMG from '../../../assets/img';
+import discountsMobile from '../../../utils/datadiscountMobile';
 import './discount_mobile.css';
-let sale = require('../../../Img/sale.jpg');
 function DiscountMobile() {
   return (
     <div className="col l-12 mo-12 c-12 show-on-mobile display-none">
@@ -17,7 +17,7 @@ function DiscountMobile() {
         </div>
       </div>
       <div className="sale">
-        <img src={sale} alt="sale"></img>
+        <img src={IMG.SALE} alt="sale"></img>
       </div>
     </div>
   );

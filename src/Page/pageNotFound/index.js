@@ -1,12 +1,13 @@
 import './PageNotFound.css';
-import Header from '../../component/header';
-import PageNotFoundImg from '../../Img/Pagenotfound.jpg';
+import { Header } from '../../component/index';
+import IMG from '../../assets/img';
+
 function PageNotFound() {
   return (
     <div className="notFound">
       <Header></Header>
       <div className="Page_not">
-        <img src={PageNotFoundImg} alt="PageNotFoundImg" />
+        <img src={IMG.PAGE_NOT_FOUND_IMG} alt="PageNotFoundImg" />
       </div>
     </div>
   );

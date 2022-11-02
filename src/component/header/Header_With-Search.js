@@ -1,9 +1,6 @@
-import InputSerch from './Input_Search';
-import LogoShopee from './LogoShoppe';
-import HeaderCart from './Header_Cart';
-import SuggestList from './Suggest_List';
+import { InputSearch, LogoShopee, HeaderCart, SuggestList } from '../index';
 import { useNavigate } from 'react-router-dom';
-let UserImg = require('../../Img/User.jpg');
+import IMG from '../../assets/img';
 function HeaderWithSearch() {
   const navigate = useNavigate();
   return (
@@ -17,7 +14,7 @@ function HeaderWithSearch() {
           className="Header__search-checkbox"
         />
         <div>
-          <InputSerch />
+          <InputSearch />
           <SuggestList />
         </div>
         <HeaderCart />
@@ -25,7 +22,7 @@ function HeaderWithSearch() {
           className="Header__nav--item Header__nav-user display-none show-on-mobile"
           onClick={() => navigate('/login')}
         >
-          <img className="Header__nav-item Header__nav-user-img" src={UserImg} alt="UserImg" />
+          <img className="Header__nav-item Header__nav-user-img" src={IMG.USER_IMG} alt="UserImg" />
         </li>
       </div>
     </div>

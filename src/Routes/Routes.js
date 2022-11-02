@@ -1,33 +1,36 @@
 import React from 'react';
-import Pay from '../Page/pay/index';
-import Oder from '../Page/Oder/index';
-import Shop from '../Page/shop/index';
-import Search from '../Page/search/index';
-import Home from '../Page/home/index';
-import Profile from '../Page/profile/index';
-import LoginForm from '../Page/login/index.js';
-import PageNotFound from '../Page/pageNotFound';
 import { Routes, Route } from 'react-router-dom';
-import RegisterForm from '../Page/register/index';
-import DetailProduct from '../Page/detailProduct';
-import Categories from '../Page/Categories/index';
-import StatusOrder from '../Page/statusOrder';
+import path from './path';
+import {
+  Pay,
+  Oder,
+  Shop,
+  Search,
+  Home,
+  Profile,
+  LoginForm,
+  PageNotFound,
+  RegisterForm,
+  DetailProduct,
+  Categories,
+  StatusOrder,
+} from '../Page/index';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/pay" element={<Pay />} />
-      <Route path="/oder" element={<Oder />} />
-      <Route path="/shop/:id" element={<Shop />} />
-      <Route path="/*" element={<PageNotFound />} />
-      <Route path="/login" element={<LoginForm />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/register" element={<RegisterForm />} />
-      <Route path="/search/:search" element={<Search />} />
-      <Route path="/StatusOrder" element={<StatusOrder />} />
-      <Route path="/detailProduct" element={<DetailProduct />} />
-      <Route path="/detailProduct/:idItem/:name/:shopId" element={<DetailProduct />} />
-      <Route path="/categories/:categories_name" element={<Categories />} />
+      <Route path={path.PAY} element={<Pay />} />
+      <Route path={path.HOME} element={<Home />} />
+      <Route path={path.ORDER} element={<Oder />} />
+      <Route path={path.SHOP_ID} element={<Shop />} />
+      <Route path={path.SEARCH} element={<Search />} />
+      <Route path={path.LOGIN} element={<LoginForm />} />
+      <Route path={path.PROFILE} element={<Profile />} />
+      <Route path={path.REGISTER} element={<RegisterForm />} />
+      <Route path={path.CATEGORIES} element={<Categories />} />
+      <Route path={path.STATUS_ORDER} element={<StatusOrder />} />
+      <Route path={path.PAGE_NOT_POUND} element={<PageNotFound />} />
+      <Route path={path.DETAIL_PRODUCT} element={<DetailProduct />} />
+      <Route path={path.DETAIL_PRODUCT_ID} element={<DetailProduct />} />
     </Routes>
   );
 }

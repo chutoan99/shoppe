@@ -1,6 +1,6 @@
 import { useState } from 'react';
-function Button(props) {
-  const { amount } = props;
+import ICON from '../../assets/icont';
+function Button({ amount }) {
   const [amounts, setAmount] = useState(amount);
   const handleReduced = () => {
     if (amounts > 1) {
@@ -16,11 +16,11 @@ function Button(props) {
   return (
     <div>
       <button onClick={handleReduced} className="cursor-no-drop">
-        <i className="fa-solid fa-minus"></i>
+        {ICON.MINUS}
       </button>
       <button>{amounts}</button>
       <button onClick={handleIncrease} className="cursor-no-drop">
-        <i className="fa-solid fa-plus"></i>
+        {ICON.PLUS}
       </button>
     </div>
   );

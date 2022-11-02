@@ -1,24 +1,22 @@
 import './status_order.css';
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
 import { useState } from 'react';
-import Footer from '../../component/footer/index.js';
-import Header from '../../component/header/index.js';
-import DetailUser from '../../component/detailUser';
+import { Header, Footer, DetailUser } from '../../component/index';
 import { useSelector } from 'react-redux';
-let emptyOrderImg = require('../../Img/empty_order.png');
+import { formatPriceWithAmount } from '../../utils/fomarPrice';
 function StatusOrder() {
-  const { statusOrder } = useSelector((state) => state);
+  const { orDerCart } = useSelector((state) => state.cart);
   const [confirm, setConfirm] = useState(false);
   const [emptyOrder, setEmptyOrder] = useState(false);
   const [status, setStatus] = useState(undefined);
   const handelChangeStatus = (item, index) => {
     setStatus(item);
     if (index === 1) {
-      console.log('1', statusOrder, confirm);
       setEmptyOrder(true);
       setConfirm(false);
     }
     if (index !== 1) {
-      console.log('0', statusOrder, emptyOrder);
       setEmptyOrder(false);
       setConfirm(true);
     }
@@ -34,7 +32,7 @@ function StatusOrder() {
               <DetailUser />
             </div>
             <div className="col-lg-10">
-              <div class="_0obGFe">
+              <div className="_0obGFe">
                 {['Tất cả', 'Chờ xác nhận', 'Chờ lấy hàng', 'Đang giao', 'Đã Giao', 'Đã Hủy'].map(
                   (item, index) => (
                     <span
@@ -50,45 +48,43 @@ function StatusOrder() {
               {emptyOrder ? null : renderEmptyorder()}
               {confirm ? null : (
                 <>
-                  {!statusOrder.length > 0 ? (
+                  {!orDerCart?.length > 0 ? (
                     renderEmptyorder()
                   ) : (
                     <>
-                      {statusOrder.map((item, index) => (
+                      {orDerCart?.map((item, index) => (
                         <div className="table-body-list" key={index}>
                           <div>
                             <div className="backR1">
                               <div className="table_body-shop-name table_body-shop-name-order">
                                 <span>Yêu Thích</span>
-                                <h1 className="table_body-shop">{item.shop_name}</h1>
-                                <label className="table_body-shop-icon">
-                                  <i className="fa-solid fa-message"></i>
-                                </label>
+                                <h1 className="table_body-shop">{item?.shop_name}</h1>
+                                <label className="table_body-shop-icon">{ICON.MESS}</label>
                               </div>
                             </div>
                             <div className="grid oderR2">
                               <div className="shopping_cart">
                                 <div className="shopping_cart-img-order">
                                   <img
-                                    src={`${'https://cf.shopee.vn/file/'}${item.image}`}
-                                    alt={item.name}
+                                    src={`${'https://cf.shopee.vn/file/'}${item?.image}`}
+                                    alt={item?.name}
                                   />
                                 </div>
                                 <div className="shopping_cart-img-title-order">
-                                  <div className="title-order-content">{item.name}</div>
+                                  <div className="title-order-content">{item?.name}</div>
                                   <div className="flex">
-                                    {item.tier_variations.map((tier_variation, index) => (
+                                    {item?.tier_variations?.map((tier_variation, index) => (
                                       <div className="shopping_cart-tier_variation" key={index}>
-                                        {tier_variation.name}: <span>{item.newOption}</span>
+                                        {tier_variation?.name}: <span>{item?.newOption}</span>
                                       </div>
                                     ))}
                                   </div>
                                   <div className="shopping_cart-0ld-price px-[5px]">
-                                    <h2>đ {(item.price_max / 100000).toLocaleString('it-IT')}</h2>
+                                    <h2>đ {formatPriceWithAmount(item?.price_max)}</h2>
                                   </div>
-                                  <div className="px-[5px] text-center">x{item.amount}</div>
+                                  <div className="px-[5px] text-center">x{item?.amount}</div>
                                   <div className="shopping_cart-new-price px-[5px]">
-                                    đ {(item.price / 100000).toLocaleString('it-IT')}
+                                    đ {formatPriceWithAmount(item?.price)}
                                   </div>
                                 </div>
                               </div>
@@ -109,12 +105,12 @@ function StatusOrder() {
   );
   function renderEmptyorder() {
     return (
-      <div class="LHWdmn">
-        <div class="bU5w7c">
-          <div class="A849D8">
-            <img src={emptyOrderImg} alt="emptyOrder" />
+      <div className="LHWdmn">
+        <div className="bU5w7c">
+          <div className="A849D8">
+            <img src={IMG.EMPTY_ORDER_IMG} alt="emptyOrder" />
           </div>
-          <div class="hKbGrP">Chưa có đơn hàng</div>
+          <div className="hKbGrP">Chưa có đơn hàng</div>
         </div>
       </div>
     );

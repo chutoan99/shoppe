@@ -1,28 +1,13 @@
+import { suggestList } from '../../utils/data_suggestList';
 function SuggestList() {
   return (
     <div className="SuggestionList  Hide-on-mobile">
       <div className="SuggestionList-item">
-        <a className="SuggestionList-item" href="# ">
-          Máy Pha Cà Phê Delonghi
-        </a>
-        <a className="SuggestionList-item" href="# ">
-          Nồi Chiên Nhúng Điện
-        </a>
-        <a className="SuggestionList-item" href="# ">
-          Sạc Oppo Watch
-        </a>
-        <a className="SuggestionList-item" href="# ">
-          Nike air Force 1 Chính Hãng
-        </a>
-        <a className="SuggestionList-item" href="# ">
-          Máy Nghe Nhạc
-        </a>
-        <a className="SuggestionList-item" href="# ">
-          Máy Nghe Nhạc
-        </a>
-        <a className="SuggestionList-item" href="# ">
-          Máy Nghe Nhạc
-        </a>
+        {suggestList?.map((item, index) => (
+          <a className="SuggestionList-item hover:opacity-70" href="# " key={index}>
+            {item?.value}
+          </a>
+        ))}
       </div>
     </div>
   );

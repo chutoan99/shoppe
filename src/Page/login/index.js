@@ -1,77 +1,67 @@
 import './login.css';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import isEmail from 'validator/lib/isEmail';
-import isEmpty from 'validator/lib/isEmpty';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../../component/footer/index.js';
-import Loading from '../../component/loading/index.js';
-import { useSelector } from 'react-redux/es/exports.js';
-import { LoadingTrue, LoadingFalse, userLogin } from '../../redux/action';
-let Logo2 = require('../../Img/logo-2.png');
-let Logo = require('../../Img/shopee.png');
+import { Footer, Loading } from '../../component/index';
+import { ApiLogin } from '../../services/login';
+import { validateLogin } from '../../utils/validate';
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
 function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading } = useSelector((state) => state);
+  const [loading, setLoading] = useState(false);
+  const { userLogin } = useSelector((state) => state.others);
   const [emailLogin, setEmailLogin] = useState('');
-  const [validationMsg, setValidationMsg] = useState({});
+
   const [passWordLogin, SetPassWordLogin] = useState('');
-  const validateAll = () => {
-    const msg = {};
-    if (isEmpty(emailLogin)) {
-      msg.emailLogin = 'Pleas input your Email';
-    } else if (!isEmail(emailLogin)) {
-      msg.emailLogin = 'Email your is incorrect';
+  const [validationMsg, setValidationMsg] = useState({});
+
+  const handleLoginForm = async () => {
+    const isValid = await validateLogin(emailLogin, passWordLogin, setValidationMsg);
+    if (isValid) {
+      await ApiLogin(emailLogin, passWordLogin, setLoading, dispatch, userLogin, navigate);
     }
-    if (isEmpty(passWordLogin)) {
-      msg.passWordLogin = 'Pleas input your PassWord';
-    }
-    setValidationMsg(msg);
-    if (Object.keys(msg) > 0) return false;
-    return true;
   };
-  const handleLoginForm = () => {
-    const isValid = validateAll();
-    var axios = require('axios');
-    var data = JSON.stringify({
-      email: emailLogin,
-      password: passWordLogin,
-    });
-    var config = {
-      method: 'post',
-      url: 'https://servershopee.herokuapp.com/users/login',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: data,
-    };
-    axios(config)
-      .then(function (response) {
-        if (response.data === 'Success') {
-          dispatch(LoadingTrue());
-          setTimeout(() => {
-            navigate('/');
-          }, 3000);
-          dispatch(LoadingFalse());
-          dispatch(userLogin());
-        }
-      })
-      .finally(function () {
-        localStorage.setItem('users', emailLogin);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  // var axios = require('axios');
+  // var data = JSON.stringify({
+  //   email: emailLogin,
+  //   password: passWordLogin,
+  // });
+  // var config = {
+  //   method: 'post',
+  //   url: 'https://servershopee.herokuapp.com/users/login',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   data: data,
+  // };
+  // axios(config);
+  // setLoading(false)
+  //   .then(function (response) {
+  //     console.log(response);
+  //     if (response.data === 'Success') {
+  //       setTimeout(() => {
+  //         navigate('/');
+  //       }, 3000);
+  //       dispatch(userLogin());
+  //     }
+  //   })
+  //   .finally(function () {
+  //     localStorage.setItem('users', emailLogin);
+  //     setLoading(true);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
   return (
     <>
-      {loading ? <Loading></Loading> : null}
+      {loading && <Loading />}
       <div className="grid wide">
         <header>
           <div className="header_login">
             <div className="header_login-logo mob:pt-[10px]">
-              <img src={Logo2} alt="logo" onClick={() => navigate('/')} />
+              <img src={IMG.LOGO2} alt="logo" onClick={() => navigate('/')} />
               <span>Đăng Nhập</span>
             </div>
             <div className="header_login-logo-helps">
@@ -83,7 +73,7 @@ function LoginForm() {
       <div className="modals">
         <div className="modal__body">
           <div className="modals-logo-shoppe hide-on-table-488 Hide-on-mobile">
-            <img src={Logo} alt="logo"></img>
+            <img src={IMG.LOGO} alt="logo"></img>
           </div>
           <div className="auth-form">
             <div className="auth-form__container">
@@ -143,11 +133,13 @@ function LoginForm() {
             </div>
             <div className="auth-form__socials">
               <a href="# " className="auth-form__socials--facebook btn btn--size-s btn--with-icon">
-                <i className="auth-form__socials-icon fa-brands fa-facebook-square"></i>{' '}
+                <span className="auth-form__socials-icon">{ICON.FACEBOOK}</span>
                 <span className="auth-form__socials-title">Đăng nhập với Facebook</span>
               </a>
               <a href="# " className="auth-form__socials--google btn btn--size-s btn--with-icon">
-                <i className="auth-form__socials--google auth-form__socials-icon fa-brands fa-google"></i>
+                <span className="auth-form__socials--google auth-form__socials-icon">
+                  {ICON.GOOGLE}
+                </span>
                 <span className="auth-form__socials-title">Đăng nhập với google</span>
               </a>
             </div>

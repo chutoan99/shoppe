@@ -1,6 +1,5 @@
-import Footer from '../../component/footer/index.js';
-import Header from '../../component/header/index.js';
-import ProductItems from '../../component/container/product_items';
+import { Footer, Header, ProductItems } from '../../component/index';
+
 function DetailProduct() {
   return (
     <>

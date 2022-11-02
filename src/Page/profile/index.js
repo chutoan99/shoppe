@@ -1,8 +1,9 @@
 import './profile.css';
 import { useState } from 'react';
-import Footer from '../../component/footer/index';
-import Header from '../../component/header/index.js';
-let userImg = require('../../Img/User.jpg');
+import { Footer, Header } from '../../component/index';
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
+
 function Profile() {
   const [avatar, setAvatar] = useState(
     'blob:http://localhost:3000/0bc8bd1e-f41d-4854-977f-1d6bc476988f'
@@ -21,13 +22,11 @@ function Profile() {
             <div className="detail-user">
               <div className="flex">
                 <div className="detail-user-img">
-                  <img src={userImg} alt="userImg"></img>
+                  <img src={IMG.USER_IMG} alt="userImg"></img>
                 </div>
                 <div className="detail-user-name">
                   <span>chutoan</span>
-                  <label>
-                    <i className="fa-solid fa-pen"></i>sửa hồ sơ
-                  </label>
+                  <label>{ICON.EDIT}sửa hồ sơ</label>
                 </div>
               </div>
               <div className="detail-user-content">

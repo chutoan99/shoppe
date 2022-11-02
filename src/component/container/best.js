@@ -1,5 +1,4 @@
-function Best(props) {
-  const { items } = props;
+function Best({ items }) {
   const newL = items.sort(function (a, b) {
     return -a.sold + b.sold;
   });

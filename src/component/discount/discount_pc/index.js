@@ -1,5 +1,5 @@
 import './discount_pc.css';
-import discountsPC from '../../../redux/dataDiscountPc';
+import discountsPC from '../../../utils/dataDiscountPc';
 function DiscountPc() {
   return (
     <div className="col l-12 mo-12 c-12 Hide-on-mobile">

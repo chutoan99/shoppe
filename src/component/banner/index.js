@@ -1,6 +1,7 @@
 import './banner.css';
 import { useEffect, useState } from 'react';
-let bannerImg = require('../../Img/banner.png');
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
 function Banner() {
   const [banner, setBanner] = useState(false);
   useEffect(() => {
@@ -19,9 +20,9 @@ function Banner() {
         <div className="banner-overplay" onClick={handelCloseBanner}>
           <div className="banner">
             <div className="banner-img">
-              <img src={bannerImg} alt="banner"></img>
+              <img src={IMG.BANNER_IMG} alt="banner"></img>
               <span className="banner-close" onClick={handelCloseBanner}>
-                <i className="fa-solid fa-x"></i>
+                {ICON.LOSE}
               </span>
             </div>
           </div>

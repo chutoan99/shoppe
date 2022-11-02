@@ -1,80 +1,44 @@
-import { useEffect, useState } from 'react';
-import isEmpty from 'validator/lib/isEmpty';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import isEmail from 'validator/lib/isEmail';
-import Footer from '../../component/footer/index.js';
-import { LoadingTrue, LoadingFalse } from '../../redux/action';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux/es/exports.js';
-import Loading from '../../component/loading/index.js';
-let Logo2 = require('../../Img/logo-2.png');
-let Logo = require('../../Img/shopee.png');
+
+import { Loading, Footer } from '../../component/index';
+import { validateRegister } from '../../utils/validate';
+import { apiRegister } from '../../services/regiter';
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
+
 function RegisterForm() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state);
+
+  const [loading, setLoading] = useState(false);
   const [validationMsg, setValidationMsg] = useState({});
+
   const [nameRegister, setNameRegister] = useState('');
   const [emailRegister, setEmailRegister] = useState('');
   const [passWordRegister, SetPassWordRegister] = useState('');
-  const validateAll = () => {
-    const msg = {};
-    if (isEmpty(nameRegister)) {
-      msg.nameRegister = 'Pleas input your Name';
-    }
-    if (isEmpty(emailRegister)) {
-      msg.emailRegister = 'Pleas input your Email';
-    } else if (!isEmail(emailRegister)) {
-      msg.emailRegister = 'Email your is incorrect';
-    }
-    if (isEmpty(passWordRegister)) {
-      msg.passWordRegister = 'Pleas input your PassWord';
-    }
 
-    setValidationMsg(msg);
-    if (Object.keys(msg).length > 0) return false;
-    return true;
-  };
-  const handleRegisterForm = () => {
-    const isValid = validateAll();
+  const handleRegisterForm = async () => {
+    const isValid = await validateRegister(
+      nameRegister,
+      emailRegister,
+      passWordRegister,
+      setValidationMsg
+    );
     if (isValid) {
-      const axios = require('axios');
-      const data = JSON.stringify({
-        name: nameRegister,
-        password: passWordRegister,
-        email: emailRegister,
-      });
-      const config = {
-        method: 'post',
-        url: 'https://servershopee.herokuapp.com/users',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        data: data,
-      };
-      axios(config)
-        .then(function (response) {
-          if (response.status === 201) {
-            dispatch(LoadingTrue());
-            setTimeout(() => {
-              navigate('/login');
-              dispatch(LoadingFalse());
-            }, 3000);
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      await apiRegister(nameRegister, passWordRegister, emailRegister, navigate, setLoading);
     }
+  };
+  const handelKeyDown = (e) => {
+    console.log(e.code);
   };
   return (
     <>
-      {loading ? <Loading></Loading> : null}
+      {loading && <Loading />}
       <div className="grid wide">
         <header>
           <div className="header_login">
             <div className="header_login-logo mob:pt-[10px]">
-              <img src={Logo2} alt="logo" onClick={() => navigate('/')} />
+              <img src={IMG.LOGO2} alt="logo" onClick={() => navigate('/')} />
               <span>Đăng Ký</span>
             </div>
             <div className="header_login-logo-helps">
@@ -86,7 +50,7 @@ function RegisterForm() {
       <div className="modals">
         <div className="modal__body">
           <div className="modals-logo-shoppe hide-on-table-488 Hide-on-mobile">
-            <img src={Logo} alt="logo"></img>
+            <img src={IMG.LOGO} alt="logo"></img>
           </div>
           <div className="auth-form">
             <div className="auth-form__container">
@@ -102,8 +66,10 @@ function RegisterForm() {
                     value={nameRegister}
                     onChange={(e) => setNameRegister(e.target.value)}
                     type="text"
+                    required
                     placeholder="Tên của bạn"
                     className="auth-form__input"
+                    onKeyDown={handelKeyDown}
                   />
                   <span className="erro">{validationMsg.nameRegister}</span>
                 </div>
@@ -114,6 +80,7 @@ function RegisterForm() {
                     type="text"
                     placeholder="Email của bạn"
                     className="auth-form__input"
+                    onKeyDown={handelKeyDown}
                   />
                   <span className="erro">{validationMsg.emailRegister}</span>
                 </div>
@@ -124,6 +91,7 @@ function RegisterForm() {
                     type="password"
                     placeholder="Mật khẩu của bạn"
                     className="auth-form__input"
+                    onKeyDown={handelKeyDown}
                   />
                   <span className="erro">{validationMsg.passWordRegister}</span>
                 </div>
@@ -163,11 +131,12 @@ function RegisterForm() {
     return (
       <div className="auth-form__socials">
         <a href="# " className="auth-form__socials--facebook btn btn--size-s btn--with-icon">
-          <i className="auth-form__socials-icon fa-brands fa-facebook-square"></i>{' '}
+          <span className="auth-form__socials-icon">{ICON.FACEBOOK}</span>
           <span className="auth-form__socials-title">Đăng ký với Facebook</span>
         </a>
         <a href="# " className="auth-form__socials--google btn btn--size-s btn--with-icon">
-          <i className="auth-form__socials--google auth-form__socials-icon fa-brands fa-google"></i>
+          <span className="auth-form__socials--google auth-form__socials-icon">{ICON.GOOGLE}</span>
+
           <span className="auth-form__socials-title">Đăng ký với google</span>
         </a>
       </div>

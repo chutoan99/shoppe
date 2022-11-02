@@ -1,14 +1,18 @@
 import './xxx.css';
 import { useState, useEffect } from 'react';
-import Category from '../category/category';
-import CarouselPc from '../carousel/Pc';
-import Pagination from '../pagination/index';
-import DiscountPc from '../discount/discount_pc/index';
-import DiscountMobile from '../discount/discount_mobile/index';
-import CarouselMobile from '../carousel/mobile';
-import HomeFilter from '../home_Filter';
-import HomeProduct from './home_Product';
-import Best from './best';
+import {
+  Category,
+  CarouselPc,
+  Pagination,
+  DiscountPc,
+  DiscountMobile,
+  CarouselMobile,
+  HomeFilter,
+  HomeProduct,
+  Best,
+} from '../index';
+import SkeletonProduct from '../LoadingSkeleton/product';
+
 function Container() {
   const [items, setItems] = useState([]);
   const [perPage, setPerPage] = useState(48);
@@ -54,11 +58,12 @@ function Container() {
         <CarouselMobile />
         <div className="row sm-gutter">
           <CarouselPc />
-          <DiscountPc></DiscountPc>
-          <DiscountMobile></DiscountMobile>
+          <DiscountPc />
+          <DiscountMobile />
           <Category />
           <div className="col l-12 mo-12 c-12">
             <HomeFilter></HomeFilter>
+
             <HomeProduct start={start} end={end} items={items} col={'col l-2 mo-4 c-6'} />
             <Pagination
               handleNextPages={handleNextPages}

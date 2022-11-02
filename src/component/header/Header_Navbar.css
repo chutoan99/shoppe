@@ -80,6 +80,7 @@
 }
 .Header__nav-user-item a:hover {
   background-color: #fafafa;
+  color: white;
 }
 .Header__nav-user-item a:first-child {
   border-top-left-radius: 2px;
@@ -106,7 +107,10 @@
   align-items: center;
   display: flex;
 }
+
 .Header__nav--item:hover,
+.Header__nav--item--link:hover,
+.Header__navbar--icon-link:hover,
 .Header__navbar--icon-link:hover .Header__nav--item--link:hover {
   cursor: pointer;
   color: rgba(255, 255, 255, 0.7);
@@ -198,6 +202,7 @@
 }
 .Header__nav--item-has-notify:hover .Header_notify {
   display: block;
+  color: white;
 }
 .Header-cart-notify-icon {
   font-size: 0.625rem;
@@ -251,6 +256,7 @@
 }
 .Header_notify-item:hover {
   background-color: #f7f7f7;
+  color: white;
 }
 .Header_notify-item--viewed {
   background-color: white;

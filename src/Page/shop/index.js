@@ -1,55 +1,24 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Footer from '../../component/footer/index.js';
-import Header from '../../component/header/index.js';
-import HomeProduct from '../../component/container/home_Product';
-import ProductShop from '../../component/container/product_shop.js';
-import Loading2 from '../../component/loading2/index.js';
+import { Footer, Header, HomeProduct, ProductShop, Loading2 } from '../../component/index';
+import { ApiItemShop } from '../../services/shop';
 function Shop() {
   const params = useParams();
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  const [items, setItems] = useState([]);
-  const [itemShop, setItemShop] = useState({});
+  const { shopInfo } = useSelector((state) => state.shop);
+  const [items, setItems] = useState();
   const [perPage, setPerPage] = useState(48);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(perPage);
-  const ApiShop = async () => {
-    setLoading(true);
-    try {
-      const url = `https://servershopee.herokuapp.com/dataShop/${params.id}`;
-      const { data } = await axios({
-        url: url,
-        method: 'get',
-      });
-      setItemShop(data);
-    } catch (error) {
-      console.log(error.message);
-    } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
-    }
-  };
   useEffect(() => {
-    const axios = require('axios');
-    const config = {
-      method: 'get',
-      url: `https://servershopee.herokuapp.com/data/shop/${params.id}`,
-      headers: {},
+    const fetchApiItemsShop = async () => {
+      await ApiItemShop(params, setItems, setLoading, dispatch);
     };
-    axios(config)
-      .then(function (response) {
-        setItems(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [params.id]);
-  useEffect(() => {
-    ApiShop();
-  }, [params.id]);
+    fetchApiItemsShop();
+  }, [params]);
   return (
     <>
       <Header />
@@ -58,7 +27,7 @@ function Shop() {
       ) : (
         <>
           <div className="pt-[120px] ">
-            <ProductShop item={itemShop} />
+            <ProductShop item={shopInfo?.data} />
           </div>
           <div className="App__Container">
             <div className="grid wide">

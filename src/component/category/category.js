@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import categorys from '../../redux/dataCategory';
+import categorys from '../../utils/dataCategory';
 import './category.css';
 function Category() {
   const navigate = useNavigate();

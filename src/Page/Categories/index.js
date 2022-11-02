@@ -1,31 +1,29 @@
-import Footer from '../../component/footer';
-import Header from '../../component/header';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import SearchCategory from '../../component/search_filter/index';
-import HomeProduct from '../../component/container/home_Product';
+import { Footer, Header, HomeProduct, SearchEmpty, SearchFilter } from '../../component/index';
+import { ApiCategories } from '../../services/category';
+import { ApiApp } from '../../services/products';
+import { useDispatch, useSelector } from 'react-redux';
 function Categories() {
   const params = useParams();
-  const [items, setItems] = useState([]);
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.categories);
+  const { products } = useSelector((state) => state);
   const [perPage, setPerPage] = useState(48);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(perPage);
   useEffect(() => {
-    var axios = require('axios');
-    var config = {
-      method: 'get',
-      url: `https://servershopee.herokuapp.com/data/category/${params.categories_name}`,
-      headers: {},
+    const fetchApiCategories = async () => {
+      await ApiCategories(params, dispatch);
     };
-    axios(config)
-      .then(function (response) {
-        setItems(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  });
+    fetchApiCategories();
+    const fetchApiApp = async () => {
+      await ApiApp(setLoading, dispatch);
+    };
+    fetchApiApp();
+  }, [params]);
   return (
     <>
       <Header></Header>
@@ -33,18 +31,27 @@ function Categories() {
         <div className="App__Container py-[24px]">
           <div className="grid wide">
             <div className="row sm-gutter">
+              {data?.length === 0 && <SearchEmpty />}
               <div className="col l-2 col-sm-3 c-3 Hide-on-mobile">
-                <SearchCategory />
+                <SearchFilter />
               </div>
               <div className="col l-10">
                 <div className="padding-search mob:pt-[50px] mob:hidden block"></div>
                 {renderHeaderSortBars()}
                 <HomeProduct
-                  items={items}
+                  items={data}
                   start={start}
                   end={end}
                   col={'col l-2-4 mo-4 c-6'}
                 ></HomeProduct>
+                {data?.length === 0 && (
+                  <HomeProduct
+                    items={products?.data}
+                    start={start}
+                    end={end}
+                    col={'col l-2-4 mo-4 c-6'}
+                  ></HomeProduct>
+                )}
               </div>
             </div>
           </div>

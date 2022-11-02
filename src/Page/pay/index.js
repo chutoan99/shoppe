@@ -1,20 +1,21 @@
 import '../../Style/shopping.css';
 import './pay.css';
-import { useState } from 'react';
-import Button from '../../component/container/button';
-import { deleteCart } from '../../redux/action';
-import LogoShopee from '../../component/header/LogoShoppe';
-import BoxSelect from '../../component/container/box_Select';
-import HeaderNavbar from '../../component/header/header_Navbar';
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
+import { useEffect, useState } from 'react';
+import { LogoShopee, BoxSelect, HeaderNavbar } from '../../component/index';
+import { deleteCart } from '../../redux/cartSlice';
 import { useDispatch, useSelector } from 'react-redux/es/exports.js';
 import { useNavigate } from 'react-router-dom';
-import { updateAmount, addBuyCart } from '../../redux/action';
-let Sale = require('../../Img/sale.png');
-let emptyCart = require('../../Img/empty-cart.png');
+import { addBuyCart, updateAmount } from '../../redux/cartSlice';
+import { formatPriceWithAmount } from '../../utils/fomarPrice';
+
 function Pay() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { dataCart, userLogin } = useSelector((state) => state);
+  const { userLogin } = useSelector((state) => state.others);
+  const { data, numberCart, numberBuyCart } = useSelector((state) => state.cart);
+  const { buyCart } = useSelector((state) => state.cart);
 
   const [checked, setChecked] = useState([]);
   const onDeleteCartItem = (index) => {
@@ -30,29 +31,32 @@ function Pay() {
       }
     });
   };
+
   var totals = [];
-  checked.forEach((e) => totals.push(dataCart[e].price));
+  checked.forEach((e) => totals.push(data[e].price * data[e].amount));
   var total = 0;
   if (totals.length > 0) {
     for (let i = 0; i < totals.length; i++) {
       total += totals[i];
     }
   }
+
   const handleBuyCart = () => {
     var addBuyCarts = [];
-    checked.forEach((e) => addBuyCarts.push(dataCart[e]));
-    dispatch(addBuyCart(addBuyCarts));
-    if (userLogin === false) {
+    checked.forEach((e) => addBuyCarts.push(data[e]));
+    if (userLogin) {
+      dispatch(addBuyCart(addBuyCarts));
+    }
+    if (!userLogin) {
       navigate('/login');
     }
-    if (addBuyCart.length > 0 && userLogin) {
+    if (numberBuyCart > 0 || userLogin) {
       navigate('/oder');
     }
   };
-  const numberCart = dataCart.length;
   return (
     <>
-      {numberCart === 0 || dataCart === undefined ? (
+      {numberCart === 0 || data === undefined ? (
         <>
           {renderHeader()}
           {renderEmptyCart()}
@@ -66,14 +70,16 @@ function Pay() {
                 <div className="grid backR">
                   {renderTitleTable()}
                   <div>
-                    {dataCart.map((item, index) => (
-                      <div className="table-body-list" key={index}>
-                        <div>
-                          {renderShopName(item)}
-                          {renderItemList(item, index)}
+                    {data?.map((item, index) => {
+                      return (
+                        <div className="table-body-list" key={index}>
+                          <div>
+                            {renderShopName(item)}
+                            {renderItemList(item, index)}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -88,44 +94,44 @@ function Pay() {
     return (
       <div className="grid backR2">
         <div className="shopping_cart">
-          <label class="shopping_cart-checkBox">
+          <label className="shopping_cart-checkBox">
             <input
               type="checkbox"
               checked={checked.includes(index)}
-              onChange={() => handleCheck(item.itemid, item.price, index)}
+              onChange={() => handleCheck(item?.itemid, item?.price, index)}
             />
             <span className="checkmark"></span>
           </label>
           <div className="shopping_cart-img">
-            <img src={`${'https://cf.shopee.vn/file/'}${item.image}`} alt={item.name} />
+            <img src={`${'https://cf.shopee.vn/file/'}${item?.image}`} alt={item?.name} />
           </div>
           <div className="shopping_cart-img-title">
-            <h3>{item.name}</h3>
+            <h3>{item?.name}</h3>
             <div className="shopping_cart-img-sale">
-              <img src={Sale} alt="sale" />
+              <img src={IMG.SALE_STICKER} alt="sale" />
             </div>
           </div>
-          {item.tier_variations[0].name === '' ? null : <BoxSelect item={item} index={index} />}
+          {item?.tier_variations[0]?.name === '' ? null : <BoxSelect item={item} index={index} />}
         </div>
         <div className="shopping_cart-0ld-price Hide-on-mobile">
-          <h1>đ {(item.price_max_before_discount / 100000).toLocaleString('it-IT')}</h1>
-          <h2>đ {(item.price_max / 100000).toLocaleString('it-IT')}</h2>
+          <h1>đ {formatPriceWithAmount(item?.price_max_before_discount)}</h1>
+          <h2>đ {formatPriceWithAmount(item?.price_max)}</h2>
         </div>
         <div className="shopping_cart-unit-price">
-          <BottonAmount amount={item.amount} index={index} />
+          <BottonAmount amount={item?.amount} index={index} />
           <div className="shopping_cart-warehouse Hide-on-mobile">
-            <h1>Còn {item.stock} Sản Phẩm</h1>
+            <h1>Còn {item?.stock} Sản Phẩm</h1>
           </div>
         </div>
         <div className="shopping_cart-new-price">
-          <h1 className="">đ {(item.price_before_discount / 100000).toLocaleString('it-IT')}</h1>đ{' '}
-          {(item.price / 100000).toLocaleString('it-IT')}
+          <h1 className="">đ{formatPriceWithAmount(item?.price_before_discount, item?.amount)}</h1>đ{' '}
+          {formatPriceWithAmount(item?.price, item?.amount)}
         </div>
         <div className="shopping_cart-delete Hide-on-mobile">
           <h1 onClick={() => onDeleteCartItem(index)}>Xóa</h1>
           <h2>
             Sản Phẩm Tương Tự
-            <i className="fa-solid fa-caret-down Hide-on-table Hide-on-mobile"></i>
+            <span className="Hide-on-table Hide-on-mobile">{ICON.CARET_DOWN}</span>
           </h2>
         </div>
       </div>
@@ -136,10 +142,8 @@ function Pay() {
       <div className="grid wide backR1">
         <div className="table_body-shop-name">
           <span>Yêu Thích</span>
-          <h1 className="table_body-shop">{item.shop_name}</h1>
-          <label className="table_body-shop-icon">
-            <i className="fa-solid fa-message"></i>
-          </label>
+          <h1 className="table_body-shop">{item?.shop_name}</h1>
+          <label className="table_body-shop-icon">{ICON.MESS}</label>
         </div>
       </div>
     );
@@ -159,9 +163,7 @@ function Pay() {
                   className="Header_search-input"
                 />
               </div>
-              <button className="Header__search-btn">
-                <i className="Header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-              </button>
+              <button className="Header__search-btn">{ICON.MAGNIFYING}</button>
             </div>
           </div>
         </div>
@@ -171,7 +173,7 @@ function Pay() {
   function renderEmptyCart() {
     return (
       <div className="emptyCart-img">
-        <img src={emptyCart} alt="emptyCart" />
+        <img src={IMG.EMPTY_CART} alt="emptyCart" />
       </div>
     );
   }
@@ -210,7 +212,7 @@ function Pay() {
             <div className="pay1 ">
               <div className="grid">
                 <div className="cart-Shopee-Voucher">
-                  <i className="fa-solid fa-tags"></i>
+                  {ICON.TAGS}
                   <h1>Shopee Voucher</h1>
                   <h2>Chọn Hoặc Nhập Mã</h2>
                 </div>
@@ -219,10 +221,10 @@ function Pay() {
             <div className="pay2">
               <div className="grid">
                 <div className="cart-Shopee-coin">
-                  <i className="fa-solid fa-coins"></i>
+                  {ICON.COIN}
                   <h1>Shopee Xu</h1>
                   <h2> Bạn chưa chọn sản phẩm</h2>
-                  <i className="fa-solid fa-circle-question"></i>
+                  {ICON.CIRCLE_QUESTION}
                 </div>
               </div>
             </div>
@@ -235,7 +237,7 @@ function Pay() {
                   </label>
                   <h1 className="Hide-on-mobile">Chọn</h1>
                   <h1>Tất Cả</h1>
-                  <h1 className="Hide-on-mobile">({dataCart.length})</h1>
+                  <h1 className="Hide-on-mobile">({data?.length})</h1>
                 </div>
                 <div className="shopping_cart-delete-total">
                   <span>Xóa</span>
@@ -246,7 +248,7 @@ function Pay() {
                 </div>
                 <div className="shopping_cart-total-pay">
                   <h1>Tổng Thanh Toán</h1>
-                  <h1 className="Hide-on-mobile"> ({checked.length} Sản Phẩm):</h1>
+                  <h1 className="Hide-on-mobile"> ({checked?.length} Sản Phẩm):</h1>
                   <span>
                     <sup>đ</sup>
                     {(total / 100000).toLocaleString('it-IT')}
@@ -264,18 +266,36 @@ function Pay() {
   }
 }
 export default Pay;
-function BottonAmount(props) {
-  const { amount } = props;
-  const [newAmout, setNewAmount] = useState(amount);
-
+function BottonAmount({ amount, index }) {
+  const dispatch = useDispatch();
+  const [newAmount, setAmount] = useState(amount);
+  const handleIncrease = () => {
+    setAmount(newAmount + 1);
+  };
+  const handleReduced = () => {
+    if (newAmount > 1) {
+      setAmount(newAmount - 1);
+    }
+    if (newAmount < 1) {
+      setAmount(1);
+    }
+  };
+  useEffect(() => {
+    dispatch(
+      updateAmount({
+        newAmount: newAmount,
+        index: index,
+      })
+    );
+  }, [newAmount]);
   return (
     <div>
-      <button className="cursor-no-drop" disabled>
-        <i className="fa-solid fa-minus"></i>
+      <button className="cursor-no-drop" onClick={handleReduced}>
+        {ICON.MINUS}
       </button>
-      <button disabled>{newAmout}</button>
-      <button className="cursor-no-drop" disabled>
-        <i className="fa-solid fa-plus"></i>
+      <button disabled>{newAmount}</button>
+      <button className="cursor-no-drop" onClick={handleIncrease}>
+        {ICON.PLUS}
       </button>
     </div>
   );

@@ -1,0 +1,12 @@
+export { default as Categories } from './Categories/index';
+export { default as Oder } from './Oder/index';
+export { default as DetailProduct } from './detailProduct/index';
+export { default as Home } from './home/index';
+export { default as LoginForm } from './login/index';
+export { default as PageNotFound } from './pageNotFound/index';
+export { default as Pay } from './pay/index';
+export { default as Profile } from './profile/index';
+export { default as RegisterForm } from './register/index';
+export { default as Search } from './search/index';
+export { default as Shop } from './shop/index';
+export { default as StatusOrder } from './statusOrder/index';

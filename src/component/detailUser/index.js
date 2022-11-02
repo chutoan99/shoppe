@@ -1,17 +1,16 @@
+import ICON from '../../assets/icont';
+import IMG from '../../assets/img';
 import './detail_user.css';
-let userImg = require('../../Img/User.jpg');
 function DetailUser() {
   return (
     <div className="detail-user">
       <div className="flex">
         <div className="detail-user-img">
-          <img src={userImg} alt="userImg"></img>
+          <img src={IMG.USER_IMG} alt="userImg"></img>
         </div>
         <div className="detail-user-name">
           <span>chutoan</span>
-          <label>
-            <i className="fa-solid fa-pen"></i>sửa hồ sơ
-          </label>
+          <label>{ICON.EDIT}sửa hồ sơ</label>
         </div>
       </div>
       <div className="detail-user-content">

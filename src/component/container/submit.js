@@ -1,6 +1,4 @@
-export function Submit(props) {
-  const { handleCloseBoxSelect } = props;
-
+export function Submit({ handleCloseBoxSelect }) {
   const handelChangeOptions = () => {};
   return (
     <>
@@ -18,3 +16,4 @@ export function Submit(props) {
     </>
   );
 }
+export default Submit;

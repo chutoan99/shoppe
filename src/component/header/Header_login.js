@@ -1,8 +1,6 @@
+import ICON from '../../assets/icont';
+
 function HeaderLogin() {
-  return (
-    <>
-      <i className="fa-solid fa-user"></i>
-    </>
-  );
+  return <span>{ICON.USER}</span>;
 }
 export default HeaderLogin;

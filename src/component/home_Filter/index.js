@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ICON from '../../assets/icont';
 import './home_Filter.css';
 function HomeFilter() {
   const [filterDay, setFilterDay] = useState(1);
@@ -31,7 +32,7 @@ function HomeFilter() {
       <button className="btn Home-filter-btn">Bán chạy</button>
       <div className="Select-input">
         <span className="Select-input-label">Giá</span>
-        <i className="Select-input-icon fa-solid fa-angle-down"></i>
+        <span className="Select-input-icon">{ICON.ANGEL_DOWN}</span>
         <ul className="Select-input-list">
           <li className="Select-input-item">
             <a href="# " className="Select-input-link">
@@ -56,10 +57,10 @@ function HomeFilter() {
           onClick={handleBack}
           className="Home-filter__page-icon Home-filter__page-btn Home-filter__page-disabled"
         >
-          <i className="fa-solid fa-angle-left"></i>
+          {ICON.ANGEL_LEFT}
         </span>
         <span onClick={handleNext} className="Home-filter__page-icon Home-filter__page-btn">
-          <i className="fa-solid fa-angle-right"></i>
+          {ICON.ANGEL_RIGHT}
         </span>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import HeaderNotifyItem from './Header_notify-item';
+import { HeaderNotifyItem } from '../index';
 function HeaderNotify() {
   return (
     <div className="Header_notify">

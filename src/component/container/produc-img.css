@@ -4,6 +4,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  justify-content: center;
   z-index: 11;
   display: flex;
   background-color: rgba(0, 0, 0, 0.14);
@@ -12,9 +13,8 @@
   background-color: white;
   width: 836px;
   height: 540px;
-  content: '';
   top: 0;
-  left: 295px;
+  content: '';
   display: flex;
   bottom: 0;
   position: absolute;

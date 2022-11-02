@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import HeaderCartList from './Header_Cart-List';
+import { HeaderCartList } from '../index';
 import { useSelector } from 'react-redux/es/exports.js';
-let noCart = require('../../Img/no-cart.png');
+import IMG from '../../assets/img';
+import ICON from '../../assets/icont';
+
 function HeaderCart() {
   const navigate = useNavigate();
-  const { numberCart } = useSelector((state) => state);
+  const { numberCart } = useSelector((state) => state.cart);
   const renderNumberCart = (numberCart) => {
     if (numberCart === 0 || numberCart === undefined) {
       return <span></span>;
@@ -20,7 +22,8 @@ function HeaderCart() {
       }}
     >
       <div className="Header-cart-wrap">
-        <i className="Header-cart-icon fa-solid fa-cart-shopping"></i>
+        <span className="Header-cart-icon">{ICON.SHOPPING_CART}</span>
+
         {renderNumberCart(numberCart)}
 
         {/* <!-- .Header-cart--no-cart  --> */}
@@ -33,7 +36,7 @@ function HeaderCart() {
             </>
           ) : (
             <div className="Header-cart--no-cart">
-              <img src={noCart} alt="noCart" className="Header-cart--no-cart-img" />
+              <img src={IMG.NO_CART} alt="noCart" className="Header-cart--no-cart-img" />
               <p className="Header-cart-list-no-cart-msg">Chưa có sản phẩm</p>
             </div>
           )}

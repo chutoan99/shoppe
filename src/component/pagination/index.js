@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import ICON from '../../assets/icont';
 import './pagination.css';
-function Pagination(props) {
-  const { handlePrevPages, handleNextPages, totalPages } = props;
+function Pagination({ handlePrevPages, handleNextPages, totalPages }) {
   const [active, setActive] = useState(undefined);
   function renderNumberPage(totalPages) {
     var result = [];
@@ -21,13 +21,13 @@ function Pagination(props) {
     <ul className="Pagination Home-product-pagination">
       <li className="Pagination-item">
         <button className="Pagination-item_link" onClick={handlePrevPages}>
-          <i className="Pagination-item_link-icon fa-solid fa-angle-left"></i>
+          <span className="Pagination-item_link-icon">{ICON.ANGEL_LEFT}</span>
         </button>
       </li>
       {renderNumberPage(totalPages)}
       <li className="Pagination-item">
         <button className="Pagination-item_link" onClick={handleNextPages}>
-          <i className="Pagination-item_link-icon fa-solid fa-angle-right"></i>
+          <span className="Pagination-item_link-icon">{ICON.ANGEL_RIGHT}</span>
         </button>
       </li>
     </ul>

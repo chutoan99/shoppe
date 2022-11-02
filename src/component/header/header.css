@@ -266,3 +266,118 @@ label.Header_mobile-cart {
   display: block;
   padding-left: 16px;
 }
+@media (max-width: 1023px) {
+  @media (min-width: 740px) and (max-width: 1023px) {
+    .show {
+      display: block;
+    }
+    .Header {
+      height: 120px !important;
+    }
+    .Header__logo {
+      width: 140px;
+    }
+    .Header_notify {
+      width: 336px;
+    }
+    .Header_notify-header {
+      height: 30px;
+    }
+    .Header_notify-description {
+      margin-top: 2px;
+    }
+    .Header_notify-link {
+      padding: 12px 12px 0 12px;
+    }
+    .Header__notify-footer {
+      margin-top: 10px;
+    }
+    .Header-cart {
+      text-align: center;
+    }
+    .Header-cart-list {
+      position: absolute;
+      top: calc(100% + 17px);
+      right: -85px;
+      width: 796px;
+      padding-right: 94px;
+      padding-left: 94px;
+    }
+    .Header-cart-list::after {
+      display: none;
+    }
+  }
+  @media (min-width: 481px) and (max-width: 739px) {
+  }
+  @media only screen and (max-width: 880px) {
+  }
+  @media (max-width: 480px) {
+    .Header {
+      background-image: unset !important;
+    }
+
+    .Header-cart {
+      justify-content: unset;
+      flex: unset;
+    }
+
+    .Header {
+      height: 60px;
+    }
+    .Header-with-search {
+      height: 60px;
+    }
+    .Header__search {
+      width: 76vw;
+    }
+    .Header__logo {
+      width: unset;
+    }
+    .Header-cart {
+      width: unset;
+    }
+    .Header_logo-img {
+      width: 110px;
+    }
+    /* .Header__search {
+    height: 30px;
+    width: 80vw;
+  } */
+    .Header__search-btn {
+      width: unset;
+      height: unset;
+      background-color: unset !important;
+    }
+    .Header__search-btn-icon {
+      color: black !important;
+    }
+    /* .Header__search-input-wrap {
+    order: 2;
+  } */
+    .Header_search-input {
+      padding: unset;
+    }
+    .Header-cart-notice {
+      padding: 1px 4px;
+      right: 4px;
+      font-size: unset;
+      top: -2px;
+      background-color: var(--primary--color);
+      border: 1px var(--white-color) solid;
+      color: var(--white-color);
+    }
+    .Header__search-btn {
+      width: unset !important;
+      padding: 0 5px;
+    }
+    .Header_search-input {
+      padding: unset !important;
+    }
+    .Header-with-search {
+      background-image: unset !important;
+    }
+    .Header__search {
+      margin-top: unset !important;
+    }
+  }
+}
