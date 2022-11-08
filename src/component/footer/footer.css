@@ -11,6 +11,9 @@ footer {
   list-style: none;
   padding-left: 0;
 }
+.Footer_list li a {
+  text-align: left;
+}
 .Footer_item-link {
   text-decoration: none;
   font-size: 0.75rem;
@@ -79,9 +82,7 @@ footer {
 .boder-b {
   border-bottom: 1px solid #ccc;
 }
-.Footer_list li a {
-  text-align: left;
-}
+
 .footer-sale-ship {
   display: flex;
   flex-wrap: wrap;
@@ -103,18 +104,6 @@ footer {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
-.footer-download-app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 16px;
-}
-
-.footer-download-app-img {
-  height: 16px;
-}
-
 .footer-download-link {
   text-decoration: none;
   color: transparent;

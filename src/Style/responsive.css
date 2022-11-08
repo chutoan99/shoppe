@@ -20,9 +20,9 @@
     .product_cart-variation button {
       min-width: 70px !important;
     }
-    .container-detail {
+    /* .container-detail {
       grid-template-columns: 10vw 37vw !important;
-    }
+    } */
     .product_cart-option {
       grid-template-columns: 1fr 1fr 1fr 1fr !important;
     }
@@ -77,16 +77,6 @@
     }
   }
   @media only screen and (max-width: 880px) {
-    .shop-content {
-      grid-template-columns: 14vw 1fr !important;
-      grid-template-areas:
-        'aa bb'
-        'cc cc' !important
-        ;
-    }
-    .product_rating {
-      grid-column: 1/3 !important;
-    }
     .Home-product-item-name {
       height: 36px !important;
     }
@@ -101,6 +91,16 @@
     }
     .show-on-mobile {
       display: block !important;
+    }
+    .product_cart {
+      padding: 15px 0;
+      position: fixed;
+      bottom: 0;
+      background-color: white;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      z-index: 100;
     }
     label.Header_mobile-cart {
       display: block !important;
@@ -136,9 +136,7 @@
     .product-items-new-price {
       margin: 5px 0px !important;
     }
-    .product_cart-mini-voucher {
-      margin: 0 0px 20px 0px !important;
-    }
+
     .product_cart-mini-voucher label {
       margin-bottom: 5px !important;
     }
@@ -159,11 +157,7 @@
     .app-content {
       padding-top: 70px !important;
     }
-    .product_rating {
-      margin-top: unset !important;
-      margin-bottom: unset !important;
-      line-height: unset !important;
-    }
+
     .DISPLAY {
       max-height: 78px;
       overflow-y: auto;
@@ -173,17 +167,6 @@
     }
     .table_body-shop-name {
       padding-left: 5px;
-    }
-
-    .shop-content {
-      grid-template-columns: 22vw 1fr !important;
-      grid-template-areas:
-        'aa bb'
-        'cc cc' !important
-        ;
-    }
-    .product_rating {
-      grid-column: 1/3 !important;
     }
   }
   .Pagination-item {
@@ -269,22 +252,13 @@
   .Home-product-item-name {
     height: 26px !important;
   }
-  .container-detail {
+  /* .container-detail {
     grid-template-columns: 19vw 1fr !important;
-  }
+  } */
   .product_cart-option {
     grid-template-columns: 1fr 1fr 1fr !important;
   }
-  .product_cart {
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    background-color: white;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    z-index: 100;
-  }
+
   .product_cart-button {
     background-color: #00bfa5 !important;
     border: none !important;

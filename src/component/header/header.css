@@ -1,6 +1,7 @@
 .Header-with-search {
   height: 82px;
   display: flex;
+  gap: 5px;
   align-items: center;
   padding: 0 8px;
 }
@@ -61,12 +62,9 @@ label.Header_mobile-cart {
   text-decoration: none;
   color: transparent;
 }
-.Header_logo-img {
-  width: 150px;
-}
 .Header__search {
   background-color: var(--white-color);
-  height: 40px;
+  height: 2.5rem;
   flex: 1;
   border-radius: 2px;
   display: flex;
@@ -335,9 +333,6 @@ label.Header_mobile-cart {
     }
     .Header-cart {
       width: unset;
-    }
-    .Header_logo-img {
-      width: 110px;
     }
     /* .Header__search {
     height: 30px;

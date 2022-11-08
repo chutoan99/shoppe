@@ -364,37 +364,10 @@ sup {
   border-radius: 4px;
 }
 .product_cart-mini-voucher {
-  margin: 0 0px 25px 0px;
-}
-
-.product_rating {
-  margin: 20px 0;
-  font-family: sans-serif;
-  line-height: 1.05rem;
-  text-transform: capitalize;
-  color: rgba(0, 0, 0, 0.4);
-  display: grid;
-  grid-template-areas: 'dd ee ff';
-}
-.product_rating-item {
-  margin-bottom: 10px;
-}
-.product_rating-item label span:last-child {
-  color: var(--primary--color);
-  width: 100%;
-  font-size: 1rem;
-}
-.product_rating-item span {
-  margin-right: 10px;
-  height: 100px;
-  font-size: 0.938rem;
-}
-.shop-content {
-  margin-left: -5px;
-  margin-right: -5px;
-  display: grid;
-  grid-template-columns: 9vw 26vw 1fr;
-  grid-template-areas: 'aa bb cc';
+  margin-bottom: 25px;
+  row-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .product_band {
   width: 100px;
@@ -478,7 +451,7 @@ sup {
 .container-detail {
   display: grid;
   grid-template-areas: 'aa bb';
-  grid-template-columns: 0.5fr 2fr;
+  column-gap: 20px;
 }
 .home-product-item-footer {
   position: absolute;

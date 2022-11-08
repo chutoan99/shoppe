@@ -14,7 +14,7 @@ export const validateLogin = (emailLogin, passWordLogin, setValidationMsg) => {
     msg.passWordLogin = 'Pleas input your PassWord';
   }
   setValidationMsg(msg);
-  if (Object.keys(msg) > 0) return false;
+  if (Object.keys(msg).length > 0) return false;
   return true;
 };
 // kiểm tra dữ liệu đăng ký
