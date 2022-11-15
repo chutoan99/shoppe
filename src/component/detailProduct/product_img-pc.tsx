@@ -1,6 +1,8 @@
 import MobileImgProduct from './product_img-mobile';
+import React, { memo } from 'react';
+
 interface ProductImgPc {
-  setShowImg: any;
+  setShowImg: React.Dispatch<React.SetStateAction<boolean>>;
   animationAddCart: any;
   item: any;
 }
@@ -8,19 +10,9 @@ function ProductImgPc({ animationAddCart, item, setShowImg }: ProductImgPc) {
   return (
     <>
       <div className="product_cart-img Hide-on-mobile">
-        <img
-          className="product_cart-img-re"
-          src={`${process.env.REACT_APP_IMG_URl}${item?.image}`}
-          alt=""
-          onClick={() => setShowImg(true)}
-        />
+        <img className="product_cart-img-re" src={`${process.env.REACT_APP_IMG_URl}${item?.image}`} alt="" onClick={() => setShowImg(true)} />
         {/* thẻ img dùng cho animation */}
-        <img
-          className={animationAddCart}
-          src={`${process.env.REACT_APP_IMG_URl}${item?.image}`}
-          alt="animationAddCart"
-          onClick={() => setShowImg(true)}
-        />
+        <img className={animationAddCart} src={`${process.env.REACT_APP_IMG_URl}${item?.image}`} alt="animationAddCart" onClick={() => setShowImg(true)} />
         {/* thẻ img dùng cho animation */}
       </div>
       <MobileImgProduct item={item} />
@@ -30,11 +22,7 @@ function ProductImgPc({ animationAddCart, item, setShowImg }: ProductImgPc) {
             {item?.images?.map((image: any, index: any) => {
               return (
                 <div className="product_cart-list" key={index}>
-                  <img
-                    src={`${process.env.REACT_APP_IMG_URl}${image}`}
-                    alt="MobileImgProduct"
-                    onClick={() => setShowImg(true)}
-                  />
+                  <img src={`${process.env.REACT_APP_IMG_URl}${image}`} alt="MobileImgProduct" onClick={() => setShowImg(true)} />
                 </div>
               );
             })}
@@ -44,4 +32,4 @@ function ProductImgPc({ animationAddCart, item, setShowImg }: ProductImgPc) {
     </>
   );
 }
-export default ProductImgPc;
+export default memo(ProductImgPc);

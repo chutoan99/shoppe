@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import './product_shop.css';
 import ICON from '../../../assets/icons';
+import { memo } from 'react';
 interface ProductShop {
   item: any;
 }
 function ProductShop({ item }: ProductShop) {
   const navigate = useNavigate();
   return (
-    <div className="App__Container py-[16px]">
+    <div className="bg-[#f5f5f5] overflow-hidden py-[16px]">
       <div className="grid wide">
         <div className="sm-gutter  pb-[30px] bg-[white] p-[25px] flex justify-between response_shop-content">
           <div className="flex gap-[1.875rem] w-[40%]">
@@ -74,4 +75,4 @@ function ProductShop({ item }: ProductShop) {
     </div>
   );
 }
-export default ProductShop;
+export default memo(ProductShop);

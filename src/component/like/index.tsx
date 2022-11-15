@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useAppDispatch } from '../../hooks/hooks';
 import { updateHeartTrue, updateHeartFalse } from '../../redux/otherSlice';
+
 function Like() {
   const dispatch = useAppDispatch();
   const [like, setLike] = useState('fa-regular fa-heart');
@@ -22,4 +23,4 @@ function Like() {
     </span>
   );
 }
-export default Like;
+export default memo(Like);

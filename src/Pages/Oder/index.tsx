@@ -1,13 +1,15 @@
 import './oder.css';
-import { useState } from 'react';
-import { addOrDerCart, deleteBuyCart } from '../../redux/cartSlice';
-import { useNavigate } from 'react-router-dom';
-import { PaymentMethods, Loading2, Footer, InforUser, CartOder, OderPay } from '../../component/index';
+import ICON from '../../assets/icons';
 import IMG from '../../assets/imgs';
 import SVG from '../../assets/svgs';
-import ICON from '../../assets/icons';
 import { RootState } from '../../app/store';
+import { useState, memo } from 'react';
+import { addOrDerCart, deleteBuyCart } from '../../redux/cartSlice';
+import { useNavigate } from 'react-router-dom';
+import { PaymentMethods, Loading2, InforUser, CartOder, OderPay } from '../../component/index';
+import { Footer } from '../../containers/index';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+
 function Oder() {
   const priceShip = 3000000000;
   const navigate = useNavigate();
@@ -94,10 +96,10 @@ function Oder() {
           </div>
         </div>
         <PaymentMethods />
-        <OderPay handelSubmit={handelSubmit} total={total} totalShip={totalShip}></OderPay>
+        <OderPay onSubmit={handelSubmit} total={total} totalShip={totalShip}></OderPay>
       </div>
       <Footer></Footer>
     </>
   );
 }
-export default Oder;
+export default memo(Oder);

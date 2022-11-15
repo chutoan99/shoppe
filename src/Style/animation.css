@@ -71,28 +71,7 @@
     transform: translate(4500px, -1700px);
   }
 }
-.heart-animation {
-  width: 100px;
-  height: 100px;
-  left: 50%;
-  top: 50%;
-  position: sticky;
-  z-index: 10;
-  transform: translate(-50%, -50%);
-  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
-  cursor: pointer;
-  background-position: -2800px 0;
-  transition: background 1.5s steps(28);
-  animation: fave-heart 1s steps(28);
-}
-@keyframes fave-heart {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -2800px 0;
-  }
-}
+
 @keyframes mobileSearchSideIn {
   from {
     opacity: 0;

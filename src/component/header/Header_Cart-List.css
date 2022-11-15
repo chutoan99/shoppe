@@ -175,8 +175,6 @@
   color: var(--primary--color);
   cursor: pointer;
 }
-.btn.btn--prinary {
-}
 .Header_cart-view-cart {
   float: right;
   margin: 0 12px 12px 0;

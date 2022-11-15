@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Footer, Header, ProductItems } from '../../component/index';
+import { Footer, Header, ProductDetail } from '../../containers/index';
+
 import { useAppDispatch } from '../../hooks/hooks';
 import { ApiCategoriesProduct } from '../../services/category';
 import { ApiProductComment, ApiProductId } from '../../services/products';
@@ -36,9 +37,9 @@ function DetailProduct() {
   return (
     <>
       <Header />
-      <ProductItems loading={loading} />
+      <ProductDetail loading={loading} />
       <Footer />
     </>
   );
 }
-export default DetailProduct;
+export default memo(DetailProduct);

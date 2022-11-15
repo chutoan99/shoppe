@@ -4,6 +4,7 @@ import IMG from '../../assets/imgs';
 import ICON from '../../assets/icons';
 import { RootState } from '../../app/store';
 import { useAppSelector } from '../../hooks/hooks';
+import { memo } from 'react';
 
 function HeaderCart() {
   const navigate = useNavigate();
@@ -46,4 +47,4 @@ function HeaderCart() {
     </div>
   );
 }
-export default HeaderCart;
+export default memo(HeaderCart);

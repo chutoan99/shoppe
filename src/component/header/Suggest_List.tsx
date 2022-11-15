@@ -1,4 +1,6 @@
 import { suggestList } from '../../utils/data_suggestList';
+import { memo } from 'react';
+
 function SuggestList() {
   return (
     <div className="SuggestionList  Hide-on-mobile">
@@ -12,4 +14,4 @@ function SuggestList() {
     </div>
   );
 }
-export default SuggestList;
+export default memo(SuggestList);

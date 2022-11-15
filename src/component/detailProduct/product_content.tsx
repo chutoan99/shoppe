@@ -3,19 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import ICON from '../../assets/icons';
 import { formatPrice } from '../../utils/fomarPrice';
 import { generateStart } from '../../utils/generateStart';
+import React, { memo } from 'react';
+
 interface ProductContent {
   item: any;
-  amount: any;
-  NewOption: any;
-  setNewOption: any;
-  handleIncrease: any;
-  handleReduced: any;
-  handleAddToCart: any;
+  amount: number;
+  NewOption: String | undefined;
+  setNewOption: React.Dispatch<React.SetStateAction<undefined>>;
+  onIncrease: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onReduced: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onAddToCart: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-function ProductContent({ item, amount, NewOption, setNewOption, handleIncrease, handleReduced, handleAddToCart }: ProductContent) {
+function ProductContent({ item, amount, NewOption, setNewOption, onIncrease, onReduced, onAddToCart }: ProductContent) {
   const navigate = useNavigate();
   const [showTableSize, setShowTableSize] = useState(false);
-
   return (
     <div className="p-[10px] mob:pt-[20px] ">
       {renderItemHeading(item)}
@@ -141,9 +142,9 @@ function ProductContent({ item, amount, NewOption, setNewOption, handleIncrease,
         </div>
         <div className="product_cart-amount">
           <div className="product_cart-amount-button">
-            <button onClick={handleReduced}>{ICON.MINUS}</button>
+            <button onClick={onReduced}>{ICON.MINUS}</button>
             <button>{amount}</button>
-            <button onClick={handleIncrease}>{ICON.PLUS}</button>
+            <button onClick={onIncrease}>{ICON.PLUS}</button>
           </div>
           <h2>{item?.stock} sản phẩm có sẵn</h2>
         </div>
@@ -154,7 +155,7 @@ function ProductContent({ item, amount, NewOption, setNewOption, handleIncrease,
     return (
       <div className="product_cart ">
         <button className="product_cart-button mob:hidden">{ICON.CART}Chat ngay</button>
-        <button className="product_cart-button" onClick={handleAddToCart}>
+        <button className="product_cart-button" onClick={onAddToCart}>
           <span className="cart-plus-animation">{ICON.CART}</span>Thêm Vào Giỏ Hàng
         </button>
         <button className="product_cart-button2" onClick={() => navigate('/pay')}>
@@ -193,4 +194,4 @@ function ProductContent({ item, amount, NewOption, setNewOption, handleIncrease,
     );
   }
 }
-export default ProductContent;
+export default memo(ProductContent);

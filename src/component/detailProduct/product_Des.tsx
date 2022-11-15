@@ -1,5 +1,7 @@
 import ICON from '../../assets/icons';
 import './product_Des.css';
+import React, { memo } from 'react';
+
 interface ProductDes {
   item: any;
 }
@@ -45,4 +47,4 @@ function ProductDes({ item }: ProductDes) {
     </div>
   );
 }
-export default ProductDes;
+export default memo(ProductDes);

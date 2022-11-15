@@ -1,6 +1,7 @@
 import { useSignInWithGoogle as UseSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../../configs/firebase';
 import ICON from '../../assets/icons';
+import { memo } from 'react';
 
 function loginGoogle() {
   const [signInWithGoogle, _user, _loading, _error] = UseSignInWithGoogle(auth);
@@ -16,4 +17,4 @@ function loginGoogle() {
     </button>
   );
 }
-export default loginGoogle;
+export default memo(loginGoogle);

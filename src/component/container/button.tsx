@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import ICON from '../../assets/icons';
+import React, { memo } from 'react';
+
 interface Button {
-  amount: any;
+  amount: number;
 }
+
 function Button({ amount }: Button) {
   const [amounts, setAmount] = useState(amount);
   const handleReduced = () => {
@@ -28,4 +31,4 @@ function Button({ amount }: Button) {
     </div>
   );
 }
-export default Button;
+export default memo(Button);

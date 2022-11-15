@@ -1,12 +1,5 @@
 import config from '../configs/configAxios';
-import {
-  fetchShopInfoStart,
-  fetchShopInfoSuccess,
-  fetchShopInfoFailed,
-  fetchShopItemStart,
-  fetchShopItemSuccess,
-  fetchShopItemFailed,
-} from '../redux/shopSlice';
+import { fetchShopInfoStart, fetchShopInfoSuccess, fetchShopInfoFailed, fetchShopItemStart, fetchShopItemSuccess, fetchShopItemFailed } from '../redux/shopSlice';
 // lấy thông tin của shop
 export const ApiInfoShop = async (params: any, setLoading: any, dispatch: any) => {
   dispatch(fetchShopInfoStart());
@@ -32,14 +25,12 @@ export const ApiInfoShop = async (params: any, setLoading: any, dispatch: any) =
 export const ApiItemShop = async (params: any, setItems: any, setLoading: any, dispatch: any) => {
   setLoading(true);
   dispatch(fetchShopItemStart());
-  console.log(params);
   try {
     const response = await config({
       method: 'get',
       url: `data/shop/${params?.id}`,
       headers: {},
     });
-    console.log(response);
     if (response?.status === 200) {
       setItems(response?.data);
       dispatch(fetchShopItemSuccess(response?.data));

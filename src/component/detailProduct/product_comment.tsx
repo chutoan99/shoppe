@@ -3,6 +3,8 @@ import IMG from '../../assets/imgs';
 import { generateStart } from '../../utils/generateStart';
 import { generateTime } from '../../utils/generateTime';
 import './product_comment.css';
+import React, { memo } from 'react';
+
 interface ProductComment {
   items: any;
 }

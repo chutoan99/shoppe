@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, memo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Footer, Header, HomeProduct, ProductShop, Loading2 } from '../../component/index';
+import { ProductShop, Loading2 } from '../../component/index';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { Footer, Header, HomeProduct } from '../../containers/index';
 import { RootState } from '../../app/store';
 import { ApiItemShop } from '../../services/shop';
+
 function Shop() {
   const params = useParams();
   const dispatch = useAppDispatch();
@@ -28,7 +29,7 @@ function Shop() {
           <div className="pt-[120px] ">
             <ProductShop item={shopInfo?.data} />
           </div>
-          <div className="App__Container">
+          <div className="bg-[f5f5f5] overflow-hidden">
             <div className="grid wide">
               <div className="row sm-gutter pt-[16px]">
                 <HomeProduct items={items} start={start} end={end} col={'col l-2 mo-4 c-6'} />
@@ -41,4 +42,4 @@ function Shop() {
     </>
   );
 }
-export default Shop;
+export default memo(Shop);

@@ -1,61 +1,56 @@
 import ICON from '../../assets/icons';
 import IMG from '../../assets/imgs';
-import './detail_user.css';
+import { memo } from 'react';
+import { useAppSelector } from '../../hooks/hooks';
+
 function DetailUser() {
+  const { photoURL } = useAppSelector<any>((state) => state.user);
   return (
-    <div className="detail-user">
-      <div className="flex">
-        <div className="detail-user-img">
-          <img src={IMG.USER_IMG} alt="userImg"></img>
-        </div>
-        <div className="detail-user-name">
-          <span>chutoan</span>
-          <label>{ICON.EDIT}sửa hồ sơ</label>
+    <div>
+      <div className="flex items-center">
+        <div className="flex items-center gap-[20px] pb-[20px]" style={{ borderBottom: '0.0625rem solid #efefef' }}>
+          <div className="w-[48px] h-[48px]">
+            <img src={photoURL || IMG.USER_IMG} alt="userImg" className="w-full h-full rounded-[50%]" />
+          </div>
+          <div className="flex flex-col justify-between gap-[8px]">
+            <span className="text-[14px] font-semibold">chutoan</span>
+            <label className="text-[14px] gap-[5px] flex items-center text-[#888]">{ICON.EDIT}sửa hồ sơ</label>
+          </div>
         </div>
       </div>
-      <div className="detail-user-content">
-        <div className="detail-user-content-img">
-          <img src="https://cf.shopee.vn/file/97cb82f5dd0a13419b1608c16681df9e" alt="ban moi"></img>
+      <div className="flex flex-col gap-[10px] my-[20px]">
+        <div className="flex items-center mb-[0.9375rem]" style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
+          <div className="flex items-center justify-center w-[1.25rem] h-[1.25rem] leading-[1.125rem] text-center rounded-[50%] text-[#fff] flex-shrink-0 mr-[0.625rem]">
+            <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="" className="w-full h-full" />
+          </div>
+          <span className="font-normal mr-[0.3125rem]">Tài khoản của tôi</span>
         </div>
-        <span>Ưu Đãi Dành Riêng Cho Bạn</span>
-      </div>
-      <div className="detail-user-content">
-        <div className="detail-user-content-img">
-          <img src="https://cf.shopee.vn/file/55c04c537e5744f4b5e3a3a94368fd39" alt="ban moi"></img>
+        <div className="flex items-center mb-[0.9375rem]" style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
+          <div className="flex items-center justify-center w-[1.25rem] h-[1.25rem] leading-[1.125rem] text-center rounded-[50%] text-[#fff] flex-shrink-0 mr-[0.625rem]">
+            <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="" className="w-full h-full" />
+          </div>
+          <span className="font-normal mr-[0.3125rem]">Đơn Mua</span>
         </div>
-        <span>25.8 Lương Về Sale To</span>
-      </div>
-      <div className="detail-user-detail">
-        <div className="detail-user-detail-img">
-          <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="" />
+        <div className="flex items-center mb-[0.9375rem]" style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
+          <div className="flex items-center justify-center w-[1.25rem] h-[1.25rem] leading-[1.125rem] text-center rounded-[50%] text-[#fff] flex-shrink-0 mr-[0.625rem]">
+            <img src="https://cf.shopee.vn/file/e10a43b53ec8605f4829da5618e0717c" alt="" className="w-full h-full" />
+          </div>
+          <span className="font-normal mr-[0.3125rem]">Thông Báo</span>
         </div>
-        <span>Tài khoản của tôi</span>
-      </div>
-      <div className="detail-user-detail">
-        <div className="detail-user-detail-img">
-          <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="" />
+        <div className="flex items-center mb-[0.9375rem]" style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
+          <div className="flex items-center justify-center w-[1.25rem] h-[1.25rem] leading-[1.125rem] text-center rounded-[50%] text-[#fff] flex-shrink-0 mr-[0.625rem]">
+            <img src="https://cf.shopee.vn/file/84feaa363ce325071c0a66d3c9a88748" alt="" className="w-full h-full" />
+          </div>
+          <span className="font-normal mr-[0.3125rem]">Kho Voucher</span>
         </div>
-        <span>Đơn Mua</span>
-      </div>
-      <div className="detail-user-detail">
-        <div className="detail-user-detail-img">
-          <img src="https://cf.shopee.vn/file/e10a43b53ec8605f4829da5618e0717c" alt="" />
+        <div className="flex items-center mb-[0.9375rem]" style={{ color: 'rgba(0, 0, 0, 0.87)' }}>
+          <div className="flex items-center justify-center w-[1.25rem] h-[1.25rem] leading-[1.125rem] text-center rounded-[50%] text-[#fff] flex-shrink-0 mr-[0.625rem]">
+            <img src="https://cf.shopee.vn/file/a0ef4bd8e16e481b4253bd0eb563f784" alt="" className="w-full h-full" />
+          </div>
+          <span className="font-normal mr-[0.3125rem]">Shoppe Xu</span>
         </div>
-        <span>Thông Báo</span>
-      </div>
-      <div className="detail-user-detail">
-        <div className="detail-user-detail-img">
-          <img src="https://cf.shopee.vn/file/84feaa363ce325071c0a66d3c9a88748" alt="" />
-        </div>
-        <span>Kho Voucher</span>
-      </div>
-      <div className="detail-user-detail">
-        <div className="detail-user-detail-img">
-          <img src="https://cf.shopee.vn/file/a0ef4bd8e16e481b4253bd0eb563f784" alt="" />
-        </div>
-        <span>Shoppe Xu</span>
       </div>
     </div>
   );
 }
-export default DetailUser;
+export default memo(DetailUser);

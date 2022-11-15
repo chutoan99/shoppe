@@ -1,196 +1,60 @@
 import ICON from '../../assets/icons';
 import { generateStartFilter } from '../../utils/generateStart';
-import './Search_filter.css';
+import { memo } from 'react';
+import { CategoryGroup } from '../index';
 function SearchFilter() {
   return (
-    <nav className="category">
-      <h3 className="category-heading">
-        <span className="category-heading-icon">{ICON.LIST}</span>
+    <nav>
+      <h3 className="text-[#333] uppercase text-[1rem]  my-[8px] leading-[1.125rem] font-semibold">
+        <span className="text-[1rem] mr-[4px]">{ICON.LIST}</span>
         Bộ lọc tìm kiếm
       </h3>
-      <div className="category-group">
-        <div className="category-group-title">Theo Danh Mục</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Thiết bị mạng
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Chuột và bàn phím
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            USB
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Link kiện máy tính
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Wifi
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Nơi Bán</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Hà Nội
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Hồ Chí Minh
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Đà Nẵng
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Đơn Vị Vận Chuyển</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Hoả tốc
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Nhanh
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Tiết kiệm
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Thương Hiệu</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Kingston
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Sandisk
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Seagate
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Khoảng Giá</div>
-        <div className="category-group-filter">
-          <input type="number" placeholder="đ TỪ" className="category-group-filter-input" />
+      <CategoryGroup content={['Thiết bị mạng', 'Chuột và bàn phím', 'USB', 'Link kiện máy tính', 'Wifi']} title="Theo Danh Mục" />
+      <CategoryGroup content={['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng']} title="Nơi Bán" />
+      <CategoryGroup content={['Hoả tốc', 'Nhanh', 'Tiết kiệm']} title="Đơn Vị Vận Chuyển" />
+      <CategoryGroup content={['Kingston', 'Sandisk', 'Seagate']} title="Thương Hiệu" />
+      <div className="py-[20px]" style={{ borderBottom: '1px solid #ccc' }}>
+        <div className="text-[#333] text-[0.938rem] pb-[10px]">Khoảng Giá</div>
+        <div className="flex items-center text-[0.875rem] text-[#333] py-[8px] justify-between">
+          <input type="number" placeholder="đ TỪ" className="w-[76px] h-[24px] outline-none p-8px" style={{ border: '1px solid #999' }} />
           {ICON.ARROW_RIGHT}
-          <input type="number" placeholder="đ ĐẾN" className="category-group-filter-input" />
+          <input type="number" placeholder="đ ĐẾN" className="w-[76px] h-[24px] outline-none p-8px" style={{ border: '1px solid #999' }} />
         </div>
-        <button className="btn btn--primary category-group-filter-btn">Áp dụng</button>
+        <button className="btn btn--primary  w-full bg-[#ee4d2d] text-white hover:bg-[#ee4d2d]">Áp dụng</button>
       </div>
-      <div className="category-group">
-        <div className="category-group-title">Loại Shop</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Shoppee
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Shoppee Mail
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Shop yêu thích
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Tình Trạng</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Mới
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Đã sử dụng
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Lựa Chọn Thanh Toán</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Thanh toán khi nhận hàng
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Chuyển khoản
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Trả góp 0%
-          </li>
-        </ul>
-      </div>
-      <div className="category-group">
-        <div className="category-group-title">Đánh Giá</div>
-
-        <div className="rating-star">
-          <input type="checkbox" className="category-group-item-check" />
+      <CategoryGroup content={['Shoppee', 'Shoppee Mail', 'Shop yêu thích']} title="Loại Shop" />
+      <CategoryGroup content={['Mới', 'Đã sử dụng']} title="Tình Trạng" />
+      <CategoryGroup content={['Thanh toán khi nhận hàng', 'Chuyển khoản', 'Trả góp 0%']} title="Lựa Chọn Thanh Toán" />
+      <div className="py-[20px]" style={{ borderBottom: '1px solid #ccc' }}>
+        <div className="text-[#333] text-[0.938rem] pb-[10px]">Đánh Giá</div>
+        <div className="flex items-center justify-between text-[0.938rem] w-[70%] py-[8px]">
+          <input type="checkbox" className="mr-[12px]" />
           {generateStartFilter(5)}
         </div>
-        <div className="rating-star">
-          <input type="checkbox" className="category-group-item-check" />
+        <div className="flex items-center justify-between text-[0.938rem] w-[70%] py-[8px]">
+          <input type="checkbox" className="mr-[12px]" />
+
           {generateStartFilter(4)}
         </div>
-        <div className="rating-star">
-          <input type="checkbox" className="category-group-item-check" />
+        <div className="flex items-center justify-between text-[0.938rem] w-[70%] py-[8px]">
+          <input type="checkbox" className="mr-[12px]" />
+
           {generateStartFilter(3)}
         </div>
-        <div className="rating-star">
-          <input type="checkbox" className="category-group-item-check" />
+        <div className="flex items-center justify-between text-[0.938rem] w-[70%] py-[8px]">
+          <input type="checkbox" className="mr-[12px]" />
+
           {generateStartFilter(2)}
         </div>
-        <div className="rating-star">
-          <input type="checkbox" className="category-group-item-check" />
+        <div className="flex items-center justify-between text-[0.938rem] w-[70%] py-[8px]">
+          <input type="checkbox" className="mr-[12px]" />
+
           {generateStartFilter(1)}
         </div>
       </div>
-      <div className="category-group">
-        <div className="category-group-title">Dịch Vụ & Khuyến Mãi</div>
-        <ul className="category-group-list">
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Freeship Xtra
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Hoàn xu Xtra
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Đang giảm giá
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Miễn phí vận chuyển
-          </li>
-          <li className="category-group-item">
-            <input type="checkbox" className="category-group-item-check" />
-            Gì cũng rẻ
-          </li>
-        </ul>
-      </div>
-      <button className="btn btn--primary category-group-filter-btn category-group--margin">LÀM MỚI</button>
+      <CategoryGroup content={['Freeship Xtra', 'Hoàn xu Xtra', 'Đang giảm giá', 'Miễn phí vận chuyển', 'Gì cũng rẻ']} title="Dịch Vụ & Khuyến Mãi" />
+      <button className="btn btn--primary  w-full my-[20px] bg-[#ee4d2d] text-white hover:bg-[#ee4d2d]">LÀM MỚI</button>
     </nav>
   );
 }
-export default SearchFilter;
+export default memo(SearchFilter);

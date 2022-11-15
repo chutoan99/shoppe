@@ -1,15 +1,16 @@
 import ICON from '../../assets/icons';
+import { memo } from 'react';
 
 interface TotalPay {
-  handleBuyCart: any;
+  onBuyCart: any;
   data: any;
   checked: any;
   total: any;
 }
 
-function TotalPay({ handleBuyCart, data, checked, total }: TotalPay) {
+function TotalPay({ onBuyCart, data, checked, total }: TotalPay) {
   return (
-    <div className="App__Container fixed ">
+    <div className="bg-[#f5f5f5] overflow-hidden fixed ">
       <div className="grid wide">
         <div className="pay">
           <div className="pay1 ">
@@ -57,7 +58,7 @@ function TotalPay({ handleBuyCart, data, checked, total }: TotalPay) {
                   {(total / 100000).toLocaleString('it-IT')}
                 </span>
               </div>
-              <button className="cart-btn-pay" onClick={handleBuyCart}>
+              <button className="cart-btn-pay" onClick={onBuyCart}>
                 Mua Hàng
               </button>
             </div>
@@ -67,4 +68,4 @@ function TotalPay({ handleBuyCart, data, checked, total }: TotalPay) {
     </div>
   );
 }
-export default TotalPay;
+export default memo(TotalPay);

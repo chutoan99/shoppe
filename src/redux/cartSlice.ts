@@ -32,7 +32,8 @@ const cartSlice = createSlice({
       state.numberCart = state.data.length;
     },
     addBuyCart: (state, action) => {
-      state.buyCart = [...state.buyCart, action.payload][0];
+      const newCar = action.payload[0];
+      state.buyCart = [...state.buyCart, newCar];
       state.numberBuyCart = state.buyCart.length;
     },
     updateOption: (state, action) => {
@@ -56,7 +57,8 @@ const cartSlice = createSlice({
     },
     // orDerCart
     addOrDerCart: (state, action) => {
-      state.orDerCart = [...state.orDerCart, action.payload][0];
+      const newCar = action.payload[0];
+      state.orDerCart = [...state.orDerCart, newCar];
       state.numberOrderCart = state.orDerCart.length;
     },
   },

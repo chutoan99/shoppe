@@ -1,4 +1,5 @@
 import { LoadingSkeleton } from '../index';
+import { memo } from 'react';
 
 function SkeletonProduct() {
   return (
@@ -17,4 +18,4 @@ function SkeletonProduct() {
     </div>
   );
 }
-export default SkeletonProduct;
+export default memo(SkeletonProduct);

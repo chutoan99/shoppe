@@ -1,5 +1,7 @@
 import ICON from '../../assets/icons';
 import { formatPrice } from '../../utils/fomarPrice';
+import React, { memo } from 'react';
+
 interface CartOder {
   buyCart: any;
   priceShip: number;
@@ -69,4 +71,4 @@ function CartOder({ buyCart, priceShip }: CartOder) {
     </>
   );
 }
-export default CartOder;
+export default memo(CartOder);

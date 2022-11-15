@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import { RootState } from '../../app/store';
 import { useQuery } from '@tanstack/react-query';
 import { QueryApp } from '../../services/products';
 import { fetchProducts } from '../../redux/productsSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { Footer, Header, Popup, Container, Heart } from '../../component/index';
+import { Popup, Container, Heart } from '../../component/index';
+import { Footer, Header } from '../../containers/index';
 
 function Home() {
   const dispatch = useAppDispatch();
   const query = useQuery({ queryKey: ['products'], queryFn: QueryApp });
-  const { error, data, isLoading, isSuccess } = query;
+  const { error, data, isLoading, isSuccess, isFetching } = query;
   useEffect(() => {
     dispatch(
       fetchProducts({
@@ -17,6 +18,7 @@ function Home() {
         isLoading,
         isSuccess,
         error,
+        isFetching,
       })
     );
   }, [isSuccess]);
@@ -33,4 +35,4 @@ function Home() {
     </div>
   );
 }
-export default Home;
+export default memo(Home);

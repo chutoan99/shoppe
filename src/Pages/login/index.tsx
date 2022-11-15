@@ -1,11 +1,14 @@
 import './login.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Footer, Loading, LoginFaceBook, LoginGoogle } from '../../component/index';
+import { Loading, LoginFaceBook, LoginGoogle } from '../../component/index';
+import { Footer } from '../../containers/index';
 import { ApiLogin } from '../../services/login';
 import { validateLogin } from '../../utils/validate';
 import IMG from '../../assets/imgs';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import React, { memo } from 'react';
+
 function LoginForm() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -53,23 +56,11 @@ function LoginForm() {
               </div>
               <div className="auth-form__form">
                 <div className="auth-form__group">
-                  <input
-                    value={emailLogin}
-                    onChange={(e) => setEmailLogin(e.target.value)}
-                    type="text"
-                    placeholder="Email của bạn"
-                    className="auth-form__input"
-                  />
+                  <input value={emailLogin} onChange={(e) => setEmailLogin(e.target.value)} type="text" placeholder="Email của bạn" className="auth-form__input" />
                   <span className="erro">{validationMsg.emailLogin}</span>
                 </div>
                 <div className="auth-form__group">
-                  <input
-                    value={passWordLogin}
-                    onChange={(e) => SetPassWordLogin(e.target.value)}
-                    type="password"
-                    placeholder="Mật khẩu của bạn"
-                    className="auth-form__input"
-                  />
+                  <input value={passWordLogin} onChange={(e) => SetPassWordLogin(e.target.value)} type="password" placeholder="Mật khẩu của bạn" className="auth-form__input" />
                   <span className="erro">{validationMsg.passWordLogin}</span>
                 </div>
               </div>
@@ -104,4 +95,4 @@ function LoginForm() {
     </>
   );
 }
-export default LoginForm;
+export default memo(LoginForm);

@@ -1,11 +1,13 @@
 import './status_order.css';
 import IMG from '../../assets/imgs';
 import ICON from '../../assets/icons';
-import { useState } from 'react';
-import { Header, Footer, DetailUser } from '../../component/index';
+import { memo, useState } from 'react';
+import { DetailUser } from '../../component/index';
+import { Footer, Header } from '../../containers/index';
 import { formatPrice } from '../../utils/fomarPrice';
 import { RootState } from '../../app/store';
 import { useAppSelector } from '../../hooks/hooks';
+
 function StatusOrder() {
   const { orDerCart } = useAppSelector<any>((state: RootState) => state.cart);
   const [confirm, setConfirm] = useState(false);
@@ -33,7 +35,7 @@ function StatusOrder() {
               <DetailUser />
             </div>
             <div className="col-lg-10">
-              <div className="_0obGFe">
+              <div className="w-full mb-[12px] flex overflow-hidden bg-[#fff]" style={{ borderTopRightRadius: '20px', borderTopLeftRadius: '2px' }}>
                 {['Tất cả', 'Chờ xác nhận', 'Chờ lấy hàng', 'Đang giao', 'Đã Giao', 'Đã Hủy'].map((item, index) => (
                   <span className={`vAkdD0 ${status === item ? 'r-S3nG' : ''}`} key={index} onClick={() => handelChangeStatus(item, index)}>
                     <span className="_0rjE9m">{item}</span>
@@ -41,12 +43,14 @@ function StatusOrder() {
                 ))}
               </div>
               {emptyOrder ? null : (
-                <div className="LHWdmn">
-                  <div className="bU5w7c">
+                <div className="w-full h-[600px] text-center">
+                  <div className="flex rounded-[0.125rem] overflow-hidden flex-col justify-center w-full h-full bg-white items-center" style={{ boxShadow: '0 1px 1px 0 rgb(0 0 0 / 5%)' }}>
                     <div className="A849D8">
                       <img src={IMG.EMPTY_ORDER_IMG} alt="emptyOrder" />
                     </div>
-                    <div className="hKbGrP">Chưa có đơn hàng</div>
+                    <div className="text-[1.125rem] leading-[1.4rem] mt-[20px]" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                      Chưa có đơn hàng
+                    </div>
                   </div>
                 </div>
               )}
@@ -91,12 +95,14 @@ function StatusOrder() {
                       ))}
                     </>
                   ) : (
-                    <div className="LHWdmn">
-                      <div className="bU5w7c">
+                    <div className="w-full h-[600px] text-center">
+                      <div className="flex rounded-[0.125rem] overflow-hidden flex-col justify-center w-full h-full bg-white items-center" style={{ boxShadow: '0 1px 1px 0 rgb(0 0 0 / 5%)' }}>
                         <div className="A849D8">
                           <img src={IMG.EMPTY_ORDER_IMG} alt="emptyOrder" />
                         </div>
-                        <div className="hKbGrP">Chưa có đơn hàng</div>
+                        <div className="text-[1.125rem] leading-[1.4rem] mt-[20px]" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>
+                          Chưa có đơn hàng
+                        </div>
                       </div>
                     </div>
                   )}
@@ -110,4 +116,4 @@ function StatusOrder() {
     </div>
   );
 }
-export default StatusOrder;
+export default memo(StatusOrder);

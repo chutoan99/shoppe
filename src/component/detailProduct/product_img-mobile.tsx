@@ -2,10 +2,12 @@ import './product_img-mobile.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import React, { memo } from 'react';
+
 interface ProductImgMobile {
   item: any;
 }
-export default function ProductImgMobile({ item }: ProductImgMobile) {
+function ProductImgMobile({ item }: ProductImgMobile) {
   const settings = {
     dots: true,
     infinite: true,
@@ -30,3 +32,4 @@ export default function ProductImgMobile({ item }: ProductImgMobile) {
     </div>
   );
 }
+export default memo(ProductImgMobile);

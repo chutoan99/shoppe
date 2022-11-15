@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import ICON from '../../assets/icons';
 import IMG from '../../assets/imgs';
 import { useAppDispatch } from '../../hooks/hooks';
@@ -7,14 +7,16 @@ import { formatPrice } from '../../utils/fomarPrice';
 import BoxSelect from '../container/box_Select';
 
 interface ItemProduct {
-  handleCheck: any;
+  onCheck: any;
   data: any;
   checked: any;
-
-  onDeleteCartItem: any;
+  onDeleteCartItem: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-
-function ItemProduct({ data, checked, handleCheck, onDeleteCartItem }: ItemProduct) {
+interface BottonAmount {
+  amount: number;
+  index: number;
+}
+function ItemProduct({ data, checked, onCheck, onDeleteCartItem }: ItemProduct) {
   return (
     <div>
       {data?.map((item: any, index: any) => {
@@ -31,7 +33,7 @@ function ItemProduct({ data, checked, handleCheck, onDeleteCartItem }: ItemProdu
               <div className="grid backR2">
                 <div className="shopping_cart">
                   <label className="shopping_cart-checkBox">
-                    <input type="checkbox" checked={checked.includes(index)} onChange={() => handleCheck(item?.itemid, item?.price, index)} />
+                    <input type="checkbox" checked={checked.includes(index)} onChange={() => onCheck(item?.itemid, item?.price, index)} />
                     <span className="checkmark"></span>
                   </label>
                   <div className="shopping_cart-img">
@@ -73,10 +75,7 @@ function ItemProduct({ data, checked, handleCheck, onDeleteCartItem }: ItemProdu
     </div>
   );
 }
-interface BottonAmount {
-  amount: any;
-  index: any;
-}
+
 function BottonAmount({ amount, index }: BottonAmount) {
   const dispatch = useAppDispatch();
   const [newAmount, setAmount] = useState(amount);
@@ -111,4 +110,4 @@ function BottonAmount({ amount, index }: BottonAmount) {
     </div>
   );
 }
-export default ItemProduct;
+export default memo(ItemProduct);

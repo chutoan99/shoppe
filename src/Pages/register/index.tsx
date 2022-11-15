@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Loading, Footer, LoginFaceBook, LoginGoogle } from '../../component/index';
+import { Loading, LoginFaceBook, LoginGoogle } from '../../component/index';
+import { Footer } from '../../containers/index';
+
 import { validateRegister } from '../../utils/validate';
 import { apiRegister } from '../../services/regiter';
 import IMG from '../../assets/imgs';
+import React, { memo } from 'react';
 
 function RegisterForm() {
   const navigate = useNavigate();
@@ -21,9 +24,7 @@ function RegisterForm() {
       await apiRegister(nameRegister, passWordRegister, emailRegister, navigate, setLoading);
     }
   };
-  const handelKeyDown = (e: any) => {
-    console.log(e.code);
-  };
+  const handelKeyDown = (e: any) => {};
   return (
     <>
       {loading && <Loading />}
@@ -55,26 +56,11 @@ function RegisterForm() {
               </div>
               <div className="auth-form__form">
                 <div className="auth-form__group">
-                  <input
-                    value={nameRegister}
-                    onChange={(e) => setNameRegister(e.target.value)}
-                    type="text"
-                    required
-                    placeholder="Tên của bạn"
-                    className="auth-form__input"
-                    onKeyDown={handelKeyDown}
-                  />
+                  <input value={nameRegister} onChange={(e) => setNameRegister(e.target.value)} type="text" required placeholder="Tên của bạn" className="auth-form__input" onKeyDown={handelKeyDown} />
                   <span className="erro">{validationMsg.nameRegister}</span>
                 </div>
                 <div className="auth-form__group">
-                  <input
-                    value={emailRegister}
-                    onChange={(e) => setEmailRegister(e.target.value)}
-                    type="text"
-                    placeholder="Email của bạn"
-                    className="auth-form__input"
-                    onKeyDown={handelKeyDown}
-                  />
+                  <input value={emailRegister} onChange={(e) => setEmailRegister(e.target.value)} type="text" placeholder="Email của bạn" className="auth-form__input" onKeyDown={handelKeyDown} />
                   <span className="erro">{validationMsg.emailRegister}</span>
                 </div>
                 <div className="auth-form__group">
@@ -120,4 +106,4 @@ function RegisterForm() {
     </>
   );
 }
-export default RegisterForm;
+export default memo(RegisterForm);

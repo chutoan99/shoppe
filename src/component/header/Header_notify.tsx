@@ -1,4 +1,6 @@
 import { HeaderNotifyItem } from '../index';
+import React, { memo } from 'react';
+
 function HeaderNotify() {
   return (
     <div className="Header_notify">
@@ -18,4 +20,4 @@ function HeaderNotify() {
     </div>
   );
 }
-export default HeaderNotify;
+export default memo(HeaderNotify);

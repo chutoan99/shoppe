@@ -1,6 +1,7 @@
 import { useSignInWithFacebook as UseSignInWithFacebook } from 'react-firebase-hooks/auth';
 import { auth } from '../../configs/firebase';
 import ICON from '../../assets/icons';
+import { memo } from 'react';
 
 function loginFacebook() {
   const [signInWithFacebook, user, loading, error] = UseSignInWithFacebook(auth);
@@ -14,4 +15,4 @@ function loginFacebook() {
     </button>
   );
 }
-export default loginFacebook;
+export default memo(loginFacebook);

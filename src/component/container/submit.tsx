@@ -1,6 +1,8 @@
+import React, { memo } from 'react';
 interface Submit {
   handleCloseBoxSelect: any;
 }
+
 function Submit({ handleCloseBoxSelect }: Submit) {
   const handelChangeOptions = () => {};
   return (
@@ -19,4 +21,4 @@ function Submit({ handleCloseBoxSelect }: Submit) {
     </>
   );
 }
-export default Submit;
+export default memo(Submit);

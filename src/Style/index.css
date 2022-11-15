@@ -1,9 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 :root {
   --white-color: #fff;
@@ -53,13 +53,15 @@ html {
   margin: 0;
   box-sizing: border-box;
 }
-@media (max-width: 1023px) {
-  @media (min-width: 740px) and (max-width: 1023px) {
-  }
-  @media (min-width: 481px) and (max-width: 739px) {
-  }
-  @media only screen and (max-width: 880px) {
-  }
-  @media (max-width: 480px) {
-  }
+.star-checked {
+  color: #ffe400;
+  font-weight: 900;
+}
+
+.star-uncheck {
+  color: #ffe400;
+  font-weight: unset;
+}
+.App {
+  margin-top: 120px;
 }

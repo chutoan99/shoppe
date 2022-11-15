@@ -1,0 +1,10 @@
+export { default as Footer } from './footer/index';
+export { default as Header } from './header/index';
+export { default as Container } from './container/index';
+export { default as HomeProduct } from './products/index';
+export { default as ProductDetail } from './productDetail/index';
+export { default as DiscountMobile } from './discount/discount_mobile/index';
+export { default as DiscountPc } from './discount/discount_pc/index';
+export { default as CarouselPc } from './carousel/Pc/index';
+export { default as CarouselMobile } from './carousel/mobile/index';
+export { default as Pagination } from './pagination/index';

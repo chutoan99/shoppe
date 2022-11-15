@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { updateOption } from '../../redux/cartSlice';
 import ICON from '../../assets/icons';
 import { useAppDispatch } from '../../hooks/hooks';
+import React, { memo } from 'react';
 
 interface BoxSelect {
   item: any;
-  index: any;
+  index: number;
 }
-export default function BoxSelect({ item, index }: BoxSelect) {
+function BoxSelect({ item, index }: BoxSelect) {
   const dispatch = useAppDispatch();
   const [boxSelect, setBoxSelect] = useState(true);
   const [options, setOptions] = useState(undefined);
@@ -27,10 +28,7 @@ export default function BoxSelect({ item, index }: BoxSelect) {
     }
   };
   return (
-    <div
-      className="shopping_cart-classify Hide-on-mobile Hide-on-table"
-      onClick={(index) => handleBoxSelect(index)}
-    >
+    <div className="shopping_cart-classify Hide-on-mobile Hide-on-table" onClick={(index) => handleBoxSelect(index)}>
       <h1 className="shopping_cart-classify-icon">Phân Loại Hàng{ICON.CARET_DOWN}</h1>
       {boxSelect ? null : (
         <div className="box-select">
@@ -46,10 +44,7 @@ export default function BoxSelect({ item, index }: BoxSelect) {
                   <div className="l-9 product_cart-content-variation-item">
                     {variations.options.map((option: any, index: number) => (
                       <div className="product_cart-content-variation" key={index}>
-                        <button
-                          className={`${options === option ? 'product_cart-variation-active' : ''}`}
-                          onClick={() => handelChangeOptions(option)}
-                        >
+                        <button className={`${options === option ? 'product_cart-variation-active' : ''}`} onClick={() => handelChangeOptions(option)}>
                           {option}
                         </button>
                       </div>
@@ -65,3 +60,4 @@ export default function BoxSelect({ item, index }: BoxSelect) {
     </div>
   );
 }
+export default memo(BoxSelect);

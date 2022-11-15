@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { formatPrice } from '../../utils/fomarPrice';
 import { RootState } from '../../app/store';
 import { useAppSelector } from '../../hooks/hooks';
+import { memo } from 'react';
+
 function HeaderCartList() {
   const navigate = useNavigate();
   const { data } = useAppSelector((state: RootState) => state.cart);
@@ -15,7 +17,7 @@ function HeaderCartList() {
             <div className="Header_cart-item-info">
               <div className="Header_cart-item-head">
                 <h5 className="Header_cart-item-name">{item?.name}</h5>
-                <div className="Header_cart-item-price-wrap">
+                <div>
                   <span className="Header_cart-item-price">đ{formatPrice(item?.price)}</span>
                 </div>
               </div>
@@ -24,7 +26,7 @@ function HeaderCartList() {
         ))}
       </ul>
       <div className="Header_cart-footer">
-        <h3>40 thêm vào giỏ hàng</h3>
+        <h3>Thêm vào giỏ hàng</h3>
         <button
           className="btn Header_cart-view-cart btn--prinary"
           onClick={() => {
@@ -37,4 +39,4 @@ function HeaderCartList() {
     </>
   );
 }
-export default HeaderCartList;
+export default memo(HeaderCartList);

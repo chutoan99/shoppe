@@ -1,12 +1,17 @@
 import { SearchHistory } from '../index';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import ICON from '../../assets/icons';
+import { useAppDispatch } from '../../hooks/hooks';
+import { addDataHistorySearch } from '../../redux/otherSlice';
 function InputSearch() {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [inputSearch, setInputSearch] = useState('');
   const handleSearch = () => {
+    dispatch(addDataHistorySearch(inputSearch));
     navigate(`/search/${inputSearch}`);
+    setInputSearch('');
   };
   const handleKeyDown = (e: any) => {
     if (e.code === 'Enter') {
@@ -16,14 +21,7 @@ function InputSearch() {
   return (
     <div className="Header__search">
       <div className="Header__search-input-wrap">
-        <input
-          value={inputSearch}
-          onChange={(e) => setInputSearch(e.target.value)}
-          type="text"
-          placeholder="Nhập để tìm kiếm sản phẩm"
-          className="Header_search-input"
-          onKeyDown={handleKeyDown}
-        />
+        <input value={inputSearch} onChange={(e) => setInputSearch(e.target.value)} type="text" placeholder="Nhập để tìm kiếm sản phẩm" className="Header_search-input" onKeyDown={handleKeyDown} />
         <SearchHistory />
       </div>
       <div className="Header__search-select Hide-on-mobile">
@@ -46,4 +44,4 @@ function InputSearch() {
     </div>
   );
 }
-export default InputSearch;
+export default memo(InputSearch);

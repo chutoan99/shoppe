@@ -10,6 +10,7 @@
   box-sizing: border-box;
   animation: shadowPulse 2s linear infinite;
 }
+
 .loading {
   position: fixed;
   z-index: 100000;

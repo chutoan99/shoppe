@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { Footer, Header, HomeProduct, SearchEmpty, SearchFilter } from '../../component/index';
+import { useEffect, memo } from 'react';
 import { ApiCategories } from '../../services/category';
 import { RootState } from '../../app/store';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { Footer, Header, HomeProduct } from '../../containers/index';
+import { SearchEmpty, SearchFilter, SortBars } from '../../component/index';
+
 function Categories() {
   const params = useParams();
   const dispatch = useAppDispatch();
@@ -21,7 +23,7 @@ function Categories() {
     <>
       <Header></Header>
       <div className="App">
-        <div className="App__Container py-[24px]">
+        <div className="bg-[#f5f5f5] overflow-hidden py-[24px]">
           <div className="grid wide">
             <div className="row sm-gutter">
               {data?.length === 0 && <SearchEmpty />}
@@ -30,7 +32,7 @@ function Categories() {
               </div>
               <div className="col l-10">
                 <div className="padding-search mob:pt-[50px] mob:hidden block"></div>
-                {renderHeaderSortBars()}
+                <SortBars />
                 <HomeProduct items={data} start={start} end={end} col={'col l-2-4 mo-4 c-6'}></HomeProduct>
                 {data?.length === 0 && <HomeProduct items={products?.data} start={start} end={end} col={'col l-2-4 mo-4 c-6'}></HomeProduct>}
               </div>
@@ -41,31 +43,5 @@ function Categories() {
       <Footer></Footer>
     </>
   );
-  function renderHeaderSortBars() {
-    return (
-      <ul className="Header_sort-bars mb-3">
-        <li className="Header_sort-item">
-          <a href="# " className="Header_sort-link">
-            Liên quan
-          </a>
-        </li>
-        <li className="Header_sort-item Header_sort-item-active">
-          <a href="# " className="Header_sort-link ">
-            Mới nhất
-          </a>
-        </li>
-        <li className="Header_sort-item">
-          <a href="# " className="Header_sort-link">
-            Bán chạy
-          </a>
-        </li>
-        <li className="Header_sort-item">
-          <a href="# " className="Header_sort-link">
-            Giá
-          </a>
-        </li>
-      </ul>
-    );
-  }
 }
-export default Categories;
+export default memo(Categories);

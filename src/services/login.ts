@@ -1,14 +1,7 @@
 import config from '../configs/configAxios';
 
 import { updateUserLogin } from '../redux/otherSlice';
-export const ApiLogin = async (
-  emailLogin: any,
-  passWordLogin: any,
-  setLoading: any,
-  dispatch: any,
-  userLogin: any,
-  navigate: any
-) => {
+export const ApiLogin = async (emailLogin: any, passWordLogin: any, setLoading: any, dispatch: any, userLogin: any, navigate: any) => {
   setLoading(true);
   try {
     const response = await config({
@@ -30,7 +23,6 @@ export const ApiLogin = async (
   } catch (error) {
     console.log(error);
   } finally {
-    console.log('xo');
     setLoading(false);
   }
 };

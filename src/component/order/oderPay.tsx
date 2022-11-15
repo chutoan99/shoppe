@@ -1,12 +1,13 @@
 import { formatPrice } from '../../utils/fomarPrice';
+import React, { memo } from 'react';
 
 interface OderPay {
-  handelSubmit: any;
-  total: any;
-  totalShip: any;
+  onSubmit: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  total: number;
+  totalShip: number;
 }
 
-function OderPay({ handelSubmit, total, totalShip }: OderPay) {
+function OderPay({ onSubmit, total, totalShip }: OderPay) {
   return (
     <div className="order-pay">
       <div>
@@ -28,10 +29,10 @@ function OderPay({ handelSubmit, total, totalShip }: OderPay) {
             Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo
             <a href="https://shopee.vn/legaldoc/policies/">Điều khoản Shopee</a>
           </div>
-          <button onClick={handelSubmit}>Đặt hàng</button>
+          <button onClick={onSubmit}>Đặt hàng</button>
         </div>
       </div>
     </div>
   );
 }
-export default OderPay;
+export default memo(OderPay);

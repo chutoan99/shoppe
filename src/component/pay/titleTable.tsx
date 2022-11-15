@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 function TitleTable({}) {
   return (
     <div className="tile-content-container Hide-on-mobile">
@@ -25,4 +27,4 @@ function TitleTable({}) {
     </div>
   );
 }
-export default TitleTable;
+export default memo(TitleTable);

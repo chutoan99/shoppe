@@ -1,4 +1,6 @@
 import ICON from '../../assets/icons';
+import { memo } from 'react';
+
 function InforUser() {
   return (
     <div className="order-info">
@@ -11,4 +13,4 @@ function InforUser() {
     </div>
   );
 }
-export default InforUser;
+export default memo(InforUser);
